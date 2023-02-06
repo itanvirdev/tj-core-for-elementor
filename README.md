@@ -1,6 +1,6 @@
 # === TJ Core for Elementor ===
 
-**Contributors:** theme_junction, secure_softs, akibslab, itanvirdev
+**Contributors:** [ThemeJunction](https://themejunction.net/), [SecureSofts](https://securesofts.com/), [akibslab](https://github.com/akibslab/), [itanvirdev](https://github.com/itanvirdev/)
 
 **Tags:** elementor, elements, addons, elementor addons, elementor widget, elementor form, woocommerce elementor, page builder, builder, visual editor, wordpress page builder
 
