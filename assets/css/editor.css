@@ -1,0 +1,21 @@
+#elementor-panel-category-tjcore
+	.elementor-element-wrapper:not(.elementor-element--promotion)
+	[class^="tj-"]:after,
+#elementor-panel-category-tjcore
+	.elementor-element-wrapper:not(.elementor-element--promotion)
+	[class*=" tj-"]:after {
+	content: "tj";
+	position: absolute;
+	top: 6px;
+	right: 6px;
+	color: #cdcfd2;
+	border: 1px solid #cdcfd2;
+	font-size: 11px;
+	text-transform: uppercase;
+	font-weight: 600;
+	padding: 1px 2px;
+	line-height: 1;
+	display: inline-block;
+	border-radius: 2px;
+	font-family: "Open Sans", Roboto, Helvetica, Arial, sans-serif;
+}
