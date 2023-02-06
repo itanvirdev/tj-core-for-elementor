@@ -1,4 +1,4 @@
-# === TJ Addons for Elementor ===
+# === TJ Core for Elementor ===
 
 **Contributors:** theme_junction, secure_softs, akibslab, itanvirdev
 
@@ -16,32 +16,48 @@
 
 **License URI:** https://opensource.org/licenses/GPL-3.0
 
-This is a sample plugin to demonstrate how you can write extentions (plugins) to add custom functionality to [Elementor](https://github.com/pojome/elementor/)
+The [TJ Core](https://themejunction.net/) plugin you install after Elementor! Packed with 40+ stunning free elements including Advanced Data Table, Event Calendar, Filterable Gallery, WooCommerce, and many more.
+
+Enhance your [Elementor](https://wordpress.org/plugins/elementor/) page building experience with 90+ creative elements and extensions. Add powers to your page builder using our easy-to-use elements those were designed to make your next WordPress page and posts design easier and prettier than ever before.
 
 Plugin Structure:
 
 ```
 assets/
+      /css
+      /img
       /js
-      /css  Holds plugin CSS Files
 
-widgets/
-      /hello-world.php
-      /inline-editing.php
+controls/
+
+include/
+      /elementor
+      /icons
+      /template
+      /widgets
+
+page-settings/
 
 index.php
-tjcore.php
 plugin.php
+tj-core.php
 ```
 
 - `assets` directory - holds plugin JavaScript and CSS assets
-  - `/js` directory - Holds plugin Javascript Files
   - `/css` directory - Holds plugin CSS Files
-- `widgets` directory - Holds Plugin widgets
-  - `/hello-world.php` - Hello World demo Widget class
-  - `/inline-editing.php` - Inline Editing demo Widget class
+  - `/img` directory - Holds plugin images
+  - `/js` directory - Holds plugin Javascript Files
+- `controls` directory - Holds Plugin custom controls
+- `include` directory - Holds Plugin custom widgets and function files
+  - `/elementor` directory - Holds plugin custom elementor widgets
+  - `/icons` directory - Holds plugin custom icon fonts
+  - `/template` directory - Holds single cpts template
+  - `/widgets` directory - Holds plugin custom widgets
+    - `/allow-svg.php` - Holds svg support function
+    - `/common-functions.php` - Holds plugin common functions
+- `page-settings` directory - Holds Plugin page settings
 - `index.php` - Prevent direct access to directories
-- `tjcore.php` - Main plugin file, used as a loader if plugin minimum requirements are met.
 - `plugin.php` - The actual Plugin file/Class.
+- `tj-core.php` - Main plugin file, used as a loader if plugin minimum requirements are met.
 
 For more documentation please see [Elementor Developers Resource](https://developers.elementor.com/creating-an-extension-for-elementor/).
