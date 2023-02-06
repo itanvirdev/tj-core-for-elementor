@@ -20,7 +20,7 @@ The [TJ Core](https://themejunction.net/) plugin you install after Elementor! Pa
 
 Enhance your [Elementor](https://wordpress.org/plugins/elementor/) page building experience with 90+ creative elements and extensions. Add powers to your page builder using our easy-to-use elements those were designed to make your next WordPress page and posts design easier and prettier than ever before.
 
-Plugin Structure:
+##### Plugin Structure:
 
 ```
 assets/
