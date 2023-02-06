@@ -1,12 +1,19 @@
 # === TJ Addons for Elementor ===
 
 **Contributors:** theme_junction, secure_softs, akibslab, itanvirdev
+
 **Tags:** elementor, elements, addons, elementor addons, elementor widget, elementor form, woocommerce elementor, page builder, builder, visual editor, wordpress page builder
+
 **Requires at least:** 5.0
+
 **Tested up to:** 6.1
+
 **Requires PHP:** 7.0
+
 **Stable tag:** 5.5.3
+
 **License:** GPLv3
+
 **License URI:** https://opensource.org/licenses/GPL-3.0
 
 This is a sample plugin to demonstrate how you can write extentions (plugins) to add custom functionality to [Elementor](https://github.com/pojome/elementor/)
