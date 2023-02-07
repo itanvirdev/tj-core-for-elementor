@@ -17,7 +17,7 @@ if (!defined('ABSPATH')) exit; // Exit if accessed directly
  *
  * @since 1.0.0
  */
-class TP_Gallery_Tab extends Widget_Base {
+class TJ_Gallery_Tab extends Widget_Base {
 
     /**
      * Retrieve the widget name.
@@ -155,7 +155,7 @@ class TP_Gallery_Tab extends Widget_Base {
         );
 
         $repeater->add_control(
-            'tp_services_link_switcher',
+            'tj_services_link_switcher',
             [
                 'label' => esc_html__('Add Services link', 'tjcore'),
                 'type' => \Elementor\Controls_Manager::SWITCHER,
@@ -167,7 +167,7 @@ class TP_Gallery_Tab extends Widget_Base {
             ]
         );
         $repeater->add_control(
-            'tp_services_btn_text',
+            'tj_services_btn_text',
             [
                 'label' => esc_html__('Button Text', 'tjcore'),
                 'type' => Controls_Manager::TEXT,
@@ -175,12 +175,12 @@ class TP_Gallery_Tab extends Widget_Base {
                 'title' => esc_html__('Enter button text', 'tjcore'),
                 'label_block' => true,
                 'condition' => [
-                    'tp_services_link_switcher' => 'yes'
+                    'tj_services_link_switcher' => 'yes'
                 ],
             ]
         );
         $repeater->add_control(
-            'tp_services_link_type',
+            'tj_services_link_type',
             [
                 'label' => esc_html__('Service Link Type', 'tjcore'),
                 'type' => \Elementor\Controls_Manager::SELECT,
@@ -190,12 +190,12 @@ class TP_Gallery_Tab extends Widget_Base {
                 ],
                 'default' => '1',
                 'condition' => [
-                    'tp_services_link_switcher' => 'yes'
+                    'tj_services_link_switcher' => 'yes'
                 ]
             ]
         );
         $repeater->add_control(
-            'tp_services_link',
+            'tj_services_link',
             [
                 'label' => esc_html__('Service Link link', 'tjcore'),
                 'type' => \Elementor\Controls_Manager::URL,
@@ -210,21 +210,21 @@ class TP_Gallery_Tab extends Widget_Base {
                     'nofollow' => false,
                 ],
                 'condition' => [
-                    'tp_services_link_type' => '1',
-                    'tp_services_link_switcher' => 'yes',
+                    'tj_services_link_type' => '1',
+                    'tj_services_link_switcher' => 'yes',
                 ]
             ]
         );
         $repeater->add_control(
-            'tp_services_page_link',
+            'tj_services_page_link',
             [
                 'label' => esc_html__('Select Service Link Page', 'tjcore'),
                 'type' => \Elementor\Controls_Manager::SELECT2,
                 'label_block' => true,
-                'options' => tp_get_all_pages(),
+                'options' => tj_get_all_pages(),
                 'condition' => [
-                    'tp_services_link_type' => '2',
-                    'tp_services_link_switcher' => 'yes',
+                    'tj_services_link_type' => '2',
+                    'tj_services_link_switcher' => 'yes',
                 ]
             ]
         );
@@ -414,7 +414,7 @@ class TP_Gallery_Tab extends Widget_Base {
             $cats = explode(",", $gallery['filter']);
 
             foreach ($cats as $i => $cat) {
-                $categories[tp_slugify($cat)] = $cat;
+                $categories[tj_slugify($cat)] = $cat;
             }
         endforeach;
 
@@ -447,20 +447,20 @@ class TP_Gallery_Tab extends Widget_Base {
                         $big_image  = (!empty(wp_get_attachment_image_url($gallery['images']['id'], 'full'))) ? wp_get_attachment_image_url($gallery['images']['id'], 'full') : Utils::get_placeholder_image_src();
 
                         // Link
-                        if ('2' == $gallery['tp_services_link_type']) {
-                            $link = get_permalink($gallery['tp_services_page_link']);
+                        if ('2' == $gallery['tj_services_link_type']) {
+                            $link = get_permalink($gallery['tj_services_page_link']);
                             $target = '_self';
                             $rel = 'nofollow';
                         } else {
-                            $link = !empty($gallery['tp_services_link']['url']) ? $gallery['tp_services_link']['url'] : '';
-                            $target = !empty($gallery['tp_services_link']['is_external']) ? '_blank' : '';
-                            $rel = !empty($gallery['tp_services_link']['nofollow']) ? 'nofollow' : '';
+                            $link = !empty($gallery['tj_services_link']['url']) ? $gallery['tj_services_link']['url'] : '';
+                            $target = !empty($gallery['tj_services_link']['is_external']) ? '_blank' : '';
+                            $rel = !empty($gallery['tj_services_link']['nofollow']) ? 'nofollow' : '';
                         }
                     ?>
 
                         <?php foreach ($cars as $key => $value) : ?>
                             <?php
-                            $item_classes = tp_slugify($value);
+                            $item_classes = tj_slugify($value);
                             ?>
                         <?php endforeach; ?>
 
@@ -490,19 +490,19 @@ class TP_Gallery_Tab extends Widget_Base {
                                                 '<%1$s %2$s><a href="%4$s">%3$s</a></%1$s>',
                                                 tag_escape($settings['title_tag']),
                                                 $this->get_render_attribute_string('title_args'),
-                                                tp_kses($gallery['title']),
+                                                tj_kses($gallery['title']),
                                                 esc_url($link)
                                             );
                                         endif;
                                         ?>
 
                                         <?php if (!empty($gallery['description'])) : ?>
-                                            <p><?php echo tp_kses($gallery['description']); ?></p>
+                                            <p><?php echo tj_kses($gallery['description']); ?></p>
                                         <?php endif; ?>
 
                                         <?php if (!empty($link)) : ?>
                                             <div class="gallery-btn">
-                                                <a target="<?php echo esc_attr($target); ?>" rel="<?php echo esc_attr($rel); ?>" href="<?php echo esc_url($link); ?>" class="link"><?php echo tp_kses($gallery['tp_services_btn_text']); ?></a>
+                                                <a target="<?php echo esc_attr($target); ?>" rel="<?php echo esc_attr($rel); ?>" href="<?php echo esc_url($link); ?>" class="link"><?php echo tj_kses($gallery['tj_services_btn_text']); ?></a>
                                             </div>
                                         <?php endif; ?>
                                     </div>
@@ -519,4 +519,4 @@ class TP_Gallery_Tab extends Widget_Base {
     }
 }
 
-$widgets_manager->register(new TP_Gallery_Tab());
+$widgets_manager->register(new TJ_Gallery_Tab());

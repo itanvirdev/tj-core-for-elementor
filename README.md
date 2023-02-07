@@ -36,6 +36,8 @@ include/
       /template
       /widgets
 
+languages/
+
 page-settings/
 
 index.php
@@ -49,6 +51,7 @@ tj-core.php
   - `/js` directory - Holds plugin Javascript Files
 - `controls` directory - Holds Plugin custom controls
 - `include` directory - Holds Plugin custom widgets and function files
+- `languages` directory - Holds Plugin language files
   - `/elementor` directory - Holds plugin custom elementor widgets
   - `/icons` directory - Holds plugin custom icon fonts
   - `/template` directory - Holds single cpts template

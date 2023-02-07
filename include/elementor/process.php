@@ -18,7 +18,7 @@ if (!defined('ABSPATH')) exit; // Exit if accessed directly
  *
  * @since 1.0.0
  */
-class TP_Process extends Widget_Base {
+class TJ_Process extends Widget_Base {
 
     /**
      * Retrieve the widget name.
@@ -105,13 +105,13 @@ class TP_Process extends Widget_Base {
 
         // layout Panel
         $this->start_controls_section(
-            'tp_layout',
+            'tj_layout',
             [
                 'label' => esc_html__('Design Layout', 'tjcore'),
             ]
         );
         $this->add_control(
-            'tp_design_style',
+            'tj_design_style',
             [
                 'label' => esc_html__('Select Layout', 'tjcore'),
                 'type' => Controls_Manager::SELECT,
@@ -125,7 +125,7 @@ class TP_Process extends Widget_Base {
         );
 
         $this->add_control(
-            'tp_section_shape_show',
+            'tj_section_shape_show',
             [
                 'label' => esc_html__('Shape ?', 'tjcore'),
                 'type' => Controls_Manager::SWITCHER,
@@ -138,16 +138,16 @@ class TP_Process extends Widget_Base {
 
         $this->end_controls_section();
 
-        // tp_section_title
+        // tj_section_title
         $this->start_controls_section(
-            'tp_section_title',
+            'tj_section_title',
             [
                 'label' => esc_html__('Title & Content', 'tjcore'),
             ]
         );
 
         $this->add_control(
-            'tp_section_title_show',
+            'tj_section_title_show',
             [
                 'label' => esc_html__('Section Title & Content', 'tjcore'),
                 'type' => Controls_Manager::SWITCHER,
@@ -159,10 +159,10 @@ class TP_Process extends Widget_Base {
         );
 
         $this->add_control(
-            'tp_sub_title',
+            'tj_sub_title',
             [
                 'label' => esc_html__('Sub Title', 'tjcore'),
-                'description' => tp_get_allowed_html_desc('basic'),
+                'description' => tj_get_allowed_html_desc('basic'),
                 'type' => Controls_Manager::TEXT,
                 'default' => esc_html__('TJ Sub Title', 'tjcore'),
                 'placeholder' => esc_html__('Type Sub Heading Text', 'tjcore'),
@@ -170,10 +170,10 @@ class TP_Process extends Widget_Base {
             ]
         );
         $this->add_control(
-            'tp_title',
+            'tj_title',
             [
                 'label' => esc_html__('Title', 'tjcore'),
-                'description' => tp_get_allowed_html_desc('intermediate'),
+                'description' => tj_get_allowed_html_desc('intermediate'),
                 'type' => Controls_Manager::TEXT,
                 'default' => esc_html__('TJ Title Here', 'tjcore'),
                 'placeholder' => esc_html__('Type Heading Text', 'tjcore'),
@@ -182,10 +182,10 @@ class TP_Process extends Widget_Base {
         );
 
         $this->add_control(
-            'tp_desctiption',
+            'tj_desctiption',
             [
                 'label' => esc_html__('Description', 'tjcore'),
-                'description' => tp_get_allowed_html_desc('intermediate'),
+                'description' => tj_get_allowed_html_desc('intermediate'),
                 'type' => Controls_Manager::TEXTAREA,
                 'default' => esc_html__('TJ section description here', 'tjcore'),
                 'placeholder' => esc_html__('Type section description here', 'tjcore'),
@@ -193,7 +193,7 @@ class TP_Process extends Widget_Base {
         );
 
         $this->add_control(
-            'tp_title_tag',
+            'tj_title_tag',
             [
                 'label' => esc_html__('Title HTML Tag', 'tjcore'),
                 'type' => Controls_Manager::CHOOSE,
@@ -229,7 +229,7 @@ class TP_Process extends Widget_Base {
         );
 
         $this->add_responsive_control(
-            'tp_align',
+            'tj_align',
             [
                 'label' => esc_html__('Alignment', 'tjcore'),
                 'type' => Controls_Manager::CHOOSE,
@@ -255,7 +255,7 @@ class TP_Process extends Widget_Base {
 
         // Service group
         $this->start_controls_section(
-            'tp_process',
+            'tj_process',
             [
                 'label' => esc_html__('Process List', 'tjcore'),
                 'description' => esc_html__('Control all the style settings from Style tab', 'tjcore'),
@@ -266,7 +266,7 @@ class TP_Process extends Widget_Base {
         $repeater = new \Elementor\Repeater();
 
         $repeater->add_control(
-            'tp_process_icon_type',
+            'tj_process_icon_type',
             [
                 'label' => esc_html__('Select Icon Type', 'tjcore'),
                 'type' => \Elementor\Controls_Manager::SELECT,
@@ -279,7 +279,7 @@ class TP_Process extends Widget_Base {
         );
 
         $repeater->add_control(
-            'tp_process_image',
+            'tj_process_image',
             [
                 'label' => esc_html__('Upload Icon Image', 'tjcore'),
                 'type' => Controls_Manager::MEDIA,
@@ -287,14 +287,14 @@ class TP_Process extends Widget_Base {
                     'url' => Utils::get_placeholder_image_src(),
                 ],
                 'condition' => [
-                    'tp_process_icon_type' => 'image'
+                    'tj_process_icon_type' => 'image'
                 ]
 
             ]
         );
 
         $repeater->add_control(
-            'tp_process_image_white',
+            'tj_process_image_white',
             [
                 'label' => esc_html__('Upload White Icon Image', 'tjcore'),
                 'type' => Controls_Manager::MEDIA,
@@ -302,28 +302,28 @@ class TP_Process extends Widget_Base {
                     'url' => Utils::get_placeholder_image_src(),
                 ],
                 'condition' => [
-                    'tp_process_icon_type' => 'image'
+                    'tj_process_icon_type' => 'image'
                 ]
 
             ]
         );
 
-        if (tp_is_elementor_version('<', '2.6.0')) {
+        if (tj_is_elementor_version('<', '2.6.0')) {
             $repeater->add_control(
-                'tp_process_icon',
+                'tj_process_icon',
                 [
                     'show_label' => false,
                     'type' => Controls_Manager::ICON,
                     'label_block' => true,
                     'default' => 'fa fa-star',
                     'condition' => [
-                        'tp_process_icon_type' => 'icon'
+                        'tj_process_icon_type' => 'icon'
                     ]
                 ]
             );
         } else {
             $repeater->add_control(
-                'tp_process_selected_icon',
+                'tj_process_selected_icon',
                 [
                     'show_label' => false,
                     'type' => Controls_Manager::ICONS,
@@ -334,36 +334,36 @@ class TP_Process extends Widget_Base {
                         'library' => 'solid',
                     ],
                     'condition' => [
-                        'tp_process_icon_type' => 'icon'
+                        'tj_process_icon_type' => 'icon'
                     ]
                 ]
             );
         }
         $repeater->add_control(
-            'tp_process_step',
+            'tj_process_step',
             [
                 'label' => esc_html__('Sub Title', 'tjcore'),
-                'description' => tp_get_allowed_html_desc('basic'),
+                'description' => tj_get_allowed_html_desc('basic'),
                 'type' => \Elementor\Controls_Manager::TEXT,
                 'default' => esc_html__('Step - 01', 'tjcore'),
                 'label_block' => true,
             ]
         );
         $repeater->add_control(
-            'tp_process_title',
+            'tj_process_title',
             [
                 'label' => esc_html__('Title', 'tjcore'),
-                'description' => tp_get_allowed_html_desc('basic'),
+                'description' => tj_get_allowed_html_desc('basic'),
                 'type' => \Elementor\Controls_Manager::TEXT,
                 'default' => esc_html__('Service Title', 'tjcore'),
                 'label_block' => true,
             ]
         );
         $repeater->add_control(
-            'tp_process_description',
+            'tj_process_description',
             [
                 'label' => esc_html__('Description', 'tjcore'),
-                'description' => tp_get_allowed_html_desc('intermediate'),
+                'description' => tj_get_allowed_html_desc('intermediate'),
                 'type' => \Elementor\Controls_Manager::TEXTAREA,
                 'default' => 'There are many variations of passages of Lorem Ipsum available, but the majority have suffered.',
                 'label_block' => true,
@@ -371,30 +371,30 @@ class TP_Process extends Widget_Base {
         );
 
         $this->add_control(
-            'tp_process_list',
+            'tj_process_list',
             [
                 'label' => esc_html__('Services - List', 'tjcore'),
                 'type' => \Elementor\Controls_Manager::REPEATER,
                 'fields' => $repeater->get_controls(),
                 'default' => [
                     [
-                        'tp_process_title' => esc_html__('Discover', 'tjcore'),
+                        'tj_process_title' => esc_html__('Discover', 'tjcore'),
                     ],
                     [
-                        'tp_process_title' => esc_html__('Define', 'tjcore')
+                        'tj_process_title' => esc_html__('Define', 'tjcore')
                     ],
                     [
-                        'tp_process_title' => esc_html__('Develop', 'tjcore')
+                        'tj_process_title' => esc_html__('Develop', 'tjcore')
                     ],
                     [
-                        'tp_process_title' => esc_html__('Deliver', 'tjcore')
+                        'tj_process_title' => esc_html__('Deliver', 'tjcore')
                     ]
                 ],
-                'title_field' => '{{{ tp_process_title }}}',
+                'title_field' => '{{{ tj_process_title }}}',
             ]
         );
         $this->add_responsive_control(
-            'tp_process_align',
+            'tj_process_align',
             [
                 'label' => esc_html__('Alignment', 'tjcore'),
                 'type' => Controls_Manager::CHOOSE,
@@ -460,104 +460,104 @@ class TP_Process extends Widget_Base {
     protected function render() {
         $settings = $this->get_settings_for_display();
         // Link
-        if ('2' == !empty($settings['tp_btn_link_type'])) {
-            $this->add_render_attribute('tj-button-arg', 'href', get_permalink($settings['tp_btn_page_link']));
+        if ('2' == !empty($settings['tj_btn_link_type'])) {
+            $this->add_render_attribute('tj-button-arg', 'href', get_permalink($settings['tj_btn_page_link']));
             $this->add_render_attribute('tj-button-arg', 'target', '_self');
             $this->add_render_attribute('tj-button-arg', 'rel', 'nofollow');
             $this->add_render_attribute('tj-button-arg', 'class', ' btn');
         } else {
             $this->add_render_attribute('tj-button-arg', 'class', ' btn');
             $this->add_render_attribute('tj-button-arg', 'data-wow-delay', ' .6s ');
-            if (!empty($settings['tp_btn_link']['url'])) {
-                $this->add_render_attribute('tj-button-arg', 'href', esc_url($settings['tp_btn_link']['url']));
+            if (!empty($settings['tj_btn_link']['url'])) {
+                $this->add_render_attribute('tj-button-arg', 'href', esc_url($settings['tj_btn_link']['url']));
             }
-            if (!empty($settings['tp_btn_link']['is_external'])) {
+            if (!empty($settings['tj_btn_link']['is_external'])) {
                 $this->add_render_attribute('tj-button-arg', 'target', '_blank');
             }
-            if (!empty($settings['tp_btn_link']['nofollow'])) {
+            if (!empty($settings['tj_btn_link']['nofollow'])) {
                 $this->add_render_attribute('tj-button-arg', 'rel', 'nofollow');
             }
         }
 
         // Button
-        if (!empty($settings['tp_btn_link']['url']) || isset($settings['tp_btn_link_type'])) {
+        if (!empty($settings['tj_btn_link']['url']) || isset($settings['tj_btn_link_type'])) {
             // Link
-            $button_html = '<a ' . $this->get_render_attribute_string('tj-button-arg') . '>' . $settings['tp_btn_text'] . '</a>';
+            $button_html = '<a ' . $this->get_render_attribute_string('tj-button-arg') . '>' . $settings['tj_btn_text'] . '</a>';
         }
 
 ?>
 
-        <?php if ($settings['tp_design_style']  == 'layout-2') : ?>
+        <?php if ($settings['tj_design_style']  == 'layout-2') : ?>
             <div class="style-2"></div>
 
         <?php else :
             $this->add_render_attribute('title_args', 'class', 'title');
-            $shape_swtich = ($settings['tp_section_shape_show'] == 'yes') ? '' : 'shape-off p-0';
+            $shape_swtich = ($settings['tj_section_shape_show'] == 'yes') ? '' : 'shape-off p-0';
         ?>
 
             <section class="work__process <?php echo esc_attr($shape_swtich); ?>">
                 <div class="container">
-                    <?php if (!empty($settings['tp_section_title_show'])) : ?>
+                    <?php if (!empty($settings['tj_section_title_show'])) : ?>
                         <div class="row justify-content-center">
                             <div class="col-xl-6 col-lg-8">
                                 <div class="section__title text-center">
-                                    <?php if (!empty($settings['tp_sub_title'])) : ?>
-                                        <span class="sub-title tj-el-subtitle"><?php echo tp_kses($settings['tp_sub_title']); ?></span>
+                                    <?php if (!empty($settings['tj_sub_title'])) : ?>
+                                        <span class="sub-title tj-el-subtitle"><?php echo tj_kses($settings['tj_sub_title']); ?></span>
                                     <?php endif; ?>
 
                                     <?php
-                                    if (!empty($settings['tp_title'])) :
+                                    if (!empty($settings['tj_title'])) :
                                         printf(
                                             '<%1$s %2$s>%3$s</%1$s>',
-                                            tag_escape($settings['tp_title_tag']),
+                                            tag_escape($settings['tj_title_tag']),
                                             $this->get_render_attribute_string('title_args'),
-                                            tp_kses($settings['tp_title'])
+                                            tj_kses($settings['tj_title'])
                                         );
                                     endif;
                                     ?>
 
-                                    <?php if (!empty($settings['tp_desctiption'])) : ?>
-                                        <p class="desc"><?php echo tp_kses($settings['tp_desctiption']); ?></p>
+                                    <?php if (!empty($settings['tj_desctiption'])) : ?>
+                                        <p class="desc"><?php echo tj_kses($settings['tj_desctiption']); ?></p>
                                     <?php endif; ?>
                                 </div>
                             </div>
                         </div>
                     <?php endif; ?>
                     <div class="row work__process__wrap">
-                        <?php foreach ($settings['tp_process_list'] as $item) : ?>
+                        <?php foreach ($settings['tj_process_list'] as $item) : ?>
                             <div class="col">
                                 <div class="work__process__item">
-                                    <?php if (!empty($item['tp_process_title'])) : ?>
-                                        <span class="work__process_step"><?php echo tp_kses($item['tp_process_step']); ?></span>
+                                    <?php if (!empty($item['tj_process_title'])) : ?>
+                                        <span class="work__process_step"><?php echo tj_kses($item['tj_process_step']); ?></span>
                                     <?php endif; ?>
                                     <div class="work__process__icon">
-                                        <?php if ($item['tp_process_icon_type'] !== 'image') : ?>
-                                            <?php if (!empty($item['tp_process_icon']) || !empty($item['tp_process_selected_icon']['value'])) : ?>
+                                        <?php if ($item['tj_process_icon_type'] !== 'image') : ?>
+                                            <?php if (!empty($item['tj_process_icon']) || !empty($item['tj_process_selected_icon']['value'])) : ?>
                                                 <div class="icon">
-                                                    <?php tp_render_icon($item, 'tp_process_icon', 'tp_process_selected_icon'); ?>
+                                                    <?php tj_render_icon($item, 'tj_process_icon', 'tj_process_selected_icon'); ?>
                                                 </div>
                                             <?php endif; ?>
                                         <?php else : ?>
                                             <div class="icon">
-                                                <?php if (!empty($item['tp_process_image']['url'])) : ?>
-                                                    <img class="light" src="<?php echo $item['tp_process_image']['url']; ?>" alt="<?php echo get_post_meta(attachment_url_to_postid($item['tp_process_image']['url']), '_wp_attachment_image_alt', true); ?>">
+                                                <?php if (!empty($item['tj_process_image']['url'])) : ?>
+                                                    <img class="light" src="<?php echo $item['tj_process_image']['url']; ?>" alt="<?php echo get_post_meta(attachment_url_to_postid($item['tj_process_image']['url']), '_wp_attachment_image_alt', true); ?>">
                                                 <?php endif; ?>
 
-                                                <?php if (!empty($item['tp_process_image_white']['url'])) : ?>
-                                                    <img class="dark" src="<?php echo $item['tp_process_image_white']['url']; ?>" alt="<?php echo get_post_meta(attachment_url_to_postid($item['tp_process_image_white']['url']), '_wp_attachment_image_alt', true); ?>">
+                                                <?php if (!empty($item['tj_process_image_white']['url'])) : ?>
+                                                    <img class="dark" src="<?php echo $item['tj_process_image_white']['url']; ?>" alt="<?php echo get_post_meta(attachment_url_to_postid($item['tj_process_image_white']['url']), '_wp_attachment_image_alt', true); ?>">
                                                 <?php endif; ?>
                                             </div>
                                         <?php endif; ?>
                                     </div>
                                     <div class="work__process__content">
-                                        <?php if (!empty($item['tp_process_title'])) : ?>
+                                        <?php if (!empty($item['tj_process_title'])) : ?>
                                             <h4 class="title">
-                                                <?php echo tp_kses($item['tp_process_title']); ?>
+                                                <?php echo tj_kses($item['tj_process_title']); ?>
                                             </h4>
                                         <?php endif; ?>
 
-                                        <?php if (!empty($item['tp_process_description'])) : ?>
-                                            <p><?php echo tp_kses($item['tp_process_description']); ?></p>
+                                        <?php if (!empty($item['tj_process_description'])) : ?>
+                                            <p><?php echo tj_kses($item['tj_process_description']); ?></p>
                                         <?php endif; ?>
                                     </div>
                                 </div>
@@ -573,4 +573,4 @@ class TP_Process extends Widget_Base {
     }
 }
 
-$widgets_manager->register(new TP_Process());
+$widgets_manager->register(new TJ_Process());

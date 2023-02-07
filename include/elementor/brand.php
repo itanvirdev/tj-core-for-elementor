@@ -18,7 +18,7 @@ if (!defined('ABSPATH')) exit; // Exit if accessed directly
  *
  * @since 1.0.0
  */
-class TP_Brand extends Widget_Base {
+class TJ_Brand extends Widget_Base {
 
 	/**
 	 * Retrieve the widget name.
@@ -103,7 +103,7 @@ class TP_Brand extends Widget_Base {
 	 */
 	protected function register_controls() {
 		$this->start_controls_section(
-			'tp_brand_section',
+			'tj_brand_section',
 			[
 				'label' => __('Brand Item', 'tjcore'),
 				'tab' => Controls_Manager::TAB_CONTENT,
@@ -113,7 +113,7 @@ class TP_Brand extends Widget_Base {
 		$repeater = new Repeater();
 
 		$repeater->add_control(
-			'tp_brand_image',
+			'tj_brand_image',
 			[
 				'type' => Controls_Manager::MEDIA,
 				'label' => __('Image', 'tjcore'),
@@ -127,7 +127,7 @@ class TP_Brand extends Widget_Base {
 		);
 
 		$repeater->add_control(
-			'tp_brand_url',
+			'tj_brand_url',
 			[
 				'type' => Controls_Manager::TEXT,
 				'label_block' => true,
@@ -141,7 +141,7 @@ class TP_Brand extends Widget_Base {
 		);
 
 		$this->add_control(
-			'tp_brand_slides',
+			'tj_brand_slides',
 			[
 				'show_label' => false,
 				'type' => Controls_Manager::REPEATER,
@@ -149,12 +149,12 @@ class TP_Brand extends Widget_Base {
 				'title_field' => esc_html__('Brand Item', 'tjcore'),
 				'default' => [
 					[
-						'tp_brand_image' => [
+						'tj_brand_image' => [
 							'url' => Utils::get_placeholder_image_src(),
 						],
 					],
 					[
-						'tp_brand_image' => [
+						'tj_brand_image' => [
 							'url' => Utils::get_placeholder_image_src(),
 						],
 					],
@@ -222,18 +222,18 @@ class TP_Brand extends Widget_Base {
 
 		<div class="brand__item-wrapper">
 			<div class="row align-items-center">
-				<?php foreach ($settings['tp_brand_slides'] as $item) :
-					if (!empty($item['tp_brand_image']['url'])) {
-						$tp_brand_image_url = !empty($item['tp_brand_image']['id']) ? wp_get_attachment_image_url($item['tp_brand_image']['id'], $settings['thumbnail_size']) : $item['tp_brand_image']['url'];
-						$tp_brand_image_alt = get_post_meta($item["tp_brand_image"]["id"], "_wp_attachment_image_alt", true);
+				<?php foreach ($settings['tj_brand_slides'] as $item) :
+					if (!empty($item['tj_brand_image']['url'])) {
+						$tj_brand_image_url = !empty($item['tj_brand_image']['id']) ? wp_get_attachment_image_url($item['tj_brand_image']['id'], $settings['thumbnail_size']) : $item['tj_brand_image']['url'];
+						$tj_brand_image_alt = get_post_meta($item["tj_brand_image"]["id"], "_wp_attachment_image_alt", true);
 					}
 				?>
 					<div class="col-xxl-3 col-xl-3 col-lg-3 col-md-3 col-sm-4 col-6">
 						<div class="brand__item text-center m-img mb-40">
-							<?php if (!empty($item['tp_brand_url'])) : ?>
-								<a href="<?php echo esc_url($item['tp_brand_url']); ?>"><img src="<?php echo esc_url($tp_brand_image_url); ?>" alt="<?php echo esc_url($tp_brand_image_alt); ?>"></a>
+							<?php if (!empty($item['tj_brand_url'])) : ?>
+								<a href="<?php echo esc_url($item['tj_brand_url']); ?>"><img src="<?php echo esc_url($tj_brand_image_url); ?>" alt="<?php echo esc_url($tj_brand_image_alt); ?>"></a>
 							<?php else : ?>
-								<img src="<?php echo esc_url($tp_brand_image_url); ?>" alt="<?php echo esc_url($tp_brand_image_alt); ?>">
+								<img src="<?php echo esc_url($tj_brand_image_url); ?>" alt="<?php echo esc_url($tj_brand_image_alt); ?>">
 							<?php endif; ?>
 						</div>
 					</div>
@@ -245,4 +245,4 @@ class TP_Brand extends Widget_Base {
 	}
 }
 
-$widgets_manager->register(new TP_Brand());
+$widgets_manager->register(new TJ_Brand());

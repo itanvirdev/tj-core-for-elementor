@@ -1,8 +1,6 @@
-#elementor-panel-category-tjcore
-	.elementor-element-wrapper:not(.elementor-element--promotion)
+.elementor-element-wrapper:not(.elementor-element--promotion)
 	[class^="tj-"]:after,
-#elementor-panel-category-tjcore
-	.elementor-element-wrapper:not(.elementor-element--promotion)
+.elementor-element-wrapper:not(.elementor-element--promotion)
 	[class*=" tj-"]:after {
 	content: "tj";
 	position: absolute;

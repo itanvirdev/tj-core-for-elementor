@@ -19,7 +19,7 @@ if (!defined('ABSPATH')) exit; // Exit if accessed directly
  *
  * @since 1.0.0
  */
-class TP_App_Donwload extends Widget_Base {
+class TJ_App_Donwload extends Widget_Base {
 
     /**
      * Retrieve the widget name.
@@ -106,13 +106,13 @@ class TP_App_Donwload extends Widget_Base {
 
         // layout Panel
         $this->start_controls_section(
-            'tp_layout',
+            'tj_layout',
             [
                 'label' => esc_html__('Design Layout', 'tjcore'),
             ]
         );
         $this->add_control(
-            'tp_design_style',
+            'tj_design_style',
             [
                 'label' => esc_html__('Select Layout', 'tjcore'),
                 'type' => Controls_Manager::SELECT,
@@ -125,7 +125,7 @@ class TP_App_Donwload extends Widget_Base {
         );
 
         $this->add_control(
-            'tpam_bg_color',
+            'tjam_bg_color',
             [
                 'label' => __('BG Color', 'tjcore'),
                 'type' => Controls_Manager::COLOR,
@@ -141,19 +141,19 @@ class TP_App_Donwload extends Widget_Base {
 
         $this->end_controls_section();
 
-        // tp_section_title
+        // tj_section_title
         $this->start_controls_section(
-            'tp_section_title',
+            'tj_section_title',
             [
                 'label' => esc_html__('Title', 'tjcore'),
             ]
         );
 
         $this->add_control(
-            'tp_title',
+            'tj_title',
             [
                 'label' => esc_html__('Title', 'tjcore'),
-                'description' => tp_get_allowed_html_desc('intermediate'),
+                'description' => tj_get_allowed_html_desc('intermediate'),
                 'type' => Controls_Manager::TEXT,
                 'default' => esc_html__('TJ Title Here', 'tjcore'),
                 'placeholder' => esc_html__('Type Heading Text', 'tjcore'),
@@ -162,7 +162,7 @@ class TP_App_Donwload extends Widget_Base {
         );
 
         $this->add_control(
-            'tp_title_tag',
+            'tj_title_tag',
             [
                 'label' => esc_html__('Title HTML Tag', 'tjcore'),
                 'type' => Controls_Manager::CHOOSE,
@@ -198,7 +198,7 @@ class TP_App_Donwload extends Widget_Base {
         );
 
         $this->add_responsive_control(
-            'tp_align',
+            'tj_align',
             [
                 'label' => esc_html__('Alignment', 'tjcore'),
                 'type' => Controls_Manager::CHOOSE,
@@ -223,16 +223,16 @@ class TP_App_Donwload extends Widget_Base {
         $this->end_controls_section();
 
 
-        // tp_btn_button_group
+        // tj_btn_button_group
         $this->start_controls_section(
-            'tp_btn_button_group',
+            'tj_btn_button_group',
             [
                 'label' => esc_html__('Button', 'tjcore'),
             ]
         );
 
         $this->add_control(
-            'tp_btn_button_show',
+            'tj_btn_button_show',
             [
                 'label' => esc_html__('Show Button', 'tjcore'),
                 'type' => Controls_Manager::SWITCHER,
@@ -244,7 +244,7 @@ class TP_App_Donwload extends Widget_Base {
         );
 
         $this->add_control(
-            'tp_btn_text',
+            'tj_btn_text',
             [
                 'label' => esc_html__('Button Text', 'tjcore'),
                 'type' => Controls_Manager::TEXT,
@@ -252,12 +252,12 @@ class TP_App_Donwload extends Widget_Base {
                 'title' => esc_html__('Enter button text', 'tjcore'),
                 'label_block' => true,
                 'condition' => [
-                    'tp_btn_button_show' => 'yes'
+                    'tj_btn_button_show' => 'yes'
                 ],
             ]
         );
         $this->add_control(
-            'tp_btn_link_type',
+            'tj_btn_link_type',
             [
                 'label' => esc_html__('Button Link Type', 'tjcore'),
                 'type' => Controls_Manager::SELECT,
@@ -268,13 +268,13 @@ class TP_App_Donwload extends Widget_Base {
                 'default' => '1',
                 'label_block' => true,
                 'condition' => [
-                    'tp_btn_button_show' => 'yes'
+                    'tj_btn_button_show' => 'yes'
                 ],
             ]
         );
 
         $this->add_control(
-            'tp_btn_link',
+            'tj_btn_link',
             [
                 'label' => esc_html__('Button link', 'tjcore'),
                 'type' => Controls_Manager::URL,
@@ -290,37 +290,37 @@ class TP_App_Donwload extends Widget_Base {
                     'custom_attributes' => '',
                 ],
                 'condition' => [
-                    'tp_btn_link_type' => '1',
-                    'tp_btn_button_show' => 'yes'
+                    'tj_btn_link_type' => '1',
+                    'tj_btn_button_show' => 'yes'
                 ],
                 'label_block' => true,
             ]
         );
         $this->add_control(
-            'tp_btn_page_link',
+            'tj_btn_page_link',
             [
                 'label' => esc_html__('Select Button Page', 'tjcore'),
                 'type' => Controls_Manager::SELECT2,
                 'label_block' => true,
-                'options' => tp_get_all_pages(),
+                'options' => tj_get_all_pages(),
                 'condition' => [
-                    'tp_btn_link_type' => '2',
-                    'tp_btn_button_show' => 'yes'
+                    'tj_btn_link_type' => '2',
+                    'tj_btn_button_show' => 'yes'
                 ]
             ]
         );
         $this->end_controls_section();
 
-        // tp_btn_button_group
+        // tj_btn_button_group
         $this->start_controls_section(
-            'tp_btn_2_button_group',
+            'tj_btn_2_button_group',
             [
                 'label' => esc_html__('Button 2', 'tjcore'),
             ]
         );
 
         $this->add_control(
-            'tp_btn_2_button_show',
+            'tj_btn_2_button_show',
             [
                 'label' => esc_html__('Show Button', 'tjcore'),
                 'type' => Controls_Manager::SWITCHER,
@@ -332,7 +332,7 @@ class TP_App_Donwload extends Widget_Base {
         );
 
         $this->add_control(
-            'tp_btn_2_text',
+            'tj_btn_2_text',
             [
                 'label' => esc_html__('Button Text', 'tjcore'),
                 'type' => Controls_Manager::TEXT,
@@ -340,12 +340,12 @@ class TP_App_Donwload extends Widget_Base {
                 'title' => esc_html__('Enter button text', 'tjcore'),
                 'label_block' => true,
                 'condition' => [
-                    'tp_btn_2_button_show' => 'yes'
+                    'tj_btn_2_button_show' => 'yes'
                 ],
             ]
         );
         $this->add_control(
-            'tp_btn_2_link_type',
+            'tj_btn_2_link_type',
             [
                 'label' => esc_html__('Button Link Type', 'tjcore'),
                 'type' => Controls_Manager::SELECT,
@@ -356,13 +356,13 @@ class TP_App_Donwload extends Widget_Base {
                 'default' => '1',
                 'label_block' => true,
                 'condition' => [
-                    'tp_btn_2_button_show' => 'yes'
+                    'tj_btn_2_button_show' => 'yes'
                 ],
             ]
         );
 
         $this->add_control(
-            'tp_btn_2_link',
+            'tj_btn_2_link',
             [
                 'label' => esc_html__('Button link', 'tjcore'),
                 'type' => Controls_Manager::URL,
@@ -378,22 +378,22 @@ class TP_App_Donwload extends Widget_Base {
                     'custom_attributes' => '',
                 ],
                 'condition' => [
-                    'tp_btn_2_link_type' => '1',
-                    'tp_btn_2_button_show' => 'yes'
+                    'tj_btn_2_link_type' => '1',
+                    'tj_btn_2_button_show' => 'yes'
                 ],
                 'label_block' => true,
             ]
         );
         $this->add_control(
-            'tp_btn_2_page_link',
+            'tj_btn_2_page_link',
             [
                 'label' => esc_html__('Select Button Page', 'tjcore'),
                 'type' => Controls_Manager::SELECT2,
                 'label_block' => true,
-                'options' => tp_get_all_pages(),
+                'options' => tj_get_all_pages(),
                 'condition' => [
-                    'tp_btn_2_link_type' => '2',
-                    'tp_btn_2_button_show' => 'yes'
+                    'tj_btn_2_link_type' => '2',
+                    'tj_btn_2_button_show' => 'yes'
                 ]
             ]
         );
@@ -401,15 +401,15 @@ class TP_App_Donwload extends Widget_Base {
 
 
 
-        // _tp_image
+        // _tj_image
         $this->start_controls_section(
-            '_tp_image',
+            '_tj_image',
             [
                 'label' => esc_html__('Thumbnail', 'tjcore'),
             ]
         );
         $this->add_control(
-            'tp_image',
+            'tj_image',
             [
                 'label' => esc_html__('Choose Image', 'tjcore'),
                 'type' => \Elementor\Controls_Manager::MEDIA,
@@ -419,7 +419,7 @@ class TP_App_Donwload extends Widget_Base {
             ]
         );
         $this->add_control(
-            'tp_image_2',
+            'tj_image_2',
             [
                 'label' => esc_html__('Choose BG Image', 'tjcore'),
                 'type' => \Elementor\Controls_Manager::MEDIA,
@@ -432,7 +432,7 @@ class TP_App_Donwload extends Widget_Base {
         $this->add_group_control(
             Group_Control_Image_Size::get_type(),
             [
-                'name' => 'tp_image_size',
+                'name' => 'tj_image_size',
                 'default' => 'full',
                 'exclude' => [
                     'custom'
@@ -486,41 +486,41 @@ class TP_App_Donwload extends Widget_Base {
 
 ?>
 
-        <?php if ($settings['tp_design_style']  == 'layout-2') :
-            if (!empty($settings['tp_image']['url'])) {
-                $tp_image = !empty($settings['tp_image']['id']) ? wp_get_attachment_image_url($settings['tp_image']['id'], $settings['tp_image_size_size']) : $settings['tp_image']['url'];
-                $tp_image_alt = get_post_meta($settings["tp_image"]["id"], "_wp_attachment_image_alt", true);
+        <?php if ($settings['tj_design_style']  == 'layout-2') :
+            if (!empty($settings['tj_image']['url'])) {
+                $tj_image = !empty($settings['tj_image']['id']) ? wp_get_attachment_image_url($settings['tj_image']['id'], $settings['tj_image_size_size']) : $settings['tj_image']['url'];
+                $tj_image_alt = get_post_meta($settings["tj_image"]["id"], "_wp_attachment_image_alt", true);
             }
 
-            if (!empty($settings['tp_image_2']['url'])) {
-                $tp_image_2 = !empty($settings['tp_image_2']['id']) ? wp_get_attachment_image_url($settings['tp_image_2']['id'], 'full') : $settings['tp_image_2']['url'];
-                $tp_image_2_alt = get_post_meta($settings["tp_image_2"]["id"], "_wp_attachment_image_alt", true);
+            if (!empty($settings['tj_image_2']['url'])) {
+                $tj_image_2 = !empty($settings['tj_image_2']['id']) ? wp_get_attachment_image_url($settings['tj_image_2']['id'], 'full') : $settings['tj_image_2']['url'];
+                $tj_image_2_alt = get_post_meta($settings["tj_image_2"]["id"], "_wp_attachment_image_alt", true);
             }
 
             $this->add_render_attribute('title_args', 'class', 'app__title');
 
             // Link
-            if ('2' == $settings['tp_btn_link_type']) {
-                $this->add_render_attribute('tj-button-arg', 'href', get_permalink($settings['tp_btn_page_link']));
+            if ('2' == $settings['tj_btn_link_type']) {
+                $this->add_render_attribute('tj-button-arg', 'href', get_permalink($settings['tj_btn_page_link']));
                 $this->add_render_attribute('tj-button-arg', 'target', '_self');
                 $this->add_render_attribute('tj-button-arg', 'rel', 'nofollow');
                 $this->add_render_attribute('tj-button-arg', 'class', 'app-btn');
             } else {
-                if (!empty($settings['tp_btn_link']['url'])) {
-                    $this->add_link_attributes('tj-button-arg', $settings['tp_btn_link']);
+                if (!empty($settings['tj_btn_link']['url'])) {
+                    $this->add_link_attributes('tj-button-arg', $settings['tj_btn_link']);
                     $this->add_render_attribute('tj-button-arg', 'class', 'app-btn');
                 }
             }
 
             // Link 2
-            if ('2' == $settings['tp_btn_2_link_type']) {
-                $this->add_render_attribute('tj-button2-arg', 'href', get_permalink($settings['tp_btn_2_page_link']));
+            if ('2' == $settings['tj_btn_2_link_type']) {
+                $this->add_render_attribute('tj-button2-arg', 'href', get_permalink($settings['tj_btn_2_page_link']));
                 $this->add_render_attribute('tj-button2-arg', 'target', '_self');
                 $this->add_render_attribute('tj-button2-arg', 'rel', 'nofollow');
                 $this->add_render_attribute('tj-button2-arg', 'class', 'app-btn');
             } else {
-                if (!empty($settings['tp_btn_2_link']['url'])) {
-                    $this->add_link_attributes('tj-button2-arg', $settings['tp_btn_2_link']);
+                if (!empty($settings['tj_btn_2_link']['url'])) {
+                    $this->add_link_attributes('tj-button2-arg', $settings['tj_btn_2_link']);
                     $this->add_render_attribute('tj-button2-arg', 'class', 'app-btn');
                 }
             }
@@ -538,12 +538,12 @@ class TP_App_Donwload extends Widget_Base {
                             <div class="col-xxl-6 col-xl-6 col-lg-6">
                                 <div class="app__wrapper p-relative z-index-1">
                                     <?php
-                                    if (!empty($settings['tp_title'])) :
+                                    if (!empty($settings['tj_title'])) :
                                         printf(
                                             '<%1$s %2$s>%3$s</%1$s>',
-                                            tag_escape($settings['tp_title_tag']),
+                                            tag_escape($settings['tj_title_tag']),
                                             $this->get_render_attribute_string('title_args'),
-                                            tp_kses($settings['tp_title'])
+                                            tj_kses($settings['tj_title'])
                                         );
                                     endif;
                                     ?>
@@ -551,20 +551,20 @@ class TP_App_Donwload extends Widget_Base {
                             </div>
                             <div class="col-xxl-6 col-xl-6 col-lg-6">
                                 <div class="app__download p-relative z-index-1 d-sm-flex align-items-center justify-content-lg-end">
-                                    <?php if (!empty($settings['tp_btn_text'])) : ?>
+                                    <?php if (!empty($settings['tj_btn_text'])) : ?>
                                         <div class="app__item mr-15">
                                             <a href="#">
                                                 <span><img src="<?php echo get_template_directory_uri(); ?>/assets/img/app/google-play.png" alt="img"></span>
-                                                <?php echo $settings['tp_btn_text']; ?>
+                                                <?php echo $settings['tj_btn_text']; ?>
                                             </a>
                                         </div>
                                     <?php endif; ?>
 
-                                    <?php if (!empty($settings['tp_btn_2_text'])) : ?>
+                                    <?php if (!empty($settings['tj_btn_2_text'])) : ?>
                                         <div class="app__item">
                                             <a href="#" class="active">
                                                 <span class="apple"><img src="<?php echo get_template_directory_uri(); ?>/assets/img/app/apple.png" alt="img"></span>
-                                                <?php echo $settings['tp_btn_2_text']; ?>
+                                                <?php echo $settings['tj_btn_2_text']; ?>
                                             </a>
                                         </div>
                                     <?php endif; ?>
@@ -576,83 +576,83 @@ class TP_App_Donwload extends Widget_Base {
             </section>
 
         <?php else :
-            if (!empty($settings['tp_image']['url'])) {
-                $tp_image = !empty($settings['tp_image']['id']) ? wp_get_attachment_image_url($settings['tp_image']['id'], $settings['tp_image_size_size']) : $settings['tp_image']['url'];
-                $tp_image_alt = get_post_meta($settings["tp_image"]["id"], "_wp_attachment_image_alt", true);
+            if (!empty($settings['tj_image']['url'])) {
+                $tj_image = !empty($settings['tj_image']['id']) ? wp_get_attachment_image_url($settings['tj_image']['id'], $settings['tj_image_size_size']) : $settings['tj_image']['url'];
+                $tj_image_alt = get_post_meta($settings["tj_image"]["id"], "_wp_attachment_image_alt", true);
             }
 
-            if (!empty($settings['tp_image_2']['url'])) {
-                $tp_image_2 = !empty($settings['tp_image_2']['id']) ? wp_get_attachment_image_url($settings['tp_image_2']['id'], 'full') : $settings['tp_image_2']['url'];
-                $tp_image_2_alt = get_post_meta($settings["tp_image_2"]["id"], "_wp_attachment_image_alt", true);
+            if (!empty($settings['tj_image_2']['url'])) {
+                $tj_image_2 = !empty($settings['tj_image_2']['id']) ? wp_get_attachment_image_url($settings['tj_image_2']['id'], 'full') : $settings['tj_image_2']['url'];
+                $tj_image_2_alt = get_post_meta($settings["tj_image_2"]["id"], "_wp_attachment_image_alt", true);
             }
 
             $this->add_render_attribute('title_args', 'class', 'research__title-2');
 
             // Link
-            if ('2' == $settings['tp_btn_link_type']) {
-                $this->add_render_attribute('tj-button-arg', 'href', get_permalink($settings['tp_btn_page_link']));
+            if ('2' == $settings['tj_btn_link_type']) {
+                $this->add_render_attribute('tj-button-arg', 'href', get_permalink($settings['tj_btn_page_link']));
                 $this->add_render_attribute('tj-button-arg', 'target', '_self');
                 $this->add_render_attribute('tj-button-arg', 'rel', 'nofollow');
                 $this->add_render_attribute('tj-button-arg', 'class', 'app-btn');
             } else {
-                if (!empty($settings['tp_btn_link']['url'])) {
-                    $this->add_link_attributes('tj-button-arg', $settings['tp_btn_link']);
+                if (!empty($settings['tj_btn_link']['url'])) {
+                    $this->add_link_attributes('tj-button-arg', $settings['tj_btn_link']);
                     $this->add_render_attribute('tj-button-arg', 'class', 'app-btn');
                 }
             }
 
             // Link 2
-            if ('2' == $settings['tp_btn_2_link_type']) {
-                $this->add_render_attribute('tj-button2-arg', 'href', get_permalink($settings['tp_btn_2_page_link']));
+            if ('2' == $settings['tj_btn_2_link_type']) {
+                $this->add_render_attribute('tj-button2-arg', 'href', get_permalink($settings['tj_btn_2_page_link']));
                 $this->add_render_attribute('tj-button2-arg', 'target', '_self');
                 $this->add_render_attribute('tj-button2-arg', 'rel', 'nofollow');
                 $this->add_render_attribute('tj-button2-arg', 'class', 'app-btn');
             } else {
-                if (!empty($settings['tp_btn_2_link']['url'])) {
-                    $this->add_link_attributes('tj-button2-arg', $settings['tp_btn_2_link']);
+                if (!empty($settings['tj_btn_2_link']['url'])) {
+                    $this->add_link_attributes('tj-button2-arg', $settings['tj_btn_2_link']);
                     $this->add_render_attribute('tj-button2-arg', 'class', 'app-btn');
                 }
             }
         ?>
 
             <div class="research__download tj-el-bg-color">
-                <div class="research__download-bg include-bg" data-background="<?php echo esc_url($tp_image_2); ?>"></div>
+                <div class="research__download-bg include-bg" data-background="<?php echo esc_url($tj_image_2); ?>"></div>
                 <div class="research__content-2 p-relative z-index-1">
                     <?php
-                    if (!empty($settings['tp_title'])) :
+                    if (!empty($settings['tj_title'])) :
                         printf(
                             '<%1$s %2$s>%3$s</%1$s>',
-                            tag_escape($settings['tp_title_tag']),
+                            tag_escape($settings['tj_title_tag']),
                             $this->get_render_attribute_string('title_args'),
-                            tp_kses($settings['tp_title'])
+                            tj_kses($settings['tj_title'])
                         );
                     endif;
                     ?>
                     <div class="research__store">
                         <ul>
-                            <?php if (!empty($settings['tp_btn_text'])) : ?>
+                            <?php if (!empty($settings['tj_btn_text'])) : ?>
                                 <li>
                                     <a <?php echo $this->get_render_attribute_string('tj-button-arg'); ?>>
                                         <img src="<?php echo get_template_directory_uri(); ?>/assets/img/icon/google-play-store.png" alt="google-play-store">
-                                        <?php echo $settings['tp_btn_text']; ?>
+                                        <?php echo $settings['tj_btn_text']; ?>
                                     </a>
                                 </li>
                             <?php endif; ?>
 
-                            <?php if (!empty($settings['tp_btn_2_text'])) : ?>
+                            <?php if (!empty($settings['tj_btn_2_text'])) : ?>
                                 <li>
                                     <a <?php echo $this->get_render_attribute_string('tj-button2-arg'); ?>>
                                         <img src="<?php echo get_template_directory_uri(); ?>/assets/img/icon/apple-store.png" alt="apple-store">
-                                        <?php echo $settings['tp_btn_2_text']; ?>
+                                        <?php echo $settings['tj_btn_2_text']; ?>
                                     </a>
                                 </li>
                             <?php endif; ?>
                         </ul>
                     </div>
                 </div>
-                <?php if (!empty($tp_image)) : ?>
+                <?php if (!empty($tj_image)) : ?>
                     <div class="research__thumb-2">
-                        <img src="<?php echo esc_url($tp_image); ?>" alt="<?php echo esc_attr($tp_image_alt); ?>">
+                        <img src="<?php echo esc_url($tj_image); ?>" alt="<?php echo esc_attr($tj_image_alt); ?>">
                     </div>
                 <?php endif; ?>
             </div>
@@ -663,4 +663,4 @@ class TP_App_Donwload extends Widget_Base {
     }
 }
 
-$widgets_manager->register(new TP_App_Donwload());
+$widgets_manager->register(new TJ_App_Donwload());

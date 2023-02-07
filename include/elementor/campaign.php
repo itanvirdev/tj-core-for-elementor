@@ -16,7 +16,7 @@ if (!defined('ABSPATH')) exit; // Exit if accessed directly
  *
  * @since 1.0.0
  */
-class TP_Campaign extends Widget_Base {
+class TJ_Campaign extends Widget_Base {
 
   /**
    * Retrieve the widget name.
@@ -101,16 +101,16 @@ class TP_Campaign extends Widget_Base {
    */
   protected function register_controls() {
 
-    // tp_section_title
+    // tj_section_title
     $this->start_controls_section(
-      'tp_section_title',
+      'tj_section_title',
       [
         'label' => esc_html__('Title & Content', 'tjcore'),
       ]
     );
 
     $this->add_control(
-      'tp_section_title_show',
+      'tj_section_title_show',
       [
         'label' => esc_html__('Section Title & Content', 'tjcore'),
         'type' => Controls_Manager::SWITCHER,
@@ -121,10 +121,10 @@ class TP_Campaign extends Widget_Base {
       ]
     );
     $this->add_control(
-      'tp_sub_title',
+      'tj_sub_title',
       [
         'label' => esc_html__('Sub Title', 'tjcore'),
-        'description' => tp_get_allowed_html_desc('basic'),
+        'description' => tj_get_allowed_html_desc('basic'),
         'type' => Controls_Manager::TEXT,
         'default' => esc_html__('TJ Sub Title', 'tjcore'),
         'placeholder' => esc_html__('Type Sub Heading Text', 'tjcore'),
@@ -132,10 +132,10 @@ class TP_Campaign extends Widget_Base {
       ]
     );
     $this->add_control(
-      'tp_title',
+      'tj_title',
       [
         'label' => esc_html__('Title', 'tjcore'),
-        'description' => tp_get_allowed_html_desc('intermediate'),
+        'description' => tj_get_allowed_html_desc('intermediate'),
         'type' => Controls_Manager::TEXT,
         'default' => esc_html__('TJ Title Here', 'tjcore'),
         'placeholder' => esc_html__('Type Heading Text', 'tjcore'),
@@ -144,10 +144,10 @@ class TP_Campaign extends Widget_Base {
     );
 
     $this->add_control(
-      'tp_desctiption',
+      'tj_desctiption',
       [
         'label' => esc_html__('Description', 'tjcore'),
-        'description' => tp_get_allowed_html_desc('intermediate'),
+        'description' => tj_get_allowed_html_desc('intermediate'),
         'type' => Controls_Manager::TEXTAREA,
         'default' => esc_html__('TJ section description here', 'tjcore'),
         'placeholder' => esc_html__('Type section description here', 'tjcore'),
@@ -155,7 +155,7 @@ class TP_Campaign extends Widget_Base {
     );
 
     $this->add_control(
-      'tp_title_tag',
+      'tj_title_tag',
       [
         'label' => esc_html__('Title HTML Tag', 'tjcore'),
         'type' => Controls_Manager::CHOOSE,
@@ -191,7 +191,7 @@ class TP_Campaign extends Widget_Base {
     );
 
     $this->add_responsive_control(
-      'tp_align',
+      'tj_align',
       [
         'label' => esc_html__('Alignment', 'tjcore'),
         'type' => Controls_Manager::CHOOSE,
@@ -221,7 +221,7 @@ class TP_Campaign extends Widget_Base {
 
 
     $this->start_controls_section(
-      'tp_campaign_query',
+      'tj_campaign_query',
       [
         'label' => esc_html__('Campaign Query', 'tjcore'),
       ]
@@ -247,7 +247,7 @@ class TP_Campaign extends Widget_Base {
         'description' => esc_html__('Select a category to include or leave blank for all.', 'tjcore'),
         'type' => Controls_Manager::SELECT2,
         'multiple' => true,
-        'options' => tp_get_categories($taxonomy),
+        'options' => tj_get_categories($taxonomy),
         'label_block' => true,
       ]
     );
@@ -259,7 +259,7 @@ class TP_Campaign extends Widget_Base {
         'description' => esc_html__('Select a category to exclude', 'tjcore'),
         'type' => Controls_Manager::SELECT2,
         'multiple' => true,
-        'options' => tp_get_categories($taxonomy),
+        'options' => tj_get_categories($taxonomy),
         'label_block' => true
       ]
     );
@@ -269,7 +269,7 @@ class TP_Campaign extends Widget_Base {
       [
         'label' => esc_html__('Exclude Item', 'tjcore'),
         'type' => Controls_Manager::SELECT2,
-        'options' => tp_get_all_types_post($post_type),
+        'options' => tj_get_all_types_post($post_type),
         'multiple' => true,
         'label_block' => true
       ]
@@ -330,7 +330,7 @@ class TP_Campaign extends Widget_Base {
     );
 
     $this->add_control(
-      'tp_campaign_btn_text',
+      'tj_campaign_btn_text',
       [
         'label' => esc_html__('Button Text', 'tjcore'),
         'type' => Controls_Manager::TEXT,
@@ -374,13 +374,13 @@ class TP_Campaign extends Widget_Base {
 
     // layout Panel
     $this->start_controls_section(
-      'tp_campaign',
+      'tj_campaign',
       [
         'label' => esc_html__('Campaign - Layout', 'tjcore'),
       ]
     );
     $this->add_control(
-      'tp_design_style',
+      'tj_design_style',
       [
         'label' => esc_html__('Select Layout', 'tjcore'),
         'type' => Controls_Manager::SELECT,
@@ -394,7 +394,7 @@ class TP_Campaign extends Widget_Base {
       ]
     );
     $this->add_control(
-      'tp_campaign_height',
+      'tj_campaign_height',
       [
         'label' => esc_html__('Height', 'tjcore'),
         'type' => Controls_Manager::SLIDER,
@@ -416,7 +416,7 @@ class TP_Campaign extends Widget_Base {
       ]
     );
     $this->add_control(
-      'tp_campaign_dots',
+      'tj_campaign_dots',
       [
         'label' => esc_html__('Dots?', 'tjcore'),
         'type' => Controls_Manager::SWITCHER,
@@ -425,12 +425,12 @@ class TP_Campaign extends Widget_Base {
         'return_value' => 'yes',
         'default' => 'yes',
         'condition' => array(
-          'tp_design_style' => 'layout-2',
+          'tj_design_style' => 'layout-2',
         ),
       ]
     );
     $this->add_control(
-      'tp_campaign_arrow',
+      'tj_campaign_arrow',
       [
         'label' => esc_html__('Arrow Icons?', 'tjcore'),
         'type' => Controls_Manager::SWITCHER,
@@ -439,12 +439,12 @@ class TP_Campaign extends Widget_Base {
         'return_value' => 'yes',
         'default' => 'yes',
         'condition' => array(
-          'tp_design_style' => 'layout-2',
+          'tj_design_style' => 'layout-2',
         ),
       ]
     );
     $this->add_control(
-      'tp_campaign_infinite',
+      'tj_campaign_infinite',
       [
         'label' => esc_html__('Infinite?', 'tjcore'),
         'type' => Controls_Manager::SWITCHER,
@@ -453,12 +453,12 @@ class TP_Campaign extends Widget_Base {
         'return_value' => 'yes',
         'default' => 'yes',
         'condition' => array(
-          'tp_design_style' => 'layout-2',
+          'tj_design_style' => 'layout-2',
         ),
       ]
     );
     $this->add_control(
-      'tp_campaign_autoplay',
+      'tj_campaign_autoplay',
       [
         'label' => esc_html__('Autoplay?', 'tjcore'),
         'type' => Controls_Manager::SWITCHER,
@@ -467,12 +467,12 @@ class TP_Campaign extends Widget_Base {
         'return_value' => 'yes',
         'default' => 'yes',
         'condition' => array(
-          'tp_design_style' => 'layout-2',
+          'tj_design_style' => 'layout-2',
         ),
       ]
     );
     $this->add_control(
-      'tp_campaign_autoplay_speed',
+      'tj_campaign_autoplay_speed',
       [
         'label' => esc_html__('Autoplay Speed', 'tjcore'),
         'type' => Controls_Manager::TEXT,
@@ -480,13 +480,13 @@ class TP_Campaign extends Widget_Base {
         'title' => esc_html__('Enter autoplay speed', 'tjcore'),
         'label_block' => true,
         'condition' => array(
-          'tp_campaign_autoplay' => 'yes',
-          'tp_design_style' => 'layout-2',
+          'tj_campaign_autoplay' => 'yes',
+          'tj_design_style' => 'layout-2',
         ),
       ]
     );
     $this->add_control(
-      'tp_campaign_filter',
+      'tj_campaign_filter',
       [
         'label' => esc_html__('Filter?', 'tjcore'),
         'type' => Controls_Manager::SWITCHER,
@@ -495,7 +495,7 @@ class TP_Campaign extends Widget_Base {
         'return_value' => 'yes',
         'default' => 'yes',
         'condition' => array(
-          'tp_design_style' => 'layout-3',
+          'tj_design_style' => 'layout-3',
         ),
       ]
     );
@@ -508,7 +508,7 @@ class TP_Campaign extends Widget_Base {
       ]
     );
     $this->add_control(
-      'tp_campaign_pagination',
+      'tj_campaign_pagination',
       [
         'label' => esc_html__('Pagination', 'tjcore'),
         'type' => Controls_Manager::SWITCHER,
@@ -517,13 +517,13 @@ class TP_Campaign extends Widget_Base {
         'return_value' => 'yes',
         'default' => 'no',
         'condition' => array(
-          'tp_design_style' => 'layout-1',
+          'tj_design_style' => 'layout-1',
         ),
       ]
     );
 
     $this->add_control(
-      'tp_btn_button_show',
+      'tj_btn_button_show',
       [
         'label' => esc_html__('Show Button', 'tjcore'),
         'type' => Controls_Manager::SWITCHER,
@@ -535,7 +535,7 @@ class TP_Campaign extends Widget_Base {
     );
 
     $this->add_control(
-      'tp_btn_text',
+      'tj_btn_text',
       [
         'label' => esc_html__('Button Text', 'tjcore'),
         'type' => Controls_Manager::TEXT,
@@ -543,7 +543,7 @@ class TP_Campaign extends Widget_Base {
         'title' => esc_html__('Enter button text', 'tjcore'),
         'label_block' => true,
         'condition' => [
-          'tp_btn_button_show' => 'yes'
+          'tj_btn_button_show' => 'yes'
         ],
       ]
     );
@@ -552,16 +552,16 @@ class TP_Campaign extends Widget_Base {
 
     $this->end_controls_section();
 
-    // tp_campaign_columns_section
+    // tj_campaign_columns_section
     $this->start_controls_section(
-      'tp_campaign_columns_section',
+      'tj_campaign_columns_section',
       [
         'label' => esc_html__('Campaign - Columns', 'tjcore'),
       ]
     );
 
     $this->add_control(
-      'tp_campaign__for_desktop',
+      'tj_campaign__for_desktop',
       [
         'label' => esc_html__('Columns for Desktop', 'tjcore'),
         'description' => esc_html__('Screen width equal to or greater than 992px', 'tjcore'),
@@ -580,7 +580,7 @@ class TP_Campaign extends Widget_Base {
       ]
     );
     $this->add_control(
-      'tp_campaign__for_laptop',
+      'tj_campaign__for_laptop',
       [
         'label' => esc_html__('Columns for Laptop', 'tjcore'),
         'description' => esc_html__('Screen width equal to or greater than 768px', 'tjcore'),
@@ -599,7 +599,7 @@ class TP_Campaign extends Widget_Base {
       ]
     );
     $this->add_control(
-      'tp_campaign__for_tablet',
+      'tj_campaign__for_tablet',
       [
         'label' => esc_html__('Columns for Tablet', 'tjcore'),
         'description' => esc_html__('Screen width equal to or greater than 576px', 'tjcore'),
@@ -641,16 +641,16 @@ class TP_Campaign extends Widget_Base {
 
     $this->end_controls_section();
 
-    // tp_campaign_slider_columns_section
+    // tj_campaign_slider_columns_section
     $this->start_controls_section(
-      'tp_campaign_slider_columns_section',
+      'tj_campaign_slider_columns_section',
       [
         'label' => esc_html__('Campaign - Columns for Carousel', 'tjcore'),
       ]
     );
 
     $this->add_control(
-      'tp_campaign_slider_for_xl_desktop',
+      'tj_campaign_slider_for_xl_desktop',
       [
         'label' => esc_html__('Columns for Extra Large Desktop', 'tjcore'),
         'description' => esc_html__('Screen width equal to or greater than 1920px', 'tjcore'),
@@ -675,7 +675,7 @@ class TP_Campaign extends Widget_Base {
       ]
     );
     $this->add_control(
-      'tp_campaign_slider_for_desktop',
+      'tj_campaign_slider_for_desktop',
       [
         'label' => esc_html__('Columns for Desktop', 'tjcore'),
         'description' => esc_html__('Screen width equal to or greater than 1200px', 'tjcore'),
@@ -700,7 +700,7 @@ class TP_Campaign extends Widget_Base {
       ]
     );
     $this->add_control(
-      'tp_campaign_slider_for_laptop',
+      'tj_campaign_slider_for_laptop',
       [
         'label' => esc_html__('Columns for Laptop', 'tjcore'),
         'description' => esc_html__('Screen width equal to or greater than 992px', 'tjcore'),
@@ -725,7 +725,7 @@ class TP_Campaign extends Widget_Base {
       ]
     );
     $this->add_control(
-      'tp_campaign_slider_for_tablet',
+      'tj_campaign_slider_for_tablet',
       [
         'label' => esc_html__('Columns for Tablet', 'tjcore'),
         'description' => esc_html__('Screen width equal to or greater than 768px', 'tjcore'),
@@ -750,7 +750,7 @@ class TP_Campaign extends Widget_Base {
       ]
     );
     $this->add_control(
-      'tp_campaign_slider_for_mobile',
+      'tj_campaign_slider_for_mobile',
       [
         'label' => esc_html__('Columns for Mobile', 'tjcore'),
         'description' => esc_html__('Screen width less than 767', 'tjcore'),
@@ -775,7 +775,7 @@ class TP_Campaign extends Widget_Base {
       ]
     );
     $this->add_control(
-      'tp_campaign_slider_for_xs_mobile',
+      'tj_campaign_slider_for_xs_mobile',
       [
         'label' => esc_html__('Columns for Extra Small Mobile', 'tjcore'),
         'description' => esc_html__('Screen width less than 575px', 'tjcore'),
@@ -947,50 +947,50 @@ class TP_Campaign extends Widget_Base {
     // var_dump($query);
 
     $carousel_args = [
-      'arrows' => ('yes' === $settings['tp_campaign_arrow']),
-      'dots' => ('yes' === $settings['tp_campaign_dots']),
-      'autoplay' => ('yes' === $settings['tp_campaign_autoplay']),
-      'autoplay_speed' => absint($settings['tp_campaign_autoplay_speed']),
-      'infinite' => ('yes' === $settings['tp_campaign_infinite']),
-      'for_xl_desktop' => absint($settings['tp_campaign_slider_for_xl_desktop']),
-      'slidesToShow' => absint($settings['tp_campaign_slider_for_desktop']),
-      'for_laptop' => absint($settings['tp_campaign_slider_for_laptop']),
-      'for_tablet' => absint($settings['tp_campaign_slider_for_tablet']),
-      'for_mobile' => absint($settings['tp_campaign_slider_for_mobile']),
-      'for_xs_mobile' => absint($settings['tp_campaign_slider_for_xs_mobile']),
+      'arrows' => ('yes' === $settings['tj_campaign_arrow']),
+      'dots' => ('yes' === $settings['tj_campaign_dots']),
+      'autoplay' => ('yes' === $settings['tj_campaign_autoplay']),
+      'autoplay_speed' => absint($settings['tj_campaign_autoplay_speed']),
+      'infinite' => ('yes' === $settings['tj_campaign_infinite']),
+      'for_xl_desktop' => absint($settings['tj_campaign_slider_for_xl_desktop']),
+      'slidesToShow' => absint($settings['tj_campaign_slider_for_desktop']),
+      'for_laptop' => absint($settings['tj_campaign_slider_for_laptop']),
+      'for_tablet' => absint($settings['tj_campaign_slider_for_tablet']),
+      'for_mobile' => absint($settings['tj_campaign_slider_for_mobile']),
+      'for_xs_mobile' => absint($settings['tj_campaign_slider_for_xs_mobile']),
     ];
     $this->add_render_attribute('tj-carousel-campaign-data', 'data-settings', wp_json_encode($carousel_args));
 
 ?>
 
-    <?php if ($settings['tp_design_style']  == 'layout-2') :
+    <?php if ($settings['tj_design_style']  == 'layout-2') :
       $this->add_render_attribute('title_args', 'class', 'sectionTitle__big tj-el-title');
     ?>
       <div class="featureArea__main cc-slide-wrap">
         <div class="container">
           <div class="row align-items-center">
             <div class="col-lg-6">
-              <?php if (!empty($settings['tp_section_title_show'])) : ?>
+              <?php if (!empty($settings['tj_section_title_show'])) : ?>
                 <!-- Section Heading/Title -->
                 <div class="sectionTitle tj-sec-box mb-65">
-                  <?php if (!empty($settings['tp_sub_title'])) : ?>
+                  <?php if (!empty($settings['tj_sub_title'])) : ?>
                     <span class="sectionTitle__small">
                       <i class="fa-solid fa-heart btn__icon"></i>
-                      <?php echo tp_kses($settings['tp_sub_title']); ?>
+                      <?php echo tj_kses($settings['tj_sub_title']); ?>
                     </span>
                   <?php endif; ?>
                   <?php
-                  if (!empty($settings['tp_title'])) :
+                  if (!empty($settings['tj_title'])) :
                     printf(
                       '<%1$s %2$s>%3$s</%1$s>',
-                      tag_escape($settings['tp_title_tag']),
+                      tag_escape($settings['tj_title_tag']),
                       $this->get_render_attribute_string('title_args'),
-                      tp_kses($settings['tp_title'])
+                      tj_kses($settings['tj_title'])
                     );
                   endif;
                   ?>
-                  <?php if (!empty($settings['tp_desctiption'])) : ?>
-                    <p><?php echo tp_kses($settings['tp_desctiption']); ?></p>
+                  <?php if (!empty($settings['tj_desctiption'])) : ?>
+                    <p><?php echo tj_kses($settings['tj_desctiption']); ?></p>
                   <?php endif; ?>
                 </div>
                 <!-- Section Heading/Title End -->
@@ -1093,34 +1093,34 @@ class TP_Campaign extends Widget_Base {
         </div>
       </div>
 
-    <?php elseif ($settings['tp_design_style'] === 'layout-3') :
+    <?php elseif ($settings['tj_design_style'] === 'layout-3') :
       $this->add_render_attribute('title_args', 'class', 'sectionTitle__big tj-el-title');
     ?>
       <div class="about position-relative pt-125 pb-130">
         <div class="container">
           <div class="row">
             <div class="col-12">
-              <?php if (!empty($settings['tp_section_title_show'])) : ?>
+              <?php if (!empty($settings['tj_section_title_show'])) : ?>
                 <!-- Section Heading/Title -->
                 <div class="sectionTitle tj-sec-box mb-65">
-                  <?php if (!empty($settings['tp_sub_title'])) : ?>
+                  <?php if (!empty($settings['tj_sub_title'])) : ?>
                     <span class="sectionTitle__small d-block">
                       <i class="fa-solid fa-heart btn__icon"></i>
-                      <?php echo tp_kses($settings['tp_sub_title']); ?>
+                      <?php echo tj_kses($settings['tj_sub_title']); ?>
                     </span>
                   <?php endif; ?>
                   <?php
-                  if (!empty($settings['tp_title'])) :
+                  if (!empty($settings['tj_title'])) :
                     printf(
                       '<%1$s %2$s>%3$s</%1$s>',
-                      tag_escape($settings['tp_title_tag']),
+                      tag_escape($settings['tj_title_tag']),
                       $this->get_render_attribute_string('title_args'),
-                      tp_kses($settings['tp_title'])
+                      tj_kses($settings['tj_title'])
                     );
                   endif;
                   ?>
-                  <?php if (!empty($settings['tp_desctiption'])) : ?>
-                    <p><?php echo tp_kses($settings['tp_desctiption']); ?></p>
+                  <?php if (!empty($settings['tj_desctiption'])) : ?>
+                    <p><?php echo tj_kses($settings['tj_desctiption']); ?></p>
                   <?php endif; ?>
                 </div>
                 <!-- Section Heading/Title End -->
@@ -1244,7 +1244,7 @@ class TP_Campaign extends Widget_Base {
       </div>
 
 
-    <?php elseif ($settings['tp_design_style'] === 'layout-4') : ?>
+    <?php elseif ($settings['tj_design_style'] === 'layout-4') : ?>
 
       <section class="donation pb-130">
         <div class="container">
@@ -1279,11 +1279,11 @@ class TP_Campaign extends Widget_Base {
                           <h2 class="liveDonationTitle__heading"><?php the_title(); ?></h2>
                         </div>
                       </div>
-                      <?php if (!empty($settings['tp_btn_text'])) : ?>
+                      <?php if (!empty($settings['tj_btn_text'])) : ?>
                         <div class="col-lg-4">
                           <div class="liveDonation__button">
                             <a class="btn btn--styleOne btn--secondary it-btn" href="<?php the_permalink(); ?>">
-                              <span class="btn__text"><?php echo $settings['tp_btn_text']; ?></span>
+                              <span class="btn__text"><?php echo $settings['tj_btn_text']; ?></span>
                               <i class="fa-solid fa-heart btn__icon"></i></a>
                           </div>
                         </div>
@@ -1335,27 +1335,27 @@ class TP_Campaign extends Widget_Base {
         <div class="container">
           <div class="row">
             <div class="col-lg-12">
-              <?php if (!empty($settings['tp_section_title_show'])) : ?>
+              <?php if (!empty($settings['tj_section_title_show'])) : ?>
                 <!-- Section Heading/Title -->
                 <div class="sectionTitle tj-sec-box mb-65">
-                  <?php if (!empty($settings['tp_sub_title'])) : ?>
+                  <?php if (!empty($settings['tj_sub_title'])) : ?>
                     <span class="sectionTitle__small">
                       <i class="fa-solid fa-heart btn__icon"></i>
-                      <?php echo tp_kses($settings['tp_sub_title']); ?>
+                      <?php echo tj_kses($settings['tj_sub_title']); ?>
                     </span>
                   <?php endif; ?>
                   <?php
-                  if (!empty($settings['tp_title'])) :
+                  if (!empty($settings['tj_title'])) :
                     printf(
                       '<%1$s %2$s>%3$s</%1$s>',
-                      tag_escape($settings['tp_title_tag']),
+                      tag_escape($settings['tj_title_tag']),
                       $this->get_render_attribute_string('title_args'),
-                      tp_kses($settings['tp_title'])
+                      tj_kses($settings['tj_title'])
                     );
                   endif;
                   ?>
-                  <?php if (!empty($settings['tp_desctiption'])) : ?>
-                    <p><?php echo tp_kses($settings['tp_desctiption']); ?></p>
+                  <?php if (!empty($settings['tj_desctiption'])) : ?>
+                    <p><?php echo tj_kses($settings['tj_desctiption']); ?></p>
                   <?php endif; ?>
                 </div>
                 <!-- Section Heading/Title End -->
@@ -1440,7 +1440,7 @@ class TP_Campaign extends Widget_Base {
             <?php endwhile;
             wp_reset_query(); ?>
           </div>
-          <?php if ($settings['tp_campaign_pagination'] == 'yes' && '-1' != $settings['posts_per_page']) { ?>
+          <?php if ($settings['tj_campaign_pagination'] == 'yes' && '-1' != $settings['posts_per_page']) { ?>
             <div class="col-lg-12">
               <div class="basic-pagination mb-40 pagination justify-content-center">
                 <?php
@@ -1478,4 +1478,4 @@ class TP_Campaign extends Widget_Base {
   }
 }
 
-$widgets_manager->register(new TP_Campaign());
+$widgets_manager->register(new TJ_Campaign());

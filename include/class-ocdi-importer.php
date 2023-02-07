@@ -65,7 +65,7 @@ class TJ_OCDI_Demo_Importer {
     public function ocdi_after_import_setup($selected_file) {
 
         $this->assign_menu_to_location();
-        $this->assign_frontpage_id($selected_file);
+        $this->assign_frontjage_id($selected_file);
         $this->update_permalinks();
         update_option('basa_ocdi_importer_flash', true);
     }
@@ -79,7 +79,7 @@ class TJ_OCDI_Demo_Importer {
         ]);
     }
 
-    private function assign_frontpage_id($selected_import) {
+    private function assign_frontjage_id($selected_import) {
 
         $front_page = get_page_by_title($selected_import['import_page_name']);
         $blog_page = get_page_by_title('Blog');

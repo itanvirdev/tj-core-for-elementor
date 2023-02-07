@@ -1,7 +1,7 @@
 <?php
 
 /**
- * TPBGGradient control class
+ * TJBGGradient control class
  *
  * @package TJCore
  */
@@ -16,10 +16,10 @@ use Elementor\Controls_Manager;
 defined('ABSPATH') || die();
 
 /**
- * Class Group_Control_TPBGGradient
+ * Class Group_Control_TJBGGradient
  * @package TJCore\Elementor\Controls
  */
-class Group_Control_TPBGGradient extends Group_Control_Base {
+class Group_Control_TJBGGradient extends Group_Control_Base {
 
     /**
      * Fields.
@@ -45,7 +45,7 @@ class Group_Control_TPBGGradient extends Group_Control_Base {
      * @return string Control type.
      */
     public static function get_type() {
-        return 'tpbggradient';
+        return 'tjbggradient';
     }
 
     /**

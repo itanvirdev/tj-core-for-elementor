@@ -18,7 +18,7 @@ if (!defined('ABSPATH')) exit; // Exit if accessed directly
  *
  * @since 1.0.0
  */
-class TP_Features extends Widget_Base {
+class TJ_Features extends Widget_Base {
 
     /**
      * Retrieve the widget name.
@@ -105,13 +105,13 @@ class TP_Features extends Widget_Base {
 
         // layout Panel
         $this->start_controls_section(
-            'tp_layout',
+            'tj_layout',
             [
                 'label' => esc_html__('Design Layout', 'tjcore'),
             ]
         );
         $this->add_control(
-            'tp_design_style',
+            'tj_design_style',
             [
                 'label' => esc_html__('Select Layout', 'tjcore'),
                 'type' => Controls_Manager::SELECT,
@@ -128,7 +128,7 @@ class TP_Features extends Widget_Base {
 
         // Service group
         $this->start_controls_section(
-            'tp_features',
+            'tj_features',
             [
                 'label' => esc_html__('Features List', 'tjcore'),
                 'description' => esc_html__('Control all the style settings from Style tab', 'tjcore'),
@@ -165,7 +165,7 @@ class TP_Features extends Widget_Base {
         );
 
         $repeater->add_control(
-            'tp_icon_bg_color',
+            'tj_icon_bg_color',
             [
                 'label' => __('Icon BG Color', 'tjcore'),
                 'type' => Controls_Manager::COLOR,
@@ -180,7 +180,7 @@ class TP_Features extends Widget_Base {
         );
 
         $repeater->add_control(
-            'tp_icon_color',
+            'tj_icon_color',
             [
                 'label' => __('Icon Color', 'tjcore'),
                 'type' => Controls_Manager::COLOR,
@@ -202,7 +202,7 @@ class TP_Features extends Widget_Base {
             ]
         );
         $repeater->add_control(
-            'tp_icon_bg_hover_color',
+            'tj_icon_bg_hover_color',
             [
                 'label' => __('Icon BG Hover Color', 'tjcore'),
                 'type' => Controls_Manager::COLOR,
@@ -217,7 +217,7 @@ class TP_Features extends Widget_Base {
         );
 
         $repeater->add_control(
-            'tp_icon_hover_color',
+            'tj_icon_hover_color',
             [
                 'label' => __('Icon Hover Color', 'tjcore'),
                 'type' => Controls_Manager::COLOR,
@@ -236,7 +236,7 @@ class TP_Features extends Widget_Base {
 
 
         $repeater->add_control(
-            'tp_features_icon_type',
+            'tj_features_icon_type',
             [
                 'label' => esc_html__('Select Icon Type', 'tjcore'),
                 'type' => \Elementor\Controls_Manager::SELECT,
@@ -249,7 +249,7 @@ class TP_Features extends Widget_Base {
         );
 
         $repeater->add_control(
-            'tp_features_image',
+            'tj_features_image',
             [
                 'label' => esc_html__('Upload Icon Image', 'tjcore'),
                 'type' => Controls_Manager::MEDIA,
@@ -257,28 +257,28 @@ class TP_Features extends Widget_Base {
                     'url' => Utils::get_placeholder_image_src(),
                 ],
                 'condition' => [
-                    'tp_features_icon_type' => 'image'
+                    'tj_features_icon_type' => 'image'
                 ]
 
             ]
         );
 
-        if (tp_is_elementor_version('<', '2.6.0')) {
+        if (tj_is_elementor_version('<', '2.6.0')) {
             $repeater->add_control(
-                'tp_features_icon',
+                'tj_features_icon',
                 [
                     'show_label' => false,
                     'type' => Controls_Manager::ICON,
                     'label_block' => true,
                     'default' => 'fa fa-star',
                     'condition' => [
-                        'tp_features_icon_type' => 'icon'
+                        'tj_features_icon_type' => 'icon'
                     ]
                 ]
             );
         } else {
             $repeater->add_control(
-                'tp_features_selected_icon',
+                'tj_features_selected_icon',
                 [
                     'show_label' => false,
                     'type' => Controls_Manager::ICONS,
@@ -289,27 +289,27 @@ class TP_Features extends Widget_Base {
                         'library' => 'solid',
                     ],
                     'condition' => [
-                        'tp_features_icon_type' => 'icon'
+                        'tj_features_icon_type' => 'icon'
                     ]
                 ]
             );
         }
 
         $repeater->add_control(
-            'tp_features_title',
+            'tj_features_title',
             [
                 'label' => esc_html__('Title', 'tjcore'),
-                'description' => tp_get_allowed_html_desc('basic'),
+                'description' => tj_get_allowed_html_desc('basic'),
                 'type' => \Elementor\Controls_Manager::TEXT,
                 'default' => esc_html__('Service Title', 'tjcore'),
                 'label_block' => true,
             ]
         );
         $repeater->add_control(
-            'tp_features_description',
+            'tj_features_description',
             [
                 'label' => esc_html__('Description', 'tjcore'),
-                'description' => tp_get_allowed_html_desc('intermediate'),
+                'description' => tj_get_allowed_html_desc('intermediate'),
                 'type' => \Elementor\Controls_Manager::TEXTAREA,
                 'default' => 'There are many variations of passages of Lorem Ipsum available, but the majority have suffered.',
                 'label_block' => true,
@@ -317,27 +317,27 @@ class TP_Features extends Widget_Base {
         );
 
         $this->add_control(
-            'tp_features_list',
+            'tj_features_list',
             [
                 'label' => esc_html__('Services - List', 'tjcore'),
                 'type' => \Elementor\Controls_Manager::REPEATER,
                 'fields' => $repeater->get_controls(),
                 'default' => [
                     [
-                        'tp_features_title' => esc_html__('Discover', 'tjcore'),
+                        'tj_features_title' => esc_html__('Discover', 'tjcore'),
                     ],
                     [
-                        'tp_features_title' => esc_html__('Define', 'tjcore')
+                        'tj_features_title' => esc_html__('Define', 'tjcore')
                     ],
                     [
-                        'tp_features_title' => esc_html__('Develop', 'tjcore')
+                        'tj_features_title' => esc_html__('Develop', 'tjcore')
                     ]
                 ],
-                'title_field' => '{{{ tp_features_title }}}',
+                'title_field' => '{{{ tj_features_title }}}',
             ]
         );
         $this->add_responsive_control(
-            'tp_features_align',
+            'tj_features_align',
             [
                 'label' => esc_html__('Alignment', 'tjcore'),
                 'type' => Controls_Manager::CHOOSE,
@@ -361,16 +361,16 @@ class TP_Features extends Widget_Base {
         );
         $this->end_controls_section();
 
-        // tp_columns_section
+        // tj_columns_section
         $this->start_controls_section(
-            'tp_columns_section',
+            'tj_columns_section',
             [
                 'label' => esc_html__('Features - Columns', 'tjcore'),
             ]
         );
 
         $this->add_control(
-            'tp_col_for_desktop',
+            'tj_col_for_desktop',
             [
                 'label' => esc_html__('Columns for Desktop', 'tjcore'),
                 'description' => esc_html__('Screen width equal to or greater than 992px', 'tjcore'),
@@ -389,7 +389,7 @@ class TP_Features extends Widget_Base {
             ]
         );
         $this->add_control(
-            'tp_col_for_laptop',
+            'tj_col_for_laptop',
             [
                 'label' => esc_html__('Columns for Laptop', 'tjcore'),
                 'description' => esc_html__('Screen width equal to or greater than 768px', 'tjcore'),
@@ -408,7 +408,7 @@ class TP_Features extends Widget_Base {
             ]
         );
         $this->add_control(
-            'tp_col_for_tablet',
+            'tj_col_for_tablet',
             [
                 'label' => esc_html__('Columns for Tablet', 'tjcore'),
                 'description' => esc_html__('Screen width equal to or greater than 576px', 'tjcore'),
@@ -427,7 +427,7 @@ class TP_Features extends Widget_Base {
             ]
         );
         $this->add_control(
-            'tp_col_for_mobile',
+            'tj_col_for_mobile',
             [
                 'label' => esc_html__('Columns for Mobile', 'tjcore'),
                 'description' => esc_html__('Screen width less than 576px', 'tjcore'),
@@ -495,33 +495,33 @@ class TP_Features extends Widget_Base {
         $settings = $this->get_settings_for_display();
 ?>
 
-        <?php if ($settings['tp_design_style']  == 'layout-2') : ?>
+        <?php if ($settings['tj_design_style']  == 'layout-2') : ?>
 
             <div class="research__features-wrapper pt-35">
-                <?php foreach ($settings['tp_features_list'] as $item) : ?>
+                <?php foreach ($settings['tj_features_list'] as $item) : ?>
                     <div class="research__features-item d-sm-flex align-items-start mb-40 elementor-repeater-item-<?php echo esc_attr($item['_id']); ?>">
                         <div class="research__features-icon mr-25">
-                            <?php if ($item['tp_features_icon_type'] !== 'image') : ?>
-                                <?php if (!empty($item['tp_features_icon']) || !empty($item['tp_features_selected_icon']['value'])) : ?>
-                                    <span><?php tp_render_icon($item, 'tp_features_icon', 'tp_features_selected_icon'); ?></span>
+                            <?php if ($item['tj_features_icon_type'] !== 'image') : ?>
+                                <?php if (!empty($item['tj_features_icon']) || !empty($item['tj_features_selected_icon']['value'])) : ?>
+                                    <span><?php tj_render_icon($item, 'tj_features_icon', 'tj_features_selected_icon'); ?></span>
                                 <?php endif; ?>
                             <?php else : ?>
                                 <span>
-                                    <?php if (!empty($item['tp_features_image']['url'])) : ?>
-                                        <img class="light" src="<?php echo $item['tp_features_image']['url']; ?>" alt="<?php echo get_post_meta(attachment_url_to_postid($item['tp_features_image']['url']), '_wp_attachment_image_alt', true); ?>">
+                                    <?php if (!empty($item['tj_features_image']['url'])) : ?>
+                                        <img class="light" src="<?php echo $item['tj_features_image']['url']; ?>" alt="<?php echo get_post_meta(attachment_url_to_postid($item['tj_features_image']['url']), '_wp_attachment_image_alt', true); ?>">
                                     <?php endif; ?>
                                 </span>
                             <?php endif; ?>
                         </div>
                         <div class="research__features-content">
-                            <?php if (!empty($item['tp_features_title'])) : ?>
+                            <?php if (!empty($item['tj_features_title'])) : ?>
                                 <h4>
-                                    <?php echo tp_kses($item['tp_features_title']); ?>
+                                    <?php echo tj_kses($item['tj_features_title']); ?>
                                 </h4>
                             <?php endif; ?>
 
-                            <?php if (!empty($item['tp_features_description'])) : ?>
-                                <p><?php echo tp_kses($item['tp_features_description']); ?></p>
+                            <?php if (!empty($item['tj_features_description'])) : ?>
+                                <p><?php echo tj_kses($item['tj_features_description']); ?></p>
                             <?php endif; ?>
                         </div>
                     </div>
@@ -533,34 +533,34 @@ class TP_Features extends Widget_Base {
             <section class="research__area">
                 <div class="container">
                     <div class="row">
-                        <?php foreach ($settings['tp_features_list'] as $key => $item) :
+                        <?php foreach ($settings['tj_features_list'] as $key => $item) :
                             $border_none = ($key == 2) ? '' : 'research__item-border';
                             $active = ($key == 1) ? 'active' : '';
                         ?>
-                            <div class="col-xl-<?php echo esc_attr($settings['tp_col_for_desktop']); ?> col-lg-<?php echo esc_attr($settings['tp_col_for_laptop']); ?> col-md-<?php echo esc_attr($settings['tp_col_for_tablet']); ?> col-<?php echo esc_attr($settings['tp_col_for_mobile']); ?>">
+                            <div class="col-xl-<?php echo esc_attr($settings['tj_col_for_desktop']); ?> col-lg-<?php echo esc_attr($settings['tj_col_for_laptop']); ?> col-md-<?php echo esc_attr($settings['tj_col_for_tablet']); ?> col-<?php echo esc_attr($settings['tj_col_for_mobile']); ?>">
                                 <div class="research__item <?php echo esc_attr($border_none); ?> <?php echo esc_attr($active); ?> text-center mb-30 transition-3">
                                     <div class="research__thumb mb-35">
-                                        <?php if ($item['tp_features_icon_type'] !== 'image') : ?>
-                                            <?php if (!empty($item['tp_features_icon']) || !empty($item['tp_features_selected_icon']['value'])) : ?>
-                                                <span class="fea__icon"><?php tp_render_icon($item, 'tp_features_icon', 'tp_features_selected_icon'); ?></span>
+                                        <?php if ($item['tj_features_icon_type'] !== 'image') : ?>
+                                            <?php if (!empty($item['tj_features_icon']) || !empty($item['tj_features_selected_icon']['value'])) : ?>
+                                                <span class="fea__icon"><?php tj_render_icon($item, 'tj_features_icon', 'tj_features_selected_icon'); ?></span>
                                             <?php endif; ?>
                                         <?php else : ?>
                                             <span class="fea__icon">
-                                                <?php if (!empty($item['tp_features_image']['url'])) : ?>
-                                                    <img class="light" src="<?php echo $item['tp_features_image']['url']; ?>" alt="<?php echo get_post_meta(attachment_url_to_postid($item['tp_features_image']['url']), '_wp_attachment_image_alt', true); ?>">
+                                                <?php if (!empty($item['tj_features_image']['url'])) : ?>
+                                                    <img class="light" src="<?php echo $item['tj_features_image']['url']; ?>" alt="<?php echo get_post_meta(attachment_url_to_postid($item['tj_features_image']['url']), '_wp_attachment_image_alt', true); ?>">
                                                 <?php endif; ?>
                                             </span>
                                         <?php endif; ?>
                                     </div>
                                     <div class="research__content">
-                                        <?php if (!empty($item['tp_features_title'])) : ?>
+                                        <?php if (!empty($item['tj_features_title'])) : ?>
                                             <h3 class="research__title">
-                                                <?php echo tp_kses($item['tp_features_title']); ?>
+                                                <?php echo tj_kses($item['tj_features_title']); ?>
                                             </h3>
                                         <?php endif; ?>
 
-                                        <?php if (!empty($item['tp_features_description'])) : ?>
-                                            <p class="keyFeatureBlock__text"><?php echo tp_kses($item['tp_features_description']); ?></p>
+                                        <?php if (!empty($item['tj_features_description'])) : ?>
+                                            <p class="keyFeatureBlock__text"><?php echo tj_kses($item['tj_features_description']); ?></p>
                                         <?php endif; ?>
                                     </div>
                                 </div>
@@ -576,4 +576,4 @@ class TP_Features extends Widget_Base {
     }
 }
 
-$widgets_manager->register(new TP_Features());
+$widgets_manager->register(new TJ_Features());

@@ -18,7 +18,7 @@ if (!defined('ABSPATH')) exit; // Exit if accessed directly
  *
  * @since 1.0.0
  */
-class TP_Categories extends Widget_Base {
+class TJ_Categories extends Widget_Base {
 
     /**
      * Retrieve the widget name.
@@ -105,13 +105,13 @@ class TP_Categories extends Widget_Base {
 
         // layout Panel
         $this->start_controls_section(
-            'tp_layout',
+            'tj_layout',
             [
                 'label' => esc_html__('Design Layout', 'tjcore'),
             ]
         );
         $this->add_control(
-            'tp_design_style',
+            'tj_design_style',
             [
                 'label' => esc_html__('Select Layout', 'tjcore'),
                 'type' => Controls_Manager::SELECT,
@@ -124,16 +124,16 @@ class TP_Categories extends Widget_Base {
 
         $this->end_controls_section();
 
-        // tp_section_title
+        // tj_section_title
         $this->start_controls_section(
-            'tp_section_title',
+            'tj_section_title',
             [
                 'label' => esc_html__('Title & Content', 'tjcore'),
             ]
         );
 
         $this->add_control(
-            'tp_section_title_show',
+            'tj_section_title_show',
             [
                 'label' => esc_html__('Section Title & Content', 'tjcore'),
                 'type' => Controls_Manager::SWITCHER,
@@ -145,10 +145,10 @@ class TP_Categories extends Widget_Base {
         );
 
         $this->add_control(
-            'tp_sub_title',
+            'tj_sub_title',
             [
                 'label' => esc_html__('Sub Title', 'tjcore'),
-                'description' => tp_get_allowed_html_desc('basic'),
+                'description' => tj_get_allowed_html_desc('basic'),
                 'type' => Controls_Manager::TEXT,
                 'default' => esc_html__('TJ Sub Title', 'tjcore'),
                 'placeholder' => esc_html__('Type Sub Heading Text', 'tjcore'),
@@ -156,10 +156,10 @@ class TP_Categories extends Widget_Base {
             ]
         );
         $this->add_control(
-            'tp_title',
+            'tj_title',
             [
                 'label' => esc_html__('Title', 'tjcore'),
-                'description' => tp_get_allowed_html_desc('intermediate'),
+                'description' => tj_get_allowed_html_desc('intermediate'),
                 'type' => Controls_Manager::TEXT,
                 'default' => esc_html__('TJ Title Here', 'tjcore'),
                 'placeholder' => esc_html__('Type Heading Text', 'tjcore'),
@@ -168,10 +168,10 @@ class TP_Categories extends Widget_Base {
         );
 
         $this->add_control(
-            'tp_desctiption',
+            'tj_desctiption',
             [
                 'label' => esc_html__('Description', 'tjcore'),
-                'description' => tp_get_allowed_html_desc('intermediate'),
+                'description' => tj_get_allowed_html_desc('intermediate'),
                 'type' => Controls_Manager::TEXTAREA,
                 'default' => esc_html__('TJ section description here', 'tjcore'),
                 'placeholder' => esc_html__('Type section description here', 'tjcore'),
@@ -179,7 +179,7 @@ class TP_Categories extends Widget_Base {
         );
 
         $this->add_control(
-            'tp_title_tag',
+            'tj_title_tag',
             [
                 'label' => esc_html__('Title HTML Tag', 'tjcore'),
                 'type' => Controls_Manager::CHOOSE,
@@ -215,16 +215,16 @@ class TP_Categories extends Widget_Base {
         );
         $this->end_controls_section();
 
-        // tp_btn_button_group
+        // tj_btn_button_group
         $this->start_controls_section(
-            'tp_btn_button_group',
+            'tj_btn_button_group',
             [
                 'label' => esc_html__('Button', 'tjcore'),
             ]
         );
 
         $this->add_control(
-            'tp_btn_button_show',
+            'tj_btn_button_show',
             [
                 'label' => esc_html__('Show Button', 'tjcore'),
                 'type' => Controls_Manager::SWITCHER,
@@ -236,7 +236,7 @@ class TP_Categories extends Widget_Base {
         );
 
         $this->add_control(
-            'tp_btn_text',
+            'tj_btn_text',
             [
                 'label' => esc_html__('Button Text', 'tjcore'),
                 'type' => Controls_Manager::TEXT,
@@ -244,12 +244,12 @@ class TP_Categories extends Widget_Base {
                 'title' => esc_html__('Enter button text', 'tjcore'),
                 'label_block' => true,
                 'condition' => [
-                    'tp_btn_button_show' => 'yes'
+                    'tj_btn_button_show' => 'yes'
                 ],
             ]
         );
         $this->add_control(
-            'tp_btn_link_type',
+            'tj_btn_link_type',
             [
                 'label' => esc_html__('Button Link Type', 'tjcore'),
                 'type' => Controls_Manager::SELECT,
@@ -260,13 +260,13 @@ class TP_Categories extends Widget_Base {
                 'default' => '1',
                 'label_block' => true,
                 'condition' => [
-                    'tp_btn_button_show' => 'yes'
+                    'tj_btn_button_show' => 'yes'
                 ],
             ]
         );
 
         $this->add_control(
-            'tp_btn_link',
+            'tj_btn_link',
             [
                 'label' => esc_html__('Button link', 'tjcore'),
                 'type' => Controls_Manager::URL,
@@ -282,22 +282,22 @@ class TP_Categories extends Widget_Base {
                     'custom_attributes' => '',
                 ],
                 'condition' => [
-                    'tp_btn_link_type' => '1',
-                    'tp_btn_button_show' => 'yes'
+                    'tj_btn_link_type' => '1',
+                    'tj_btn_button_show' => 'yes'
                 ],
                 'label_block' => true,
             ]
         );
         $this->add_control(
-            'tp_btn_page_link',
+            'tj_btn_page_link',
             [
                 'label' => esc_html__('Select Button Page', 'tjcore'),
                 'type' => Controls_Manager::SELECT2,
                 'label_block' => true,
-                'options' => tp_get_all_pages(),
+                'options' => tj_get_all_pages(),
                 'condition' => [
-                    'tp_btn_link_type' => '2',
-                    'tp_btn_button_show' => 'yes'
+                    'tj_btn_link_type' => '2',
+                    'tj_btn_button_show' => 'yes'
                 ]
             ]
         );
@@ -306,7 +306,7 @@ class TP_Categories extends Widget_Base {
 
         // Service group
         $this->start_controls_section(
-            'tp_categories',
+            'tj_categories',
             [
                 'label' => esc_html__('Category List', 'tjcore'),
                 'description' => esc_html__('Control all the style settings from Style tab', 'tjcore'),
@@ -328,7 +328,7 @@ class TP_Categories extends Widget_Base {
         );
 
         $repeater->add_control(
-            'tp_cat_icon_bg_color',
+            'tj_cat_icon_bg_color',
             [
                 'label' => __('Icon BG Color', 'tjcore'),
                 'type' => Controls_Manager::COLOR,
@@ -343,7 +343,7 @@ class TP_Categories extends Widget_Base {
         );
 
         $repeater->add_control(
-            'tp_cat_icon_color',
+            'tj_cat_icon_color',
             [
                 'label' => __('Icon Color', 'tjcore'),
                 'type' => Controls_Manager::COLOR,
@@ -365,7 +365,7 @@ class TP_Categories extends Widget_Base {
             ]
         );
         $repeater->add_control(
-            'tp_cat_icon_bg_hover_color',
+            'tj_cat_icon_bg_hover_color',
             [
                 'label' => __('Icon BG Hover Color', 'tjcore'),
                 'type' => Controls_Manager::COLOR,
@@ -380,7 +380,7 @@ class TP_Categories extends Widget_Base {
         );
 
         $repeater->add_control(
-            'tp_cat_icon_hover_color',
+            'tj_cat_icon_hover_color',
             [
                 'label' => __('Icon Hover Color', 'tjcore'),
                 'type' => Controls_Manager::COLOR,
@@ -399,7 +399,7 @@ class TP_Categories extends Widget_Base {
         // icon tab end
 
         $repeater->add_control(
-            'tp_features_icon_type',
+            'tj_features_icon_type',
             [
                 'label' => esc_html__('Select Icon Type', 'tjcore'),
                 'type' => \Elementor\Controls_Manager::SELECT,
@@ -412,7 +412,7 @@ class TP_Categories extends Widget_Base {
         );
 
         $repeater->add_control(
-            'tp_features_image',
+            'tj_features_image',
             [
                 'label' => esc_html__('Upload Icon Image', 'tjcore'),
                 'type' => Controls_Manager::MEDIA,
@@ -420,28 +420,28 @@ class TP_Categories extends Widget_Base {
                     'url' => Utils::get_placeholder_image_src(),
                 ],
                 'condition' => [
-                    'tp_features_icon_type' => 'image'
+                    'tj_features_icon_type' => 'image'
                 ]
 
             ]
         );
 
-        if (tp_is_elementor_version('<', '2.6.0')) {
+        if (tj_is_elementor_version('<', '2.6.0')) {
             $repeater->add_control(
-                'tp_features_icon',
+                'tj_features_icon',
                 [
                     'show_label' => false,
                     'type' => Controls_Manager::ICON,
                     'label_block' => true,
                     'default' => 'eicon-star-o',
                     'condition' => [
-                        'tp_features_icon_type' => 'icon'
+                        'tj_features_icon_type' => 'icon'
                     ]
                 ]
             );
         } else {
             $repeater->add_control(
-                'tp_features_selected_icon',
+                'tj_features_selected_icon',
                 [
                     'show_label' => false,
                     'type' => Controls_Manager::ICONS,
@@ -452,17 +452,17 @@ class TP_Categories extends Widget_Base {
                         'library' => 'solid',
                     ],
                     'condition' => [
-                        'tp_features_icon_type' => 'icon'
+                        'tj_features_icon_type' => 'icon'
                     ]
                 ]
             );
         }
 
         $repeater->add_control(
-            'tp_service_title',
+            'tj_service_title',
             [
                 'label' => esc_html__('Title', 'tjcore'),
-                'description' => tp_get_allowed_html_desc('basic'),
+                'description' => tj_get_allowed_html_desc('basic'),
                 'type' => \Elementor\Controls_Manager::TEXT,
                 'default' => esc_html__('Service Title', 'tjcore'),
                 'label_block' => true,
@@ -470,7 +470,7 @@ class TP_Categories extends Widget_Base {
         );
 
         $repeater->add_control(
-            'tp_services_link_switcher',
+            'tj_services_link_switcher',
             [
                 'label' => esc_html__('Add Services link', 'tjcore'),
                 'type' => \Elementor\Controls_Manager::SWITCHER,
@@ -482,7 +482,7 @@ class TP_Categories extends Widget_Base {
             ]
         );
         $repeater->add_control(
-            'tp_services_link_type',
+            'tj_services_link_type',
             [
                 'label' => esc_html__('Service Link Type', 'tjcore'),
                 'type' => \Elementor\Controls_Manager::SELECT,
@@ -492,12 +492,12 @@ class TP_Categories extends Widget_Base {
                 ],
                 'default' => '1',
                 'condition' => [
-                    'tp_services_link_switcher' => 'yes'
+                    'tj_services_link_switcher' => 'yes'
                 ]
             ]
         );
         $repeater->add_control(
-            'tp_services_link',
+            'tj_services_link',
             [
                 'label' => esc_html__('Service Link link', 'tjcore'),
                 'type' => \Elementor\Controls_Manager::URL,
@@ -512,48 +512,48 @@ class TP_Categories extends Widget_Base {
                     'nofollow' => false,
                 ],
                 'condition' => [
-                    'tp_services_link_type' => '1',
-                    'tp_services_link_switcher' => 'yes',
+                    'tj_services_link_type' => '1',
+                    'tj_services_link_switcher' => 'yes',
                 ]
             ]
         );
         $repeater->add_control(
-            'tp_services_page_link',
+            'tj_services_page_link',
             [
                 'label' => esc_html__('Select Service Link Page', 'tjcore'),
                 'type' => \Elementor\Controls_Manager::SELECT2,
                 'label_block' => true,
-                'options' => tp_get_all_pages(),
+                'options' => tj_get_all_pages(),
                 'condition' => [
-                    'tp_services_link_type' => '2',
-                    'tp_services_link_switcher' => 'yes',
+                    'tj_services_link_type' => '2',
+                    'tj_services_link_switcher' => 'yes',
                 ]
             ]
         );
 
         $this->add_control(
-            'tp_service_list',
+            'tj_service_list',
             [
                 'label' => esc_html__('Services - List', 'tjcore'),
                 'type' => \Elementor\Controls_Manager::REPEATER,
                 'fields' => $repeater->get_controls(),
                 'default' => [
                     [
-                        'tp_service_title' => esc_html__('Business Stratagy', 'tjcore'),
+                        'tj_service_title' => esc_html__('Business Stratagy', 'tjcore'),
                     ],
                     [
-                        'tp_service_title' => esc_html__('Website Development', 'tjcore')
+                        'tj_service_title' => esc_html__('Website Development', 'tjcore')
                     ],
                     [
-                        'tp_service_title' => esc_html__('Marketing & Reporting', 'tjcore')
+                        'tj_service_title' => esc_html__('Marketing & Reporting', 'tjcore')
                     ]
                 ],
-                'title_field' => '{{{ tp_service_title }}}',
+                'title_field' => '{{{ tj_service_title }}}',
             ]
         );
 
         $this->add_control(
-            'tp_course_link',
+            'tj_course_link',
             [
                 'label' => esc_html__('More Button Link', 'tjcore'),
                 'type' => Controls_Manager::TEXT,
@@ -564,7 +564,7 @@ class TP_Categories extends Widget_Base {
         );
 
         $this->add_responsive_control(
-            'tp_service_align',
+            'tj_service_align',
             [
                 'label' => esc_html__('Alignment', 'tjcore'),
                 'type' => Controls_Manager::CHOOSE,
@@ -641,21 +641,21 @@ class TP_Categories extends Widget_Base {
 
 ?>
 
-        <?php if ($settings['tp_design_style']  == 'layout-2') :
+        <?php if ($settings['tj_design_style']  == 'layout-2') :
             $this->add_render_attribute('title_args', 'class', 'sectionTitle__big');
         ?>
 
         <?php else :
             $this->add_render_attribute('title_args', 'class', 'section__title-2 section__title-2-30');
             // Link
-            if ('2' == $settings['tp_btn_link_type']) {
-                $this->add_render_attribute('tj-button-arg', 'href', get_permalink($settings['tp_btn_page_link']));
+            if ('2' == $settings['tj_btn_link_type']) {
+                $this->add_render_attribute('tj-button-arg', 'href', get_permalink($settings['tj_btn_page_link']));
                 $this->add_render_attribute('tj-button-arg', 'target', '_self');
                 $this->add_render_attribute('tj-button-arg', 'rel', 'nofollow');
                 $this->add_render_attribute('tj-button-arg', 'class', 'tj-btn-5');
             } else {
-                if (!empty($settings['tp_btn_link']['url'])) {
-                    $this->add_link_attributes('tj-button-arg', $settings['tp_btn_link']);
+                if (!empty($settings['tj_btn_link']['url'])) {
+                    $this->add_link_attributes('tj-button-arg', $settings['tj_btn_link']);
                     $this->add_render_attribute('tj-button-arg', 'class', 'tj-btn-5');
                 }
             }
@@ -664,34 +664,34 @@ class TP_Categories extends Widget_Base {
             <section class="category__area">
                 <div class="container">
                     <div class="row">
-                        <?php if (!empty($settings['tp_section_title_show'])) : ?>
+                        <?php if (!empty($settings['tj_section_title_show'])) : ?>
                             <div class="col-xxl-4 col-xl-4 col-lg-4">
                                 <div class="category__wrapper">
                                     <div class="section__title-wrapper-2">
-                                        <?php if (!empty($settings['tp_sub_title'])) : ?>
+                                        <?php if (!empty($settings['tj_sub_title'])) : ?>
                                             <span class="section__title-pre-2">
-                                                <?php echo tp_kses($settings['tp_sub_title']); ?>
+                                                <?php echo tj_kses($settings['tj_sub_title']); ?>
                                             </span>
                                         <?php endif; ?>
                                         <?php
-                                        if (!empty($settings['tp_title'])) :
+                                        if (!empty($settings['tj_title'])) :
                                             printf(
                                                 '<%1$s %2$s>%3$s</%1$s>',
-                                                tag_escape($settings['tp_title_tag']),
+                                                tag_escape($settings['tj_title_tag']),
                                                 $this->get_render_attribute_string('title_args'),
-                                                tp_kses($settings['tp_title'])
+                                                tj_kses($settings['tj_title'])
                                             );
                                         endif;
                                         ?>
                                     </div>
-                                    <?php if (!empty($settings['tp_desctiption'])) : ?>
-                                        <p><?php echo tp_kses($settings['tp_desctiption']); ?></p>
+                                    <?php if (!empty($settings['tj_desctiption'])) : ?>
+                                        <p><?php echo tj_kses($settings['tj_desctiption']); ?></p>
                                     <?php endif; ?>
 
-                                    <?php if (!empty($settings['tp_btn_text'])) : ?>
+                                    <?php if (!empty($settings['tj_btn_text'])) : ?>
                                         <div class="category__btn">
                                             <a <?php echo $this->get_render_attribute_string('tj-button-arg'); ?>>
-                                                <?php echo $settings['tp_btn_text']; ?>
+                                                <?php echo $settings['tj_btn_text']; ?>
                                             </a>
                                         </div>
                                     <?php endif; ?>
@@ -702,39 +702,39 @@ class TP_Categories extends Widget_Base {
                         <div class="col-xxl-8 col-xl-8 col-lg-8">
                             <div class="category__item-wrapper">
                                 <div class="row">
-                                    <?php foreach ($settings['tp_service_list'] as $item) :
+                                    <?php foreach ($settings['tj_service_list'] as $item) :
                                         // Link
-                                        if ('2' == $item['tp_services_link_type']) {
-                                            $link = get_permalink($item['tp_services_page_link']);
+                                        if ('2' == $item['tj_services_link_type']) {
+                                            $link = get_permalink($item['tj_services_page_link']);
                                             $target = '_self';
                                             $rel = 'nofollow';
                                         } else {
-                                            $link = !empty($item['tp_services_link']['url']) ? $item['tp_services_link']['url'] : '';
-                                            $target = !empty($item['tp_services_link']['is_external']) ? '_blank' : '';
-                                            $rel = !empty($item['tp_services_link']['nofollow']) ? 'nofollow' : '';
+                                            $link = !empty($item['tj_services_link']['url']) ? $item['tj_services_link']['url'] : '';
+                                            $target = !empty($item['tj_services_link']['is_external']) ? '_blank' : '';
+                                            $rel = !empty($item['tj_services_link']['nofollow']) ? 'nofollow' : '';
                                         }
                                     ?>
                                         <div class="col-xxl-2 col-xl-2 col-lg-3 col-md-3 col-sm-4 col-6">
                                             <div class="category__item elementor-repeater-item-<?php echo esc_attr($item['_id']); ?> text-center mb-45">
                                                 <div class="category__icon">
                                                     <a target="<?php echo esc_attr($target); ?>" rel="<?php echo esc_attr($rel); ?>" href="<?php echo esc_url($link); ?>">
-                                                        <?php if ($item['tp_features_icon_type'] !== 'image') : ?>
-                                                            <?php if (!empty($item['tp_features_icon']) || !empty($item['tp_features_selected_icon']['value'])) : ?>
-                                                                <span class="cat__icon"><?php tp_render_icon($item, 'tp_features_icon', 'tp_features_selected_icon'); ?></span>
+                                                        <?php if ($item['tj_features_icon_type'] !== 'image') : ?>
+                                                            <?php if (!empty($item['tj_features_icon']) || !empty($item['tj_features_selected_icon']['value'])) : ?>
+                                                                <span class="cat__icon"><?php tj_render_icon($item, 'tj_features_icon', 'tj_features_selected_icon'); ?></span>
                                                             <?php endif; ?>
                                                         <?php else : ?>
                                                             <span class="cat__icon">
-                                                                <?php if (!empty($item['tp_features_image']['url'])) : ?>
-                                                                    <img class="light" src="<?php echo $item['tp_features_image']['url']; ?>" alt="<?php echo get_post_meta(attachment_url_to_postid($item['tp_features_image']['url']), '_wp_attachment_image_alt', true); ?>">
+                                                                <?php if (!empty($item['tj_features_image']['url'])) : ?>
+                                                                    <img class="light" src="<?php echo $item['tj_features_image']['url']; ?>" alt="<?php echo get_post_meta(attachment_url_to_postid($item['tj_features_image']['url']), '_wp_attachment_image_alt', true); ?>">
                                                                 <?php endif; ?>
                                                             </span>
                                                         <?php endif; ?>
                                                     </a>
                                                 </div>
                                                 <div class="category__content">
-                                                    <?php if (!empty($item['tp_service_title'])) : ?>
+                                                    <?php if (!empty($item['tj_service_title'])) : ?>
                                                         <h4 class="category__title">
-                                                            <a target="<?php echo esc_attr($target); ?>" rel="<?php echo esc_attr($rel); ?>" href="<?php echo esc_url($link); ?>"><?php echo tp_kses($item['tp_service_title']); ?></a>
+                                                            <a target="<?php echo esc_attr($target); ?>" rel="<?php echo esc_attr($rel); ?>" href="<?php echo esc_url($link); ?>"><?php echo tj_kses($item['tj_service_title']); ?></a>
                                                         </h4>
                                                     <?php endif; ?>
                                                 </div>
@@ -742,15 +742,15 @@ class TP_Categories extends Widget_Base {
                                         </div>
                                     <?php endforeach; ?>
 
-                                    <?php if (!empty($settings['tp_course_link'])) : ?>
+                                    <?php if (!empty($settings['tj_course_link'])) : ?>
                                         <div class="col-xxl-2 col-xl-2 col-lg-3 col-md-3 col-sm-4 col-6">
                                             <div class="category__item text-center mb-45">
                                                 <div class="category__icon add">
-                                                    <a href="<?php echo esc_url($settings['tp_course_link']); ?>">+</a>
+                                                    <a href="<?php echo esc_url($settings['tj_course_link']); ?>">+</a>
                                                 </div>
                                                 <div class="category__content">
                                                     <h4 class="category__title add">
-                                                        <a href="<?php echo esc_url($settings['tp_course_link']); ?>"><?php echo esc_html__('All Course', 'tjcore'); ?></a>
+                                                        <a href="<?php echo esc_url($settings['tj_course_link']); ?>"><?php echo esc_html__('All Course', 'tjcore'); ?></a>
                                                     </h4>
                                                 </div>
                                             </div>
@@ -769,4 +769,4 @@ class TP_Categories extends Widget_Base {
     }
 }
 
-$widgets_manager->register(new TP_Categories());
+$widgets_manager->register(new TJ_Categories());

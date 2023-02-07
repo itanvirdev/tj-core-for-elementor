@@ -15,7 +15,7 @@ if (!defined('ABSPATH')) exit; // Exit if accessed directly
  *
  * @since 1.0.0
  */
-class TP_Advanced_Tab extends Widget_Base {
+class TJ_Advanced_Tab extends Widget_Base {
 
 	/**
 	 * Retrieve the widget name.
@@ -102,13 +102,13 @@ class TP_Advanced_Tab extends Widget_Base {
 
 		// layout Panel
 		$this->start_controls_section(
-			'tp_layout',
+			'tj_layout',
 			[
 				'label' => esc_html__('Design Layout', 'tjcore'),
 			]
 		);
 		$this->add_control(
-			'tp_design_style',
+			'tj_design_style',
 			[
 				'label' => esc_html__('Select Layout', 'tjcore'),
 				'type' => Controls_Manager::SELECT,
@@ -233,7 +233,7 @@ class TP_Advanced_Tab extends Widget_Base {
 ?>
 
 
-		<?php if ($settings['tp_design_style']  == 'layout-2') :
+		<?php if ($settings['tj_design_style']  == 'layout-2') :
 			$this->add_render_attribute('title_args', 'class', 'title');
 		?>
 
@@ -247,7 +247,7 @@ class TP_Advanced_Tab extends Widget_Base {
 										$active = ($key == 0) ? 'active' : '';
 									?>
 										<li class="nav-item" role="presentation">
-											<button class="nav-link <?php echo esc_attr($active); ?>" id="home-tab-<?php echo esc_attr($key); ?>" data-bs-toggle="tab" data-bs-target="#home-<?php echo esc_attr($key); ?>" type="button" role="tab" aria-controls="home-<?php echo esc_attr($key); ?>" aria-selected="true"><?php echo tp_kses($tab['title']); ?></button>
+											<button class="nav-link <?php echo esc_attr($active); ?>" id="home-tab-<?php echo esc_attr($key); ?>" data-bs-toggle="tab" data-bs-target="#home-<?php echo esc_attr($key); ?>" type="button" role="tab" aria-controls="home-<?php echo esc_attr($key); ?>" aria-selected="true"><?php echo tj_kses($tab['title']); ?></button>
 										</li>
 									<?php endforeach; ?>
 								</ul>
@@ -270,9 +270,9 @@ class TP_Advanced_Tab extends Widget_Base {
 
 
 		<?php else :
-			if (!empty($settings['tp_image']['url'])) {
-				$tp_image = !empty($settings['tp_image']['id']) ? wp_get_attachment_image_url($settings['tp_image']['id'], $settings['tp_image_size_size']) : $settings['tp_image']['url'];
-				$tp_image_alt = get_post_meta($settings["tp_image"]["id"], "_wp_attachment_image_alt", true);
+			if (!empty($settings['tj_image']['url'])) {
+				$tj_image = !empty($settings['tj_image']['id']) ? wp_get_attachment_image_url($settings['tj_image']['id'], $settings['tj_image_size_size']) : $settings['tj_image']['url'];
+				$tj_image_alt = get_post_meta($settings["tj_image"]["id"], "_wp_attachment_image_alt", true);
 			}
 			$this->add_render_attribute('title_args', 'class', 'sectionTitle__big');
 		?>
@@ -286,7 +286,7 @@ class TP_Advanced_Tab extends Widget_Base {
 										<?php foreach ($settings['tabs'] as $key => $tab) :
 											$active = ($key == 0) ? 'active' : '';
 										?>
-											<button class="mvvTabs__button nav-link <?php echo esc_attr($active); ?>" id="v-pills-home-tab-<?php echo esc_attr($key); ?>" data-bs-toggle="pill" data-bs-target="#v-pills-home-<?php echo esc_attr($key); ?>" type="button" role="tab" aria-controls="v-pills-home-<?php echo esc_attr($key); ?>" aria-selected="true"><?php echo tp_kses($tab['title']); ?></button>
+											<button class="mvvTabs__button nav-link <?php echo esc_attr($active); ?>" id="v-pills-home-tab-<?php echo esc_attr($key); ?>" data-bs-toggle="pill" data-bs-target="#v-pills-home-<?php echo esc_attr($key); ?>" type="button" role="tab" aria-controls="v-pills-home-<?php echo esc_attr($key); ?>" aria-selected="true"><?php echo tj_kses($tab['title']); ?></button>
 										<?php endforeach; ?>
 									</div>
 									<div class="tab-content mb-30" id="v-pills-tabContent">
@@ -312,4 +312,4 @@ class TP_Advanced_Tab extends Widget_Base {
 <?php
 	}
 }
-$widgets_manager->register(new TP_Advanced_Tab());
+$widgets_manager->register(new TJ_Advanced_Tab());

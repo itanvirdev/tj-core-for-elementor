@@ -16,7 +16,7 @@ if (!defined('ABSPATH')) exit; // Exit if accessed directly
  *
  * @since 1.0.0
  */
-class TP_Blog_Post extends Widget_Base {
+class TJ_Blog_Post extends Widget_Base {
 
     /**
      * Retrieve the widget name.
@@ -102,16 +102,16 @@ class TP_Blog_Post extends Widget_Base {
     protected function register_controls() {
 
 
-        // tp_section_title
+        // tj_section_title
         $this->start_controls_section(
-            'tp_section_title',
+            'tj_section_title',
             [
                 'label' => esc_html__('Title & Content', 'tjcore'),
             ]
         );
 
         $this->add_control(
-            'tp_section_title_show',
+            'tj_section_title_show',
             [
                 'label' => esc_html__('Section Title & Content', 'tjcore'),
                 'type' => Controls_Manager::SWITCHER,
@@ -122,10 +122,10 @@ class TP_Blog_Post extends Widget_Base {
             ]
         );
         $this->add_control(
-            'tp_sub_title',
+            'tj_sub_title',
             [
                 'label' => esc_html__('Sub Title', 'tjcore'),
-                'description' => tp_get_allowed_html_desc('basic'),
+                'description' => tj_get_allowed_html_desc('basic'),
                 'type' => Controls_Manager::TEXT,
                 'default' => esc_html__('TJ Sub Title', 'tjcore'),
                 'placeholder' => esc_html__('Type Sub Heading Text', 'tjcore'),
@@ -133,10 +133,10 @@ class TP_Blog_Post extends Widget_Base {
             ]
         );
         $this->add_control(
-            'tp_title',
+            'tj_title',
             [
                 'label' => esc_html__('Title', 'tjcore'),
-                'description' => tp_get_allowed_html_desc('intermediate'),
+                'description' => tj_get_allowed_html_desc('intermediate'),
                 'type' => Controls_Manager::TEXT,
                 'default' => esc_html__('TJ Title Here', 'tjcore'),
                 'placeholder' => esc_html__('Type Heading Text', 'tjcore'),
@@ -145,10 +145,10 @@ class TP_Blog_Post extends Widget_Base {
         );
 
         $this->add_control(
-            'tp_desctiption',
+            'tj_desctiption',
             [
                 'label' => esc_html__('Description', 'tjcore'),
-                'description' => tp_get_allowed_html_desc('intermediate'),
+                'description' => tj_get_allowed_html_desc('intermediate'),
                 'type' => Controls_Manager::TEXTAREA,
                 'default' => esc_html__('TJ section description here', 'tjcore'),
                 'placeholder' => esc_html__('Type section description here', 'tjcore'),
@@ -156,7 +156,7 @@ class TP_Blog_Post extends Widget_Base {
         );
 
         $this->add_control(
-            'tp_title_tag',
+            'tj_title_tag',
             [
                 'label' => esc_html__('Title HTML Tag', 'tjcore'),
                 'type' => Controls_Manager::CHOOSE,
@@ -192,7 +192,7 @@ class TP_Blog_Post extends Widget_Base {
         );
 
         $this->add_responsive_control(
-            'tp_align',
+            'tj_align',
             [
                 'label' => esc_html__('Alignment', 'tjcore'),
                 'type' => Controls_Manager::CHOOSE,
@@ -219,16 +219,16 @@ class TP_Blog_Post extends Widget_Base {
         );
         $this->end_controls_section();
 
-        // tp_btn_button_group
+        // tj_btn_button_group
         $this->start_controls_section(
-            'tp_btn_button_group',
+            'tj_btn_button_group',
             [
                 'label' => esc_html__('Button', 'tjcore'),
             ]
         );
 
         $this->add_control(
-            'tp_btn_button_show',
+            'tj_btn_button_show',
             [
                 'label' => esc_html__('Show Button', 'tjcore'),
                 'type' => Controls_Manager::SWITCHER,
@@ -240,7 +240,7 @@ class TP_Blog_Post extends Widget_Base {
         );
 
         $this->add_control(
-            'tp_btn_text',
+            'tj_btn_text',
             [
                 'label' => esc_html__('Button Text', 'tjcore'),
                 'type' => Controls_Manager::TEXT,
@@ -248,12 +248,12 @@ class TP_Blog_Post extends Widget_Base {
                 'title' => esc_html__('Enter button text', 'tjcore'),
                 'label_block' => true,
                 'condition' => [
-                    'tp_btn_button_show' => 'yes'
+                    'tj_btn_button_show' => 'yes'
                 ],
             ]
         );
         $this->add_control(
-            'tp_btn_link_type',
+            'tj_btn_link_type',
             [
                 'label' => esc_html__('Button Link Type', 'tjcore'),
                 'type' => Controls_Manager::SELECT,
@@ -264,13 +264,13 @@ class TP_Blog_Post extends Widget_Base {
                 'default' => '1',
                 'label_block' => true,
                 'condition' => [
-                    'tp_btn_button_show' => 'yes'
+                    'tj_btn_button_show' => 'yes'
                 ],
             ]
         );
 
         $this->add_control(
-            'tp_btn_link',
+            'tj_btn_link',
             [
                 'label' => esc_html__('Button link', 'tjcore'),
                 'type' => Controls_Manager::URL,
@@ -286,22 +286,22 @@ class TP_Blog_Post extends Widget_Base {
                     'custom_attributes' => '',
                 ],
                 'condition' => [
-                    'tp_btn_link_type' => '1',
-                    'tp_btn_button_show' => 'yes'
+                    'tj_btn_link_type' => '1',
+                    'tj_btn_button_show' => 'yes'
                 ],
                 'label_block' => true,
             ]
         );
         $this->add_control(
-            'tp_btn_page_link',
+            'tj_btn_page_link',
             [
                 'label' => esc_html__('Select Button Page', 'tjcore'),
                 'type' => Controls_Manager::SELECT2,
                 'label_block' => true,
-                'options' => tp_get_all_pages(),
+                'options' => tj_get_all_pages(),
                 'condition' => [
-                    'tp_btn_link_type' => '2',
-                    'tp_btn_button_show' => 'yes'
+                    'tj_btn_link_type' => '2',
+                    'tj_btn_button_show' => 'yes'
                 ]
             ]
         );
@@ -309,7 +309,7 @@ class TP_Blog_Post extends Widget_Base {
 
         // Blog Query
         $this->start_controls_section(
-            'tp_post_query',
+            'tj_post_query',
             [
                 'label' => esc_html__('Blog Query', 'tjcore'),
             ]
@@ -335,7 +335,7 @@ class TP_Blog_Post extends Widget_Base {
                 'description' => esc_html__('Select a category to include or leave blank for all.', 'tjcore'),
                 'type' => Controls_Manager::SELECT2,
                 'multiple' => true,
-                'options' => tp_get_categories($taxonomy),
+                'options' => tj_get_categories($taxonomy),
                 'label_block' => true,
             ]
         );
@@ -347,7 +347,7 @@ class TP_Blog_Post extends Widget_Base {
                 'description' => esc_html__('Select a category to exclude', 'tjcore'),
                 'type' => Controls_Manager::SELECT2,
                 'multiple' => true,
-                'options' => tp_get_categories($taxonomy),
+                'options' => tj_get_categories($taxonomy),
                 'label_block' => true
             ]
         );
@@ -357,7 +357,7 @@ class TP_Blog_Post extends Widget_Base {
             [
                 'label' => esc_html__('Exclude Item', 'tjcore'),
                 'type' => Controls_Manager::SELECT2,
-                'options' => tp_get_all_types_post($post_type),
+                'options' => tj_get_all_types_post($post_type),
                 'multiple' => true,
                 'label_block' => true
             ]
@@ -418,7 +418,7 @@ class TP_Blog_Post extends Widget_Base {
         );
 
         $this->add_control(
-            'tp_blog_title_word',
+            'tj_blog_title_word',
             [
                 'label' => esc_html__('Title Word Count', 'tjcore'),
                 'description' => esc_html__('Set how many word you want to displa!', 'tjcore'),
@@ -428,7 +428,7 @@ class TP_Blog_Post extends Widget_Base {
         );
 
         $this->add_control(
-            'tp_post_content',
+            'tj_post_content',
             [
                 'label' => __('Content', 'tjcore'),
                 'type' => Controls_Manager::SWITCHER,
@@ -440,7 +440,7 @@ class TP_Blog_Post extends Widget_Base {
         );
 
         $this->add_control(
-            'tp_post_content_limit',
+            'tj_post_content_limit',
             [
                 'label' => __('Content Limit', 'tjcore'),
                 'type' => Controls_Manager::TEXT,
@@ -450,7 +450,7 @@ class TP_Blog_Post extends Widget_Base {
                     'active' => true,
                 ],
                 'condition' => [
-                    'tp_post_content' => 'yes'
+                    'tj_post_content' => 'yes'
                 ]
             ]
         );
@@ -460,13 +460,13 @@ class TP_Blog_Post extends Widget_Base {
 
         // layout Panel
         $this->start_controls_section(
-            'tp_post_',
+            'tj_post_',
             [
                 'label' => esc_html__('Blog - Layout', 'tjcore'),
             ]
         );
         $this->add_control(
-            'tp_design_style',
+            'tj_design_style',
             [
                 'label' => esc_html__('Select Layout', 'tjcore'),
                 'type' => Controls_Manager::SELECT,
@@ -478,7 +478,7 @@ class TP_Blog_Post extends Widget_Base {
             ]
         );
         $this->add_control(
-            'tp_post__height',
+            'tj_post__height',
             [
                 'label' => esc_html__('Height', 'tjcore'),
                 'type' => Controls_Manager::SLIDER,
@@ -500,7 +500,7 @@ class TP_Blog_Post extends Widget_Base {
             ]
         );
         $this->add_control(
-            'tp_post__dots',
+            'tj_post__dots',
             [
                 'label' => esc_html__('Dots?', 'tjcore'),
                 'type' => Controls_Manager::SWITCHER,
@@ -509,12 +509,12 @@ class TP_Blog_Post extends Widget_Base {
                 'return_value' => 'yes',
                 'default' => 'yes',
                 'condition' => array(
-                    'tp_design_style' => 'layout-2',
+                    'tj_design_style' => 'layout-2',
                 ),
             ]
         );
         $this->add_control(
-            'tp_post__arrow',
+            'tj_post__arrow',
             [
                 'label' => esc_html__('Arrow Icons?', 'tjcore'),
                 'type' => Controls_Manager::SWITCHER,
@@ -523,12 +523,12 @@ class TP_Blog_Post extends Widget_Base {
                 'return_value' => 'yes',
                 'default' => 'yes',
                 'condition' => array(
-                    'tp_design_style' => 'layout-2',
+                    'tj_design_style' => 'layout-2',
                 ),
             ]
         );
         $this->add_control(
-            'tp_post__infinite',
+            'tj_post__infinite',
             [
                 'label' => esc_html__('Infinite?', 'tjcore'),
                 'type' => Controls_Manager::SWITCHER,
@@ -537,12 +537,12 @@ class TP_Blog_Post extends Widget_Base {
                 'return_value' => 'yes',
                 'default' => 'yes',
                 'condition' => array(
-                    'tp_design_style' => 'layout-2',
+                    'tj_design_style' => 'layout-2',
                 ),
             ]
         );
         $this->add_control(
-            'tp_post__autoplay',
+            'tj_post__autoplay',
             [
                 'label' => esc_html__('Autoplay?', 'tjcore'),
                 'type' => Controls_Manager::SWITCHER,
@@ -551,12 +551,12 @@ class TP_Blog_Post extends Widget_Base {
                 'return_value' => 'yes',
                 'default' => 'yes',
                 'condition' => array(
-                    'tp_design_style' => 'layout-2',
+                    'tj_design_style' => 'layout-2',
                 ),
             ]
         );
         $this->add_control(
-            'tp_post__autoplay_speed',
+            'tj_post__autoplay_speed',
             [
                 'label' => esc_html__('Autoplay Speed', 'tjcore'),
                 'type' => Controls_Manager::TEXT,
@@ -564,13 +564,13 @@ class TP_Blog_Post extends Widget_Base {
                 'title' => esc_html__('Enter autoplay speed', 'tjcore'),
                 'label_block' => true,
                 'condition' => array(
-                    'tp_post__autoplay' => 'yes',
-                    'tp_design_style' => 'layout-2',
+                    'tj_post__autoplay' => 'yes',
+                    'tj_design_style' => 'layout-2',
                 ),
             ]
         );
         $this->add_control(
-            'tp_post__filter',
+            'tj_post__filter',
             [
                 'label' => esc_html__('Filter?', 'tjcore'),
                 'type' => Controls_Manager::SWITCHER,
@@ -579,7 +579,7 @@ class TP_Blog_Post extends Widget_Base {
                 'return_value' => 'yes',
                 'default' => 'yes',
                 'condition' => array(
-                    'tp_design_style' => 'layout-3',
+                    'tj_design_style' => 'layout-3',
                 ),
             ]
         );
@@ -593,7 +593,7 @@ class TP_Blog_Post extends Widget_Base {
             ]
         );
         $this->add_control(
-            'tp_post__pagination',
+            'tj_post__pagination',
             [
                 'label' => esc_html__('Pagination', 'tjcore'),
                 'type' => Controls_Manager::SWITCHER,
@@ -602,22 +602,22 @@ class TP_Blog_Post extends Widget_Base {
                 'return_value' => 'yes',
                 'default' => 'no',
                 'condition' => array(
-                    'tp_design_style' => 'layout-1!',
+                    'tj_design_style' => 'layout-1!',
                 ),
             ]
         );
         $this->end_controls_section();
 
-        // tp_post__columns_section
+        // tj_post__columns_section
         $this->start_controls_section(
-            'tp_post__columns_section',
+            'tj_post__columns_section',
             [
                 'label' => esc_html__('Blog - Columns', 'tjcore'),
             ]
         );
 
         $this->add_control(
-            'tp_post___for_desktop',
+            'tj_post___for_desktop',
             [
                 'label' => esc_html__('Columns for Desktop', 'tjcore'),
                 'description' => esc_html__('Screen width equal to or greater than 992px', 'tjcore'),
@@ -636,7 +636,7 @@ class TP_Blog_Post extends Widget_Base {
             ]
         );
         $this->add_control(
-            'tp_post___for_laptop',
+            'tj_post___for_laptop',
             [
                 'label' => esc_html__('Columns for Laptop', 'tjcore'),
                 'description' => esc_html__('Screen width equal to or greater than 768px', 'tjcore'),
@@ -655,7 +655,7 @@ class TP_Blog_Post extends Widget_Base {
             ]
         );
         $this->add_control(
-            'tp_post___for_tablet',
+            'tj_post___for_tablet',
             [
                 'label' => esc_html__('Columns for Tablet', 'tjcore'),
                 'description' => esc_html__('Screen width equal to or greater than 576px', 'tjcore'),
@@ -697,16 +697,16 @@ class TP_Blog_Post extends Widget_Base {
 
         $this->end_controls_section();
 
-        // tp_post__slider_columns_section
+        // tj_post__slider_columns_section
         $this->start_controls_section(
-            'tp_post__slider_columns_section',
+            'tj_post__slider_columns_section',
             [
                 'label' => esc_html__('Blog - Columns for Carousel', 'tjcore'),
             ]
         );
 
         $this->add_control(
-            'tp_post__slider_for_xl_desktop',
+            'tj_post__slider_for_xl_desktop',
             [
                 'label' => esc_html__('Columns for Extra Large Desktop', 'tjcore'),
                 'description' => esc_html__('Screen width equal to or greater than 1920px', 'tjcore'),
@@ -731,7 +731,7 @@ class TP_Blog_Post extends Widget_Base {
             ]
         );
         $this->add_control(
-            'tp_post__slider_for_desktop',
+            'tj_post__slider_for_desktop',
             [
                 'label' => esc_html__('Columns for Desktop', 'tjcore'),
                 'description' => esc_html__('Screen width equal to or greater than 1200px', 'tjcore'),
@@ -756,7 +756,7 @@ class TP_Blog_Post extends Widget_Base {
             ]
         );
         $this->add_control(
-            'tp_post__slider_for_laptop',
+            'tj_post__slider_for_laptop',
             [
                 'label' => esc_html__('Columns for Laptop', 'tjcore'),
                 'description' => esc_html__('Screen width equal to or greater than 992px', 'tjcore'),
@@ -781,7 +781,7 @@ class TP_Blog_Post extends Widget_Base {
             ]
         );
         $this->add_control(
-            'tp_post__slider_for_tablet',
+            'tj_post__slider_for_tablet',
             [
                 'label' => esc_html__('Columns for Tablet', 'tjcore'),
                 'description' => esc_html__('Screen width equal to or greater than 768px', 'tjcore'),
@@ -806,7 +806,7 @@ class TP_Blog_Post extends Widget_Base {
             ]
         );
         $this->add_control(
-            'tp_post__slider_for_mobile',
+            'tj_post__slider_for_mobile',
             [
                 'label' => esc_html__('Columns for Mobile', 'tjcore'),
                 'description' => esc_html__('Screen width less than 767', 'tjcore'),
@@ -831,7 +831,7 @@ class TP_Blog_Post extends Widget_Base {
             ]
         );
         $this->add_control(
-            'tp_post__slider_for_xs_mobile',
+            'tj_post__slider_for_xs_mobile',
             [
                 'label' => esc_html__('Columns for Extra Small Mobile', 'tjcore'),
                 'description' => esc_html__('Screen width less than 575px', 'tjcore'),
@@ -1003,23 +1003,23 @@ class TP_Blog_Post extends Widget_Base {
         // var_dump($query);
 
         $carousel_args = [
-            'arrows' => ('yes' === $settings['tp_post__arrow']),
-            'dots' => ('yes' === $settings['tp_post__dots']),
-            'autoplay' => ('yes' === $settings['tp_post__autoplay']),
-            'autoplay_speed' => absint($settings['tp_post__autoplay_speed']),
-            'infinite' => ('yes' === $settings['tp_post__infinite']),
-            'for_xl_desktop' => absint($settings['tp_post__slider_for_xl_desktop']),
-            'slidesToShow' => absint($settings['tp_post__slider_for_desktop']),
-            'for_laptop' => absint($settings['tp_post__slider_for_laptop']),
-            'for_tablet' => absint($settings['tp_post__slider_for_tablet']),
-            'for_mobile' => absint($settings['tp_post__slider_for_mobile']),
-            'for_xs_mobile' => absint($settings['tp_post__slider_for_xs_mobile']),
+            'arrows' => ('yes' === $settings['tj_post__arrow']),
+            'dots' => ('yes' === $settings['tj_post__dots']),
+            'autoplay' => ('yes' === $settings['tj_post__autoplay']),
+            'autoplay_speed' => absint($settings['tj_post__autoplay_speed']),
+            'infinite' => ('yes' === $settings['tj_post__infinite']),
+            'for_xl_desktop' => absint($settings['tj_post__slider_for_xl_desktop']),
+            'slidesToShow' => absint($settings['tj_post__slider_for_desktop']),
+            'for_laptop' => absint($settings['tj_post__slider_for_laptop']),
+            'for_tablet' => absint($settings['tj_post__slider_for_tablet']),
+            'for_mobile' => absint($settings['tj_post__slider_for_mobile']),
+            'for_xs_mobile' => absint($settings['tj_post__slider_for_xs_mobile']),
         ];
         $this->add_render_attribute('tj-carousel-post-data', 'data-settings', wp_json_encode($carousel_args));
 
 ?>
 
-        <?php if ($settings['tp_design_style']  == 'layout-2') :
+        <?php if ($settings['tj_design_style']  == 'layout-2') :
             $this->add_render_attribute('title_args', 'class', 'sectionTitle__big tj-el-title');
         ?>
 
@@ -1040,12 +1040,12 @@ class TP_Blog_Post extends Widget_Base {
                                 <a href="<?php echo esc_url(get_category_link($categories[0]->term_id)); ?>"><?php echo esc_html($categories[0]->name); ?></a>
                             </div>
                             <h3 class="blog__title">
-                                <a href="<?php the_permalink(); ?>"><?php echo wp_trim_words(get_the_title(), $settings['tp_blog_title_word'], ''); ?></a>
+                                <a href="<?php the_permalink(); ?>"><?php echo wp_trim_words(get_the_title(), $settings['tj_blog_title_word'], ''); ?></a>
                             </h3>
-                            <?php if (!empty($settings['tp_post_content'])) :
-                                $tp_post_content_limit = (!empty($settings['tp_post_content_limit'])) ? $settings['tp_post_content_limit'] : '';
+                            <?php if (!empty($settings['tj_post_content'])) :
+                                $tj_post_content_limit = (!empty($settings['tj_post_content_limit'])) ? $settings['tj_post_content_limit'] : '';
                             ?>
-                                <p class="blogBlock__text"><?php print wp_trim_words(get_the_excerpt(get_the_ID()), $tp_post_content_limit, ''); ?></p>
+                                <p class="blogBlock__text"><?php print wp_trim_words(get_the_excerpt(get_the_ID()), $tj_post_content_limit, ''); ?></p>
                             <?php endif; ?>
                             <div class="blog__meta">
                                 <ul>
@@ -1088,12 +1088,12 @@ class TP_Blog_Post extends Widget_Base {
                                 <a href="<?php echo esc_url(get_category_link($categories[0]->term_id)); ?>"><?php echo esc_html($categories[0]->name); ?></a>
                             </div>
                             <h3 class="blog__title-float">
-                                <a href="<?php the_permalink(); ?>"><?php echo wp_trim_words(get_the_title(), $settings['tp_blog_title_word'], ''); ?></a>
+                                <a href="<?php the_permalink(); ?>"><?php echo wp_trim_words(get_the_title(), $settings['tj_blog_title_word'], ''); ?></a>
                             </h3>
-                            <?php if (!empty($settings['tp_post_content'])) :
-                                $tp_post_content_limit = (!empty($settings['tp_post_content_limit'])) ? $settings['tp_post_content_limit'] : '';
+                            <?php if (!empty($settings['tj_post_content'])) :
+                                $tj_post_content_limit = (!empty($settings['tj_post_content_limit'])) ? $settings['tj_post_content_limit'] : '';
                             ?>
-                                <p class="blogBlock__text"><?php print wp_trim_words(get_the_excerpt(get_the_ID()), $tp_post_content_limit, ''); ?></p>
+                                <p class="blogBlock__text"><?php print wp_trim_words(get_the_excerpt(get_the_ID()), $tj_post_content_limit, ''); ?></p>
                             <?php endif; ?>
                             <div class="blog__meta-float">
                                 <ul>
@@ -1124,4 +1124,4 @@ class TP_Blog_Post extends Widget_Base {
     }
 }
 
-$widgets_manager->register(new TP_Blog_Post());
+$widgets_manager->register(new TJ_Blog_Post());

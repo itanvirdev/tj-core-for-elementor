@@ -36,7 +36,7 @@ class TJ_Portfolio_Info_Widget  extends WP_Widget {
 
 
 		<div class="sidebar_info_widget">
-			<div class="tp_sidebar_info">
+			<div class="tj_sidebar_info">
 				<ul class="sidebar__contact__info">
 
 					<?php
@@ -77,7 +77,7 @@ class TJ_Portfolio_Info_Widget  extends WP_Widget {
 	 */
 	public function form($instance) {
 		$title  = isset($instance['title']) ? $instance['title'] : '';
-		$tp_form_shortcode  = isset($instance['tp_form_shortcode']) ? $instance['tp_form_shortcode'] : '';
+		$tj_form_shortcode  = isset($instance['tj_form_shortcode']) ? $instance['tj_form_shortcode'] : '';
 	?>
 		<p>
 			<label for="title"><?php esc_html_e('Title:', 'tjcore'); ?></label>

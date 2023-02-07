@@ -16,7 +16,7 @@ if (!defined('ABSPATH')) exit; // Exit if accessed directly
  *
  * @since 1.0.0
  */
-class TP_Tutor_Course extends Widget_Base {
+class TJ_Tutor_Course extends Widget_Base {
 
     /**
      * Retrieve the widget name.
@@ -101,16 +101,16 @@ class TP_Tutor_Course extends Widget_Base {
      */
     protected function register_controls() {
 
-        // tp_section_title
+        // tj_section_title
         $this->start_controls_section(
-            'tp_section_title',
+            'tj_section_title',
             [
                 'label' => esc_html__('Title & Content', 'tjcore'),
             ]
         );
 
         $this->add_control(
-            'tp_section_title_show',
+            'tj_section_title_show',
             [
                 'label' => esc_html__('Section Title & Content', 'tjcore'),
                 'type' => Controls_Manager::SWITCHER,
@@ -121,10 +121,10 @@ class TP_Tutor_Course extends Widget_Base {
             ]
         );
         $this->add_control(
-            'tp_sub_title',
+            'tj_sub_title',
             [
                 'label' => esc_html__('Sub Title', 'tjcore'),
-                'description' => tp_get_allowed_html_desc('basic'),
+                'description' => tj_get_allowed_html_desc('basic'),
                 'type' => Controls_Manager::TEXT,
                 'default' => esc_html__('TJ Sub Title', 'tjcore'),
                 'placeholder' => esc_html__('Type Sub Heading Text', 'tjcore'),
@@ -132,10 +132,10 @@ class TP_Tutor_Course extends Widget_Base {
             ]
         );
         $this->add_control(
-            'tp_title',
+            'tj_title',
             [
                 'label' => esc_html__('Title', 'tjcore'),
-                'description' => tp_get_allowed_html_desc('intermediate'),
+                'description' => tj_get_allowed_html_desc('intermediate'),
                 'type' => Controls_Manager::TEXT,
                 'default' => esc_html__('TJ Title Here', 'tjcore'),
                 'placeholder' => esc_html__('Type Heading Text', 'tjcore'),
@@ -144,10 +144,10 @@ class TP_Tutor_Course extends Widget_Base {
         );
 
         $this->add_control(
-            'tp_desctiption',
+            'tj_desctiption',
             [
                 'label' => esc_html__('Description', 'tjcore'),
-                'description' => tp_get_allowed_html_desc('intermediate'),
+                'description' => tj_get_allowed_html_desc('intermediate'),
                 'type' => Controls_Manager::TEXTAREA,
                 'default' => esc_html__('TJ section description here', 'tjcore'),
                 'placeholder' => esc_html__('Type section description here', 'tjcore'),
@@ -155,7 +155,7 @@ class TP_Tutor_Course extends Widget_Base {
         );
 
         $this->add_control(
-            'tp_title_tag',
+            'tj_title_tag',
             [
                 'label' => esc_html__('Title HTML Tag', 'tjcore'),
                 'type' => Controls_Manager::CHOOSE,
@@ -191,7 +191,7 @@ class TP_Tutor_Course extends Widget_Base {
         );
 
         $this->add_responsive_control(
-            'tp_align',
+            'tj_align',
             [
                 'label' => esc_html__('Alignment', 'tjcore'),
                 'type' => Controls_Manager::CHOOSE,
@@ -221,7 +221,7 @@ class TP_Tutor_Course extends Widget_Base {
 
 
         $this->start_controls_section(
-            'tp_tutor_query',
+            'tj_tutor_query',
             [
                 'label' => esc_html__('Tutor Query', 'tjcore'),
             ]
@@ -247,7 +247,7 @@ class TP_Tutor_Course extends Widget_Base {
                 'description' => esc_html__('Select a category to include or leave blank for all.', 'tjcore'),
                 'type' => Controls_Manager::SELECT2,
                 'multiple' => true,
-                'options' => tp_get_categories($taxonomy),
+                'options' => tj_get_categories($taxonomy),
                 'label_block' => true,
             ]
         );
@@ -259,7 +259,7 @@ class TP_Tutor_Course extends Widget_Base {
                 'description' => esc_html__('Select a category to exclude', 'tjcore'),
                 'type' => Controls_Manager::SELECT2,
                 'multiple' => true,
-                'options' => tp_get_categories($taxonomy),
+                'options' => tj_get_categories($taxonomy),
                 'label_block' => true
             ]
         );
@@ -269,7 +269,7 @@ class TP_Tutor_Course extends Widget_Base {
             [
                 'label' => esc_html__('Exclude Item', 'tjcore'),
                 'type' => Controls_Manager::SELECT2,
-                'options' => tp_get_all_types_post($post_type),
+                'options' => tj_get_all_types_post($post_type),
                 'multiple' => true,
                 'label_block' => true
             ]
@@ -363,13 +363,13 @@ class TP_Tutor_Course extends Widget_Base {
 
         // layout Panel
         $this->start_controls_section(
-            'tp_campaign',
+            'tj_campaign',
             [
                 'label' => esc_html__('Tutor - Layout', 'tjcore'),
             ]
         );
         $this->add_control(
-            'tp_design_style',
+            'tj_design_style',
             [
                 'label' => esc_html__('Select Layout', 'tjcore'),
                 'type' => Controls_Manager::SELECT,
@@ -383,7 +383,7 @@ class TP_Tutor_Course extends Widget_Base {
             ]
         );
         $this->add_control(
-            'tp_tutor_height',
+            'tj_tutor_height',
             [
                 'label' => esc_html__('Height', 'tjcore'),
                 'type' => Controls_Manager::SLIDER,
@@ -405,7 +405,7 @@ class TP_Tutor_Course extends Widget_Base {
             ]
         );
         $this->add_control(
-            'tp_tutor_dots',
+            'tj_tutor_dots',
             [
                 'label' => esc_html__('Dots?', 'tjcore'),
                 'type' => Controls_Manager::SWITCHER,
@@ -414,12 +414,12 @@ class TP_Tutor_Course extends Widget_Base {
                 'return_value' => 'yes',
                 'default' => 'yes',
                 'condition' => array(
-                    'tp_design_style' => 'layout-2',
+                    'tj_design_style' => 'layout-2',
                 ),
             ]
         );
         $this->add_control(
-            'tp_tutor_arrow',
+            'tj_tutor_arrow',
             [
                 'label' => esc_html__('Arrow Icons?', 'tjcore'),
                 'type' => Controls_Manager::SWITCHER,
@@ -428,12 +428,12 @@ class TP_Tutor_Course extends Widget_Base {
                 'return_value' => 'yes',
                 'default' => 'yes',
                 'condition' => array(
-                    'tp_design_style' => 'layout-2',
+                    'tj_design_style' => 'layout-2',
                 ),
             ]
         );
         $this->add_control(
-            'tp_tutor_infinite',
+            'tj_tutor_infinite',
             [
                 'label' => esc_html__('Infinite?', 'tjcore'),
                 'type' => Controls_Manager::SWITCHER,
@@ -442,12 +442,12 @@ class TP_Tutor_Course extends Widget_Base {
                 'return_value' => 'yes',
                 'default' => 'yes',
                 'condition' => array(
-                    'tp_design_style' => 'layout-2',
+                    'tj_design_style' => 'layout-2',
                 ),
             ]
         );
         $this->add_control(
-            'tp_tutor_autoplay',
+            'tj_tutor_autoplay',
             [
                 'label' => esc_html__('Autoplay?', 'tjcore'),
                 'type' => Controls_Manager::SWITCHER,
@@ -456,12 +456,12 @@ class TP_Tutor_Course extends Widget_Base {
                 'return_value' => 'yes',
                 'default' => 'yes',
                 'condition' => array(
-                    'tp_design_style' => 'layout-2',
+                    'tj_design_style' => 'layout-2',
                 ),
             ]
         );
         $this->add_control(
-            'tp_tutor_autoplay_speed',
+            'tj_tutor_autoplay_speed',
             [
                 'label' => esc_html__('Autoplay Speed', 'tjcore'),
                 'type' => Controls_Manager::TEXT,
@@ -469,13 +469,13 @@ class TP_Tutor_Course extends Widget_Base {
                 'title' => esc_html__('Enter autoplay speed', 'tjcore'),
                 'label_block' => true,
                 'condition' => array(
-                    'tp_tutor_autoplay' => 'yes',
-                    'tp_design_style' => 'layout-2',
+                    'tj_tutor_autoplay' => 'yes',
+                    'tj_design_style' => 'layout-2',
                 ),
             ]
         );
         $this->add_control(
-            'tp_tutor_filter',
+            'tj_tutor_filter',
             [
                 'label' => esc_html__('Filter?', 'tjcore'),
                 'type' => Controls_Manager::SWITCHER,
@@ -484,7 +484,7 @@ class TP_Tutor_Course extends Widget_Base {
                 'return_value' => 'yes',
                 'default' => 'yes',
                 'condition' => array(
-                    'tp_design_style' => 'layout-3',
+                    'tj_design_style' => 'layout-3',
                 ),
             ]
         );
@@ -497,7 +497,7 @@ class TP_Tutor_Course extends Widget_Base {
             ]
         );
         $this->add_control(
-            'tp_tutor_pagination',
+            'tj_tutor_pagination',
             [
                 'label' => esc_html__('Pagination', 'tjcore'),
                 'type' => Controls_Manager::SWITCHER,
@@ -506,13 +506,13 @@ class TP_Tutor_Course extends Widget_Base {
                 'return_value' => 'yes',
                 'default' => 'no',
                 // 'condition' => array(
-                //     'tp_design_style' => 'layout-1',
+                //     'tj_design_style' => 'layout-1',
                 // ),
             ]
         );
 
         $this->add_control(
-            'tp_btn_button_show',
+            'tj_btn_button_show',
             [
                 'label' => esc_html__('Show Button', 'tjcore'),
                 'type' => Controls_Manager::SWITCHER,
@@ -521,13 +521,13 @@ class TP_Tutor_Course extends Widget_Base {
                 'return_value' => 'yes',
                 'default' => 'yes',
                 'condition' => array(
-                    'tp_design_style' => 'layout-3',
+                    'tj_design_style' => 'layout-3',
                 ),
             ]
         );
 
         $this->add_control(
-            'tp_btn_text',
+            'tj_btn_text',
             [
                 'label' => esc_html__('Button Text', 'tjcore'),
                 'type' => Controls_Manager::TEXT,
@@ -535,14 +535,14 @@ class TP_Tutor_Course extends Widget_Base {
                 'title' => esc_html__('Enter button text', 'tjcore'),
                 'label_block' => true,
                 'condition' => [
-                    'tp_btn_button_show' => 'yes'
+                    'tj_btn_button_show' => 'yes'
                 ],
             ]
         );
 
 
         $this->add_control(
-            'tp_image_show',
+            'tj_image_show',
             [
                 'label' => esc_html__('Show Image', 'tjcore'),
                 'type' => Controls_Manager::SWITCHER,
@@ -554,7 +554,7 @@ class TP_Tutor_Course extends Widget_Base {
         );
 
         $this->add_control(
-            'tp_prcie_show',
+            'tj_prcie_show',
             [
                 'label' => esc_html__('Show Price', 'tjcore'),
                 'type' => Controls_Manager::SWITCHER,
@@ -566,7 +566,7 @@ class TP_Tutor_Course extends Widget_Base {
         );
 
         $this->add_control(
-            'tp_cat_show',
+            'tj_cat_show',
             [
                 'label' => esc_html__('Show Category', 'tjcore'),
                 'type' => Controls_Manager::SWITCHER,
@@ -578,7 +578,7 @@ class TP_Tutor_Course extends Widget_Base {
         );
 
         $this->add_control(
-            'tp_author_show',
+            'tj_author_show',
             [
                 'label' => esc_html__('Show Author', 'tjcore'),
                 'type' => Controls_Manager::SWITCHER,
@@ -590,7 +590,7 @@ class TP_Tutor_Course extends Widget_Base {
         );
 
         $this->add_control(
-            'tp_lessons_show',
+            'tj_lessons_show',
             [
                 'label' => esc_html__('Show Lessons', 'tjcore'),
                 'type' => Controls_Manager::SWITCHER,
@@ -602,7 +602,7 @@ class TP_Tutor_Course extends Widget_Base {
         );
 
         $this->add_control(
-            'tp_duration_show',
+            'tj_duration_show',
             [
                 'label' => esc_html__('Show Duration', 'tjcore'),
                 'type' => Controls_Manager::SWITCHER,
@@ -614,7 +614,7 @@ class TP_Tutor_Course extends Widget_Base {
         );
 
         $this->add_control(
-            'tp_rating_show',
+            'tj_rating_show',
             [
                 'label' => esc_html__('Show Rating', 'tjcore'),
                 'type' => Controls_Manager::SWITCHER,
@@ -626,7 +626,7 @@ class TP_Tutor_Course extends Widget_Base {
         );
 
         $this->add_control(
-            'tp_students_show',
+            'tj_students_show',
             [
                 'label' => esc_html__('Show Students', 'tjcore'),
                 'type' => Controls_Manager::SWITCHER,
@@ -663,16 +663,16 @@ class TP_Tutor_Course extends Widget_Base {
 
         $this->end_controls_section();
 
-        // tp_tutor_columns_section
+        // tj_tutor_columns_section
         $this->start_controls_section(
-            'tp_tutor_columns_section',
+            'tj_tutor_columns_section',
             [
                 'label' => esc_html__('Tutor - Columns', 'tjcore'),
             ]
         );
 
         $this->add_control(
-            'tp_tutor__for_desktop',
+            'tj_tutor__for_desktop',
             [
                 'label' => esc_html__('Columns for Desktop', 'tjcore'),
                 'description' => esc_html__('Screen width equal to or greater than 992px', 'tjcore'),
@@ -691,7 +691,7 @@ class TP_Tutor_Course extends Widget_Base {
             ]
         );
         $this->add_control(
-            'tp_tutor__for_laptop',
+            'tj_tutor__for_laptop',
             [
                 'label' => esc_html__('Columns for Laptop', 'tjcore'),
                 'description' => esc_html__('Screen width equal to or greater than 768px', 'tjcore'),
@@ -710,7 +710,7 @@ class TP_Tutor_Course extends Widget_Base {
             ]
         );
         $this->add_control(
-            'tp_tutor__for_tablet',
+            'tj_tutor__for_tablet',
             [
                 'label' => esc_html__('Columns for Tablet', 'tjcore'),
                 'description' => esc_html__('Screen width equal to or greater than 576px', 'tjcore'),
@@ -752,16 +752,16 @@ class TP_Tutor_Course extends Widget_Base {
 
         $this->end_controls_section();
 
-        // tp_tutor_slider_columns_section
+        // tj_tutor_slider_columns_section
         $this->start_controls_section(
-            'tp_tutor_slider_columns_section',
+            'tj_tutor_slider_columns_section',
             [
                 'label' => esc_html__('Tutor - Columns for Carousel', 'tjcore'),
             ]
         );
 
         $this->add_control(
-            'tp_tutor_slider_for_xl_desktop',
+            'tj_tutor_slider_for_xl_desktop',
             [
                 'label' => esc_html__('Columns for Extra Large Desktop', 'tjcore'),
                 'description' => esc_html__('Screen width equal to or greater than 1920px', 'tjcore'),
@@ -786,7 +786,7 @@ class TP_Tutor_Course extends Widget_Base {
             ]
         );
         $this->add_control(
-            'tp_tutor_slider_for_desktop',
+            'tj_tutor_slider_for_desktop',
             [
                 'label' => esc_html__('Columns for Desktop', 'tjcore'),
                 'description' => esc_html__('Screen width equal to or greater than 1200px', 'tjcore'),
@@ -811,7 +811,7 @@ class TP_Tutor_Course extends Widget_Base {
             ]
         );
         $this->add_control(
-            'tp_tutor_slider_for_laptop',
+            'tj_tutor_slider_for_laptop',
             [
                 'label' => esc_html__('Columns for Laptop', 'tjcore'),
                 'description' => esc_html__('Screen width equal to or greater than 992px', 'tjcore'),
@@ -836,7 +836,7 @@ class TP_Tutor_Course extends Widget_Base {
             ]
         );
         $this->add_control(
-            'tp_tutor_slider_for_tablet',
+            'tj_tutor_slider_for_tablet',
             [
                 'label' => esc_html__('Columns for Tablet', 'tjcore'),
                 'description' => esc_html__('Screen width equal to or greater than 768px', 'tjcore'),
@@ -861,7 +861,7 @@ class TP_Tutor_Course extends Widget_Base {
             ]
         );
         $this->add_control(
-            'tp_tutor_slider_for_mobile',
+            'tj_tutor_slider_for_mobile',
             [
                 'label' => esc_html__('Columns for Mobile', 'tjcore'),
                 'description' => esc_html__('Screen width less than 767', 'tjcore'),
@@ -886,7 +886,7 @@ class TP_Tutor_Course extends Widget_Base {
             ]
         );
         $this->add_control(
-            'tp_tutor_slider_for_xs_mobile',
+            'tj_tutor_slider_for_xs_mobile',
             [
                 'label' => esc_html__('Columns for Extra Small Mobile', 'tjcore'),
                 'description' => esc_html__('Screen width less than 575px', 'tjcore'),
@@ -1058,23 +1058,23 @@ class TP_Tutor_Course extends Widget_Base {
         // var_dump($query);
 
         $carousel_args = [
-            'arrows' => ('yes' === $settings['tp_tutor_arrow']),
-            'dots' => ('yes' === $settings['tp_tutor_dots']),
-            'autoplay' => ('yes' === $settings['tp_tutor_autoplay']),
-            'autoplay_speed' => absint($settings['tp_tutor_autoplay_speed']),
-            'infinite' => ('yes' === $settings['tp_tutor_infinite']),
-            'for_xl_desktop' => absint($settings['tp_tutor_slider_for_xl_desktop']),
-            'slidesToShow' => absint($settings['tp_tutor_slider_for_desktop']),
-            'for_laptop' => absint($settings['tp_tutor_slider_for_laptop']),
-            'for_tablet' => absint($settings['tp_tutor_slider_for_tablet']),
-            'for_mobile' => absint($settings['tp_tutor_slider_for_mobile']),
-            'for_xs_mobile' => absint($settings['tp_tutor_slider_for_xs_mobile']),
+            'arrows' => ('yes' === $settings['tj_tutor_arrow']),
+            'dots' => ('yes' === $settings['tj_tutor_dots']),
+            'autoplay' => ('yes' === $settings['tj_tutor_autoplay']),
+            'autoplay_speed' => absint($settings['tj_tutor_autoplay_speed']),
+            'infinite' => ('yes' === $settings['tj_tutor_infinite']),
+            'for_xl_desktop' => absint($settings['tj_tutor_slider_for_xl_desktop']),
+            'slidesToShow' => absint($settings['tj_tutor_slider_for_desktop']),
+            'for_laptop' => absint($settings['tj_tutor_slider_for_laptop']),
+            'for_tablet' => absint($settings['tj_tutor_slider_for_tablet']),
+            'for_mobile' => absint($settings['tj_tutor_slider_for_mobile']),
+            'for_xs_mobile' => absint($settings['tj_tutor_slider_for_xs_mobile']),
         ];
         $this->add_render_attribute('tj-carousel-campaign-data', 'data-settings', wp_json_encode($carousel_args));
 
 ?>
 
-        <?php if ($settings['tp_design_style']  == 'layout-2') : ?>
+        <?php if ($settings['tj_design_style']  == 'layout-2') : ?>
             <section class="course__area">
                 <div class="container">
                     <div class="row">
@@ -1091,7 +1091,7 @@ class TP_Tutor_Course extends Widget_Base {
                         ?>
                             <div class="col-xxl-4 col-xl-4 col-lg-4 col-md-6">
                                 <div class="course__item-2 transition-3 white-bg mb-30 fix">
-                                    <?php if ('yes' === $settings['tp_image_show']) : ?>
+                                    <?php if ('yes' === $settings['tj_image_show']) : ?>
                                         <div class="course__thumb-2 p-relative w-img fix">
                                             <a href="<?php print get_the_permalink() ?>">
                                                 <?php echo get_the_post_thumbnail(get_the_ID(), $settings['thumbnail_size']); ?>
@@ -1131,7 +1131,7 @@ class TP_Tutor_Course extends Widget_Base {
 
                                     <div class="course__content-2">
                                         <div class="course__top-2 d-flex align-items-center justify-content-between">
-                                            <?php if ('yes' === $settings['tp_cat_show']) : ?>
+                                            <?php if ('yes' === $settings['tj_cat_show']) : ?>
                                                 <?php if (!empty($terms)) : ?>
                                                     <div class="course__tag-2">
                                                         <?php foreach ($terms as $term) : ?>
@@ -1141,7 +1141,7 @@ class TP_Tutor_Course extends Widget_Base {
                                                 <?php endif; ?>
                                             <?php endif; ?>
 
-                                            <?php if ('yes' === $settings['tp_prcie_show']) : ?>
+                                            <?php if ('yes' === $settings['tj_prcie_show']) : ?>
                                                 <div class="course__price-2">
                                                     <span>
                                                         <?php
@@ -1176,7 +1176,7 @@ class TP_Tutor_Course extends Widget_Base {
                                         <div class="course__bottom-2 d-flex align-items-center justify-content-between">
                                             <div class="course__action">
                                                 <ul>
-                                                    <?php if ('yes' === $settings['tp_students_show']) : ?>
+                                                    <?php if ('yes' === $settings['tj_students_show']) : ?>
                                                         <li>
                                                             <div class="course__action-item d-flex align-items-center">
                                                                 <div class="course__action-icon mr-5">
@@ -1194,7 +1194,7 @@ class TP_Tutor_Course extends Widget_Base {
                                                     <?php endif; ?>
 
 
-                                                    <?php if ('yes' === $settings['tp_lessons_show']) : ?>
+                                                    <?php if ('yes' === $settings['tj_lessons_show']) : ?>
                                                         <li>
                                                             <div class="course__action-item d-flex align-items-center">
                                                                 <div class="course__action-icon mr-5">
@@ -1209,7 +1209,7 @@ class TP_Tutor_Course extends Widget_Base {
                                                         </li>
                                                     <?php endif; ?>
 
-                                                    <?php if ('yes' === $settings['tp_rating_show']) : ?>
+                                                    <?php if ('yes' === $settings['tj_rating_show']) : ?>
                                                         <li>
                                                             <div class="course__action-item d-flex align-items-center">
                                                                 <div class="course__action-icon mr-5">
@@ -1233,7 +1233,7 @@ class TP_Tutor_Course extends Widget_Base {
                                                     <?php endif; ?>
                                                 </ul>
                                             </div>
-                                            <?php if ('yes' === $settings['tp_author_show']) : ?>
+                                            <?php if ('yes' === $settings['tj_author_show']) : ?>
                                                 <div class="course__tutor-2">
                                                     <a href="#">
                                                         <?php echo get_avatar(get_the_author_meta('ID'), 50) ?>
@@ -1250,7 +1250,7 @@ class TP_Tutor_Course extends Widget_Base {
                         wp_reset_query(); ?>
                     </div>
 
-                    <?php if ($settings['tp_tutor_pagination'] == 'yes' && '-1' != $settings['posts_per_page']) : ?>
+                    <?php if ($settings['tj_tutor_pagination'] == 'yes' && '-1' != $settings['posts_per_page']) : ?>
                         <div class="row">
                             <div class="col-lg-12">
                                 <div class="basic-pagination">
@@ -1284,7 +1284,7 @@ class TP_Tutor_Course extends Widget_Base {
                 </div>
             </section>
 
-        <?php elseif ($settings['tp_design_style'] === 'layout-3') : ?>
+        <?php elseif ($settings['tj_design_style'] === 'layout-3') : ?>
 
             <section class="course__area">
                 <div class="container">
@@ -1302,7 +1302,7 @@ class TP_Tutor_Course extends Widget_Base {
                             $course_students = tutor_utils()->count_enrolled_users_by_course();
                         ?>
                             <div class="col-xxl-4 col-xl-4 col-lg-6 col-md-6">
-                                <?php if ('yes' === $settings['tp_image_show']) : ?>
+                                <?php if ('yes' === $settings['tj_image_show']) : ?>
                                     <div class="course__thumb-2 p-relative w-img fix">
                                         <a href="<?php print get_the_permalink() ?>">
                                             <?php echo get_the_post_thumbnail(get_the_ID(), $settings['thumbnail_size']); ?>
@@ -1358,7 +1358,7 @@ class TP_Tutor_Course extends Widget_Base {
                                         <?php endif; ?>
 
                                         <div class="course__meta d-flex align-items-center justify-content-between">
-                                            <?php if ('yes' === $settings['tp_cat_show']) : ?>
+                                            <?php if ('yes' === $settings['tj_cat_show']) : ?>
                                                 <?php if (!empty($terms)) : ?>
                                                     <div class="course__tag-3">
                                                         <?php foreach ($terms as $term) : ?>
@@ -1389,7 +1389,7 @@ class TP_Tutor_Course extends Widget_Base {
                                         </div>
                                         <div class="course__sort-info">
                                             <ul>
-                                                <?php if ('yes' === $settings['tp_lessons_show']) : ?>
+                                                <?php if ('yes' === $settings['tj_lessons_show']) : ?>
                                                     <li>
                                                         <div class="course__lesson-3">
                                                             <a href="#">
@@ -1404,7 +1404,7 @@ class TP_Tutor_Course extends Widget_Base {
                                                     </li>
                                                 <?php endif; ?>
 
-                                                <?php if ('yes' === $settings['tp_rating_show']) : ?>
+                                                <?php if ('yes' === $settings['tj_rating_show']) : ?>
                                                     <li>
                                                         <div class="course__review-3">
                                                             <a href="#">
@@ -1426,7 +1426,7 @@ class TP_Tutor_Course extends Widget_Base {
                                                     </li>
                                                 <?php endif; ?>
 
-                                                <?php if ('yes' === $settings['tp_author_show']) : ?>
+                                                <?php if ('yes' === $settings['tj_author_show']) : ?>
                                                     <li>
                                                         <div class="course__tutor-3">
                                                             <a href="#">
@@ -1438,9 +1438,9 @@ class TP_Tutor_Course extends Widget_Base {
                                             </ul>
                                         </div>
 
-                                        <?php if ('yes' === $settings['tp_cat_show']) : ?>
+                                        <?php if ('yes' === $settings['tj_cat_show']) : ?>
                                             <div class="course__join">
-                                                <a href="<?php the_permalink(); ?>" class="tj-btn-5 tj-btn-10"><?php echo tp_kses($settings['tp_btn_text']); ?></a>
+                                                <a href="<?php the_permalink(); ?>" class="tj-btn-5 tj-btn-10"><?php echo tj_kses($settings['tj_btn_text']); ?></a>
                                             </div>
                                         <?php endif; ?>
 
@@ -1452,7 +1452,7 @@ class TP_Tutor_Course extends Widget_Base {
                         wp_reset_query(); ?>
                     </div>
 
-                    <?php if ($settings['tp_tutor_pagination'] == 'yes' && '-1' != $settings['posts_per_page']) : ?>
+                    <?php if ($settings['tj_tutor_pagination'] == 'yes' && '-1' != $settings['posts_per_page']) : ?>
                         <div class="row">
                             <div class="col-lg-12">
                                 <div class="basic-pagination">
@@ -1486,7 +1486,7 @@ class TP_Tutor_Course extends Widget_Base {
                 </div>
             </section>
 
-        <?php elseif ($settings['tp_design_style'] === 'layout-4') : ?>
+        <?php elseif ($settings['tj_design_style'] === 'layout-4') : ?>
             <section class="course__areaW">
                 <div class="container">
                     <div class="row">
@@ -1533,7 +1533,7 @@ class TP_Tutor_Course extends Widget_Base {
                         ?>
                             <div class="col-xxl-4 col-xl-4 col-lg-4 col-md-6 grid-item <?php echo $item_classes; ?>">
                                 <div class="course__item-2 transition-3 white-bg mb-30 fix">
-                                    <?php if ('yes' === $settings['tp_image_show']) : ?>
+                                    <?php if ('yes' === $settings['tj_image_show']) : ?>
                                         <div class="course__thumb-2 p-relative w-img fix">
                                             <a href="<?php print get_the_permalink() ?>">
                                                 <?php echo get_the_post_thumbnail(get_the_ID(), $settings['thumbnail_size']); ?>
@@ -1573,7 +1573,7 @@ class TP_Tutor_Course extends Widget_Base {
 
                                     <div class="course__content-2">
                                         <div class="course__top-2 d-flex align-items-center justify-content-between">
-                                            <?php if ('yes' === $settings['tp_cat_show']) : ?>
+                                            <?php if ('yes' === $settings['tj_cat_show']) : ?>
                                                 <?php if (!empty($terms)) : ?>
                                                     <div class="course__tag-2">
                                                         <?php foreach ($terms as $term) : ?>
@@ -1583,7 +1583,7 @@ class TP_Tutor_Course extends Widget_Base {
                                                 <?php endif; ?>
                                             <?php endif; ?>
 
-                                            <?php if ('yes' === $settings['tp_prcie_show']) : ?>
+                                            <?php if ('yes' === $settings['tj_prcie_show']) : ?>
                                                 <div class="course__price-2">
                                                     <span>
                                                         <?php
@@ -1618,7 +1618,7 @@ class TP_Tutor_Course extends Widget_Base {
                                         <div class="course__bottom-2 d-flex align-items-center justify-content-between">
                                             <div class="course__action">
                                                 <ul>
-                                                    <?php if ('yes' === $settings['tp_students_show']) : ?>
+                                                    <?php if ('yes' === $settings['tj_students_show']) : ?>
                                                         <li>
                                                             <div class="course__action-item d-flex align-items-center">
                                                                 <div class="course__action-icon mr-5">
@@ -1636,7 +1636,7 @@ class TP_Tutor_Course extends Widget_Base {
                                                     <?php endif; ?>
 
 
-                                                    <?php if ('yes' === $settings['tp_lessons_show']) : ?>
+                                                    <?php if ('yes' === $settings['tj_lessons_show']) : ?>
                                                         <li>
                                                             <div class="course__action-item d-flex align-items-center">
                                                                 <div class="course__action-icon mr-5">
@@ -1651,7 +1651,7 @@ class TP_Tutor_Course extends Widget_Base {
                                                         </li>
                                                     <?php endif; ?>
 
-                                                    <?php if ('yes' === $settings['tp_rating_show']) : ?>
+                                                    <?php if ('yes' === $settings['tj_rating_show']) : ?>
                                                         <li>
                                                             <div class="course__action-item d-flex align-items-center">
                                                                 <div class="course__action-icon mr-5">
@@ -1675,7 +1675,7 @@ class TP_Tutor_Course extends Widget_Base {
                                                     <?php endif; ?>
                                                 </ul>
                                             </div>
-                                            <?php if ('yes' === $settings['tp_author_show']) : ?>
+                                            <?php if ('yes' === $settings['tj_author_show']) : ?>
                                                 <div class="course__tutor-2">
                                                     <a href="#">
                                                         <?php echo get_avatar(get_the_author_meta('ID'), 50) ?>
@@ -1709,7 +1709,7 @@ class TP_Tutor_Course extends Widget_Base {
                         ?>
                             <div class="col-xxl-4 col-xl-4 col-lg-6 col-md-6">
                                 <div class="course__item white-bg transition-3 mb-30">
-                                    <?php if ('yes' === $settings['tp_image_show']) : ?>
+                                    <?php if ('yes' === $settings['tj_image_show']) : ?>
                                         <div class="course__thumb p-relative w-img fix">
                                             <a href="<?php print get_the_permalink() ?>">
                                                 <?php echo get_the_post_thumbnail(get_the_ID(), $settings['thumbnail_size']); ?>
@@ -1748,7 +1748,7 @@ class TP_Tutor_Course extends Widget_Base {
                                     <?php endif; ?>
 
                                     <div class="course__content p-relative">
-                                        <?php if ('yes' === $settings['tp_prcie_show']) : ?>
+                                        <?php if ('yes' === $settings['tj_prcie_show']) : ?>
                                             <div class="course__price">
                                                 <span>
                                                     <?php
@@ -1769,7 +1769,7 @@ class TP_Tutor_Course extends Widget_Base {
                                                 </span>
                                             </div>
                                         <?php endif; ?>
-                                        <?php if ('yes' === $settings['tp_cat_show']) : ?>
+                                        <?php if ('yes' === $settings['tj_cat_show']) : ?>
                                             <?php if (!empty($terms)) : ?>
                                                 <div class="course__tag">
                                                     <?php foreach ($terms as $term) : ?>
@@ -1790,12 +1790,12 @@ class TP_Tutor_Course extends Widget_Base {
                                         <?php endif; ?>
 
                                         <div class="course__bottom d-sm-flex align-items-center justify-content-between">
-                                            <?php if ('yes' === $settings['tp_author_show']) : ?>
+                                            <?php if ('yes' === $settings['tj_author_show']) : ?>
                                                 <div class="course__tutor">
                                                     <a href="#"><?php echo get_avatar(get_the_author_meta('ID'), 50) ?> <?php echo get_the_author_meta('display_name', get_the_author_meta('ID')); ?></a>
                                                 </div>
                                             <?php endif; ?>
-                                            <?php if ('yes' === $settings['tp_lessons_show']) : ?>
+                                            <?php if ('yes' === $settings['tj_lessons_show']) : ?>
                                                 <div class="course__lesson">
                                                     <a href="<?php print get_the_permalink() ?>"><svg width="14" height="16" viewBox="0 0 14 16" fill="none" xmlns="http://www.w3.org/2000/svg">
                                                             <path d="M1 12.2V4.49999C1 1.7 1.70588 1 4.52941 1H9.47059C12.2941 1 13 1.7 13 4.49999V11.5C13 11.598 13 11.696 12.9929 11.794" stroke="#49535B" stroke-linecap="round" stroke-linejoin="round" />
@@ -1815,7 +1815,7 @@ class TP_Tutor_Course extends Widget_Base {
                         wp_reset_query(); ?>
                     </div>
 
-                    <?php if ($settings['tp_tutor_pagination'] == 'yes' && '-1' != $settings['posts_per_page']) : ?>
+                    <?php if ($settings['tj_tutor_pagination'] == 'yes' && '-1' != $settings['posts_per_page']) : ?>
                         <div class="row">
                             <div class="col-lg-12">
                                 <div class="basic-pagination">
@@ -1856,4 +1856,4 @@ class TP_Tutor_Course extends Widget_Base {
     }
 }
 
-$widgets_manager->register(new TP_Tutor_Course());
+$widgets_manager->register(new TJ_Tutor_Course());

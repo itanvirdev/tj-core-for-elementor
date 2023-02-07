@@ -24,7 +24,7 @@ if (!defined('ABSPATH')) exit; // Exit if accessed directly
  *
  * @since 1.0.0
  */
-class TP_Pricing extends Widget_Base {
+class TJ_Pricing extends Widget_Base {
 
     /**
      * Retrieve the widget name.
@@ -118,7 +118,7 @@ class TP_Pricing extends Widget_Base {
             ]
         );
         $this->add_control(
-            'tp_design_style',
+            'tj_design_style',
             [
                 'label' => esc_html__('Select Layout', 'tjcore'),
                 'type' => Controls_Manager::SELECT,
@@ -145,18 +145,18 @@ class TP_Pricing extends Widget_Base {
 
         $this->end_controls_section();
 
-        // _tp_icon
+        // _tj_icon
         $this->start_controls_section(
-            '_tp_icon',
+            '_tj_icon',
             [
                 'label' => esc_html__('Icon', 'tjcore'),
                 'condition' => [
-                    'tp_design_style' => 'layout-10'
+                    'tj_design_style' => 'layout-10'
                 ]
             ]
         );
         $this->add_control(
-            'tp_icon_type',
+            'tj_icon_type',
             [
                 'label' => esc_html__('Select Icon Type', 'tjcore'),
                 'type' => \Elementor\Controls_Manager::SELECT,
@@ -169,7 +169,7 @@ class TP_Pricing extends Widget_Base {
         );
 
         $this->add_control(
-            'tp_icon_image',
+            'tj_icon_image',
             [
                 'label' => esc_html__('Upload Image', 'tjcore'),
                 'type' => Controls_Manager::MEDIA,
@@ -177,27 +177,27 @@ class TP_Pricing extends Widget_Base {
                     'url' => Utils::get_placeholder_image_src(),
                 ],
                 'condition' => [
-                    'tp_icon_type' => 'image'
+                    'tj_icon_type' => 'image'
                 ]
 
             ]
         );
-        if (tp_is_elementor_version('<', '2.6.0')) {
+        if (tj_is_elementor_version('<', '2.6.0')) {
             $this->add_control(
-                'tp_icon',
+                'tj_icon',
                 [
                     'show_label' => false,
                     'type' => Controls_Manager::ICON,
                     'label_block' => true,
                     'default' => 'fa fa-star',
                     'condition' => [
-                        'tp_icon_type' => 'icon'
+                        'tj_icon_type' => 'icon'
                     ]
                 ]
             );
         } else {
             $this->add_control(
-                'tp_selected_icon',
+                'tj_selected_icon',
                 [
                     'show_label' => false,
                     'type' => Controls_Manager::ICONS,
@@ -207,7 +207,7 @@ class TP_Pricing extends Widget_Base {
                         'library' => 'solid',
                     ],
                     'condition' => [
-                        'tp_icon_type' => 'icon'
+                        'tj_icon_type' => 'icon'
                     ]
                 ]
             );
@@ -247,7 +247,7 @@ class TP_Pricing extends Widget_Base {
                     'active' => true
                 ],
                 'condition' => [
-                    'tp_design_style' => ['layout-10'],
+                    'tj_design_style' => ['layout-10'],
                 ]
             ]
         );
@@ -366,7 +366,7 @@ class TP_Pricing extends Widget_Base {
                     'active' => true
                 ],
                 'condition' => [
-                    'tp_design_style' => ['layout-10'],
+                    'tj_design_style' => ['layout-10'],
                 ],
             ]
         );
@@ -387,7 +387,7 @@ class TP_Pricing extends Widget_Base {
         $repeater = new Repeater();
 
         $repeater->add_control(
-            'tp_feature_unavailable',
+            'tj_feature_unavailable',
             [
                 'label' => __('Feature Hide ?', 'bdevs-element'),
                 'type' => Controls_Manager::SWITCHER,
@@ -411,9 +411,9 @@ class TP_Pricing extends Widget_Base {
             ]
         );
 
-        if (tp_is_elementor_version('<', '2.6.0')) {
+        if (tj_is_elementor_version('<', '2.6.0')) {
             $repeater->add_control(
-                'tp_features_icon',
+                'tj_features_icon',
                 [
                     'show_label' => true,
                     'type' => Controls_Manager::ICON,
@@ -423,7 +423,7 @@ class TP_Pricing extends Widget_Base {
             );
         } else {
             $repeater->add_control(
-                'tp_features_selected_icon',
+                'tj_features_selected_icon',
                 [
                     'show_label' => true,
                     'type' => Controls_Manager::ICONS,
@@ -528,16 +528,16 @@ class TP_Pricing extends Widget_Base {
 
         $this->end_controls_section();
 
-        // tp_btn_button_group
+        // tj_btn_button_group
         $this->start_controls_section(
-            'tp_btn_button_group',
+            'tj_btn_button_group',
             [
                 'label' => esc_html__('Button', 'tjcore'),
             ]
         );
 
         $this->add_control(
-            'tp_btn_button_show',
+            'tj_btn_button_show',
             [
                 'label' => esc_html__('Show Button', 'tjcore'),
                 'type' => Controls_Manager::SWITCHER,
@@ -549,7 +549,7 @@ class TP_Pricing extends Widget_Base {
         );
 
         $this->add_control(
-            'tp_btn_text',
+            'tj_btn_text',
             [
                 'label' => esc_html__('Button Text', 'tjcore'),
                 'type' => Controls_Manager::TEXT,
@@ -557,12 +557,12 @@ class TP_Pricing extends Widget_Base {
                 'title' => esc_html__('Enter button text', 'tjcore'),
                 'label_block' => true,
                 'condition' => [
-                    'tp_btn_button_show' => 'yes'
+                    'tj_btn_button_show' => 'yes'
                 ],
             ]
         );
         $this->add_control(
-            'tp_btn_link_type',
+            'tj_btn_link_type',
             [
                 'label' => esc_html__('Button Link Type', 'tjcore'),
                 'type' => Controls_Manager::SELECT,
@@ -573,13 +573,13 @@ class TP_Pricing extends Widget_Base {
                 'default' => '1',
                 'label_block' => true,
                 'condition' => [
-                    'tp_btn_button_show' => 'yes'
+                    'tj_btn_button_show' => 'yes'
                 ],
             ]
         );
 
         $this->add_control(
-            'tp_btn_link',
+            'tj_btn_link',
             [
                 'label' => esc_html__('Button link', 'tjcore'),
                 'type' => Controls_Manager::URL,
@@ -595,28 +595,28 @@ class TP_Pricing extends Widget_Base {
                     'custom_attributes' => '',
                 ],
                 'condition' => [
-                    'tp_btn_link_type' => '1',
-                    'tp_btn_button_show' => 'yes'
+                    'tj_btn_link_type' => '1',
+                    'tj_btn_button_show' => 'yes'
                 ],
                 'label_block' => true,
             ]
         );
         $this->add_control(
-            'tp_btn_page_link',
+            'tj_btn_page_link',
             [
                 'label' => esc_html__('Select Button Page', 'tjcore'),
                 'type' => Controls_Manager::SELECT2,
                 'label_block' => true,
-                'options' => tp_get_all_pages(),
+                'options' => tj_get_all_pages(),
                 'condition' => [
-                    'tp_btn_link_type' => '2',
-                    'tp_btn_button_show' => 'yes'
+                    'tj_btn_link_type' => '2',
+                    'tj_btn_button_show' => 'yes'
                 ]
             ]
         );
 
         $this->add_responsive_control(
-            'tp_align',
+            'tj_align',
             [
                 'label' => esc_html__('Alignment', 'tjcore'),
                 'type' => Controls_Manager::CHOOSE,
@@ -684,14 +684,14 @@ class TP_Pricing extends Widget_Base {
         $settings = $this->get_settings_for_display();
 
         // Link
-        if ('2' == $settings['tp_btn_link_type']) {
-            $this->add_render_attribute('tj-button-arg', 'href', get_permalink($settings['tp_btn_page_link']));
+        if ('2' == $settings['tj_btn_link_type']) {
+            $this->add_render_attribute('tj-button-arg', 'href', get_permalink($settings['tj_btn_page_link']));
             $this->add_render_attribute('tj-button-arg', 'target', '_self');
             $this->add_render_attribute('tj-button-arg', 'rel', 'nofollow');
             $this->add_render_attribute('tj-button-arg', 'class', 'tj-btn-9 tj-btn-12 w-100');
         } else {
-            if (!empty($settings['tp_btn_link']['url'])) {
-                $this->add_link_attributes('tj-button-arg', $settings['tp_btn_link']);
+            if (!empty($settings['tj_btn_link']['url'])) {
+                $this->add_link_attributes('tj-button-arg', $settings['tj_btn_link']);
                 $this->add_render_attribute('tj-button-arg', 'class', 'tj-btn-9 tj-btn-12 w-100');
             }
         }
@@ -716,43 +716,43 @@ class TP_Pricing extends Widget_Base {
             <?php endif; ?>
 
             <?php if ($settings['title']) : ?>
-                <h3 class="price__title"><?php echo tp_kses($settings['title']); ?></h3>
+                <h3 class="price__title"><?php echo tj_kses($settings['title']); ?></h3>
             <?php endif; ?>
 
             <div class="price__content">
                 <?php if (!empty($settings['features_switch'])) : ?>
                     <?php if ($settings['features_title']) : ?>
                         <h4>
-                            <b><u><?php echo tp_kses($settings['features_title']); ?></u></b>
+                            <b><u><?php echo tj_kses($settings['features_title']); ?></u></b>
                         </h4>
                     <?php endif; ?>
                     <div class="price__list mb-35">
                         <ul>
                             <?php foreach ($settings['features_list'] as $index => $item) :
-                                $availability = $item['tp_feature_unavailable'] ? 'unavailable' : 'price-available';
+                                $availability = $item['tj_feature_unavailable'] ? 'unavailable' : 'price-available';
                             ?>
-                                <li class="<?php echo esc_attr($availability); ?>"><?php echo tp_kses($item['text']); ?> <span><?php tp_render_icon($item, 'tp_features_icon', 'tp_features_selected_icon'); ?></span></li>
+                                <li class="<?php echo esc_attr($availability); ?>"><?php echo tj_kses($item['text']); ?> <span><?php tj_render_icon($item, 'tj_features_icon', 'tj_features_selected_icon'); ?></span></li>
                             <?php endforeach; ?>
                         </ul>
                     </div>
                 <?php endif; ?>
                 <?php if ($settings['description']) : ?>
-                    <p class="mb-15"><?php echo tp_kses($settings['description']); ?></p>
+                    <p class="mb-15"><?php echo tj_kses($settings['description']); ?></p>
                 <?php endif; ?>
 
                 <div class="price__amount mb-30">
                     <h4>
-                        <?php echo esc_html($currency); ?><?php echo tp_kses($settings['price']); ?>
+                        <?php echo esc_html($currency); ?><?php echo tj_kses($settings['price']); ?>
                         <?php if ($settings['period']) : ?>
-                            <span>/ <?php echo tp_kses($settings['period']); ?></span>
+                            <span>/ <?php echo tj_kses($settings['period']); ?></span>
                         <?php endif; ?>
                     </h4>
                 </div>
 
-                <?php if (!empty($settings['tp_btn_button_show'])) : ?>
+                <?php if (!empty($settings['tj_btn_button_show'])) : ?>
                     <div class="price__btn">
                         <a <?php echo $this->get_render_attribute_string('tj-button-arg'); ?>>
-                            <?php echo $settings['tp_btn_text']; ?>
+                            <?php echo $settings['tj_btn_text']; ?>
                         </a>
                     </div>
                 <?php endif; ?>
@@ -764,4 +764,4 @@ class TP_Pricing extends Widget_Base {
     }
 }
 
-$widgets_manager->register(new TP_Pricing());
+$widgets_manager->register(new TJ_Pricing());

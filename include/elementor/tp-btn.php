@@ -19,7 +19,7 @@ if (!defined('ABSPATH')) exit; // Exit if accessed directly
  *
  * @since 1.0.0
  */
-class TP_Btn extends Widget_Base {
+class TJ_Btn extends Widget_Base {
 
     /**
      * Retrieve the widget name.
@@ -106,13 +106,13 @@ class TP_Btn extends Widget_Base {
 
         // layout Panel
         $this->start_controls_section(
-            'tp_layout',
+            'tj_layout',
             [
                 'label' => esc_html__('Design Layout', 'tjcore'),
             ]
         );
         $this->add_control(
-            'tp_design_style',
+            'tj_design_style',
             [
                 'label' => esc_html__('Select Layout', 'tjcore'),
                 'type' => Controls_Manager::SELECT,
@@ -126,16 +126,16 @@ class TP_Btn extends Widget_Base {
 
         $this->end_controls_section();
 
-        // tp_btn_button_group
+        // tj_btn_button_group
         $this->start_controls_section(
-            'tp_btn_button_group',
+            'tj_btn_button_group',
             [
                 'label' => esc_html__('Button', 'tjcore'),
             ]
         );
 
         $this->add_control(
-            'tp_btn_button_show',
+            'tj_btn_button_show',
             [
                 'label' => esc_html__('Show Button', 'tjcore'),
                 'type' => Controls_Manager::SWITCHER,
@@ -147,7 +147,7 @@ class TP_Btn extends Widget_Base {
         );
 
         $this->add_control(
-            'tp_btn_text',
+            'tj_btn_text',
             [
                 'label' => esc_html__('Button Text', 'tjcore'),
                 'type' => Controls_Manager::TEXT,
@@ -155,12 +155,12 @@ class TP_Btn extends Widget_Base {
                 'title' => esc_html__('Enter button text', 'tjcore'),
                 'label_block' => true,
                 'condition' => [
-                    'tp_btn_button_show' => 'yes'
+                    'tj_btn_button_show' => 'yes'
                 ],
             ]
         );
         $this->add_control(
-            'tp_btn_link_type',
+            'tj_btn_link_type',
             [
                 'label' => esc_html__('Button Link Type', 'tjcore'),
                 'type' => Controls_Manager::SELECT,
@@ -171,13 +171,13 @@ class TP_Btn extends Widget_Base {
                 'default' => '1',
                 'label_block' => true,
                 'condition' => [
-                    'tp_btn_button_show' => 'yes'
+                    'tj_btn_button_show' => 'yes'
                 ],
             ]
         );
 
         $this->add_control(
-            'tp_btn_link',
+            'tj_btn_link',
             [
                 'label' => esc_html__('Button link', 'tjcore'),
                 'type' => Controls_Manager::URL,
@@ -193,28 +193,28 @@ class TP_Btn extends Widget_Base {
                     'custom_attributes' => '',
                 ],
                 'condition' => [
-                    'tp_btn_link_type' => '1',
-                    'tp_btn_button_show' => 'yes'
+                    'tj_btn_link_type' => '1',
+                    'tj_btn_button_show' => 'yes'
                 ],
                 'label_block' => true,
             ]
         );
         $this->add_control(
-            'tp_btn_page_link',
+            'tj_btn_page_link',
             [
                 'label' => esc_html__('Select Button Page', 'tjcore'),
                 'type' => Controls_Manager::SELECT2,
                 'label_block' => true,
-                'options' => tp_get_all_pages(),
+                'options' => tj_get_all_pages(),
                 'condition' => [
-                    'tp_btn_link_type' => '2',
-                    'tp_btn_button_show' => 'yes'
+                    'tj_btn_link_type' => '2',
+                    'tj_btn_button_show' => 'yes'
                 ]
             ]
         );
 
         $this->add_responsive_control(
-            'tp_align',
+            'tj_align',
             [
                 'label' => esc_html__('Alignment', 'tjcore'),
                 'type' => Controls_Manager::CHOOSE,
@@ -285,48 +285,48 @@ class TP_Btn extends Widget_Base {
 
 ?>
 
-        <?php if ($settings['tp_design_style']  == 'layout-2') :
+        <?php if ($settings['tj_design_style']  == 'layout-2') :
             // Link
-            if ('2' == $settings['tp_btn_link_type']) {
-                $this->add_render_attribute('tj-button-arg', 'href', get_permalink($settings['tp_btn_page_link']));
+            if ('2' == $settings['tj_btn_link_type']) {
+                $this->add_render_attribute('tj-button-arg', 'href', get_permalink($settings['tj_btn_page_link']));
                 $this->add_render_attribute('tj-button-arg', 'target', '_self');
                 $this->add_render_attribute('tj-button-arg', 'rel', 'nofollow');
                 $this->add_render_attribute('tj-button-arg', 'class', 'tj-btn tj-btn-border');
             } else {
-                if (!empty($settings['tp_btn_link']['url'])) {
-                    $this->add_link_attributes('tj-button-arg', $settings['tp_btn_link']);
+                if (!empty($settings['tj_btn_link']['url'])) {
+                    $this->add_link_attributes('tj-button-arg', $settings['tj_btn_link']);
                     $this->add_render_attribute('tj-button-arg', 'class', 'tj-btn tj-btn-border');
                 }
             }
         ?>
 
-            <?php if (!empty($settings['tp_btn_text'])) : ?>
+            <?php if (!empty($settings['tj_btn_text'])) : ?>
                 <div class="tj-custom-btn">
                     <a <?php echo $this->get_render_attribute_string('tj-button-arg'); ?>>
-                        <?php echo $settings['tp_btn_text']; ?>
+                        <?php echo $settings['tj_btn_text']; ?>
                     </a>
                 </div>
             <?php endif; ?>
 
         <?php else :
             // Link
-            if ('2' == $settings['tp_btn_link_type']) {
-                $this->add_render_attribute('tj-button-arg', 'href', get_permalink($settings['tp_btn_page_link']));
+            if ('2' == $settings['tj_btn_link_type']) {
+                $this->add_render_attribute('tj-button-arg', 'href', get_permalink($settings['tj_btn_page_link']));
                 $this->add_render_attribute('tj-button-arg', 'target', '_self');
                 $this->add_render_attribute('tj-button-arg', 'rel', 'nofollow');
                 $this->add_render_attribute('tj-button-arg', 'class', 'tj-btn');
             } else {
-                if (!empty($settings['tp_btn_link']['url'])) {
-                    $this->add_link_attributes('tj-button-arg', $settings['tp_btn_link']);
+                if (!empty($settings['tj_btn_link']['url'])) {
+                    $this->add_link_attributes('tj-button-arg', $settings['tj_btn_link']);
                     $this->add_render_attribute('tj-button-arg', 'class', 'tj-btn');
                 }
             }
         ?>
 
-            <?php if (!empty($settings['tp_btn_text'])) : ?>
+            <?php if (!empty($settings['tj_btn_text'])) : ?>
                 <div class="tj-custom-btn">
                     <a <?php echo $this->get_render_attribute_string('tj-button-arg'); ?>>
-                        <?php echo $settings['tp_btn_text']; ?>
+                        <?php echo $settings['tj_btn_text']; ?>
                     </a>
                 </div>
             <?php endif; ?>
@@ -337,4 +337,4 @@ class TP_Btn extends Widget_Base {
     }
 }
 
-$widgets_manager->register(new TP_Btn());
+$widgets_manager->register(new TJ_Btn());

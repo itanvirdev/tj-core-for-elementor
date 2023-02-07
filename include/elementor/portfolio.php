@@ -18,7 +18,7 @@ if (!defined('ABSPATH')) exit; // Exit if accessed directly
  *
  * @since 1.0.0
  */
-class TP_Portfolio extends Widget_Base {
+class TJ_Portfolio extends Widget_Base {
 
     /**
      * Retrieve the widget name.
@@ -105,13 +105,13 @@ class TP_Portfolio extends Widget_Base {
 
         // layout Panel
         $this->start_controls_section(
-            'tp_layout',
+            'tj_layout',
             [
                 'label' => esc_html__('Design Layout', 'tjcore'),
             ]
         );
         $this->add_control(
-            'tp_design_style',
+            'tj_design_style',
             [
                 'label' => esc_html__('Select Layout', 'tjcore'),
                 'type' => Controls_Manager::SELECT,
@@ -128,7 +128,7 @@ class TP_Portfolio extends Widget_Base {
 
         // Service group
         $this->start_controls_section(
-            'tp_portfolio',
+            'tj_portfolio',
             [
                 'label' => esc_html__('Portfolio List', 'tjcore'),
                 'description' => esc_html__('Control all the style settings from Style tab', 'tjcore'),
@@ -155,7 +155,7 @@ class TP_Portfolio extends Widget_Base {
         );
 
         $repeater->add_control(
-            'tp_portfolio_image',
+            'tj_portfolio_image',
             [
                 'label' => esc_html__('Upload Icon Image', 'tjcore'),
                 'type' => Controls_Manager::MEDIA,
@@ -165,20 +165,20 @@ class TP_Portfolio extends Widget_Base {
             ]
         );
         $repeater->add_control(
-            'tp_portfolio_title',
+            'tj_portfolio_title',
             [
                 'label' => esc_html__('Title', 'tjcore'),
-                'description' => tp_get_allowed_html_desc('basic'),
+                'description' => tj_get_allowed_html_desc('basic'),
                 'type' => \Elementor\Controls_Manager::TEXT,
                 'default' => esc_html__('Service Title', 'tjcore'),
                 'label_block' => true,
             ]
         );
         $repeater->add_control(
-            'tp_portfolio_description',
+            'tj_portfolio_description',
             [
                 'label' => esc_html__('Description', 'tjcore'),
-                'description' => tp_get_allowed_html_desc('intermediate'),
+                'description' => tj_get_allowed_html_desc('intermediate'),
                 'type' => \Elementor\Controls_Manager::TEXTAREA,
                 'default' => 'There are many variations of passages of Lorem Ipsum available, but the majority have suffered.',
                 'label_block' => true,
@@ -186,7 +186,7 @@ class TP_Portfolio extends Widget_Base {
         );
 
         $repeater->add_control(
-            'tp_portfolio_link_switcher',
+            'tj_portfolio_link_switcher',
             [
                 'label' => esc_html__('Add Services link', 'tjcore'),
                 'type' => \Elementor\Controls_Manager::SWITCHER,
@@ -198,7 +198,7 @@ class TP_Portfolio extends Widget_Base {
             ]
         );
         $repeater->add_control(
-            'tp_portfolio_btn_text',
+            'tj_portfolio_btn_text',
             [
                 'label' => esc_html__('Button Text', 'tjcore'),
                 'type' => Controls_Manager::TEXT,
@@ -206,12 +206,12 @@ class TP_Portfolio extends Widget_Base {
                 'title' => esc_html__('Enter button text', 'tjcore'),
                 'label_block' => true,
                 'condition' => [
-                    'tp_portfolio_link_switcher' => 'yes'
+                    'tj_portfolio_link_switcher' => 'yes'
                 ],
             ]
         );
         $repeater->add_control(
-            'tp_portfolio_link_type',
+            'tj_portfolio_link_type',
             [
                 'label' => esc_html__('Service Link Type', 'tjcore'),
                 'type' => \Elementor\Controls_Manager::SELECT,
@@ -221,12 +221,12 @@ class TP_Portfolio extends Widget_Base {
                 ],
                 'default' => '1',
                 'condition' => [
-                    'tp_portfolio_link_switcher' => 'yes'
+                    'tj_portfolio_link_switcher' => 'yes'
                 ]
             ]
         );
         $repeater->add_control(
-            'tp_portfolio_link',
+            'tj_portfolio_link',
             [
                 'label' => esc_html__('Service Link link', 'tjcore'),
                 'type' => \Elementor\Controls_Manager::URL,
@@ -241,56 +241,56 @@ class TP_Portfolio extends Widget_Base {
                     'nofollow' => false,
                 ],
                 'condition' => [
-                    'tp_portfolio_link_type' => '1',
-                    'tp_portfolio_link_switcher' => 'yes',
+                    'tj_portfolio_link_type' => '1',
+                    'tj_portfolio_link_switcher' => 'yes',
                 ]
             ]
         );
         $repeater->add_control(
-            'tp_portfolio_page_link',
+            'tj_portfolio_page_link',
             [
                 'label' => esc_html__('Select Service Link Page', 'tjcore'),
                 'type' => \Elementor\Controls_Manager::SELECT2,
                 'label_block' => true,
-                'options' => tp_get_all_pages(),
+                'options' => tj_get_all_pages(),
                 'condition' => [
-                    'tp_portfolio_link_type' => '2',
-                    'tp_portfolio_link_switcher' => 'yes',
+                    'tj_portfolio_link_type' => '2',
+                    'tj_portfolio_link_switcher' => 'yes',
                 ]
             ]
         );
 
         $this->add_control(
-            'tp_portfolio_list',
+            'tj_portfolio_list',
             [
                 'label' => esc_html__('Services - List', 'tjcore'),
                 'type' => \Elementor\Controls_Manager::REPEATER,
                 'fields' => $repeater->get_controls(),
                 'default' => [
                     [
-                        'tp_portfolio_title' => esc_html__('Business Stratagy', 'tjcore'),
+                        'tj_portfolio_title' => esc_html__('Business Stratagy', 'tjcore'),
                     ],
                     [
-                        'tp_portfolio_title' => esc_html__('Website Development', 'tjcore')
+                        'tj_portfolio_title' => esc_html__('Website Development', 'tjcore')
                     ],
                     [
-                        'tp_portfolio_title' => esc_html__('Marketing & Reporting', 'tjcore')
+                        'tj_portfolio_title' => esc_html__('Marketing & Reporting', 'tjcore')
                     ],
                     [
-                        'tp_portfolio_title' => esc_html__('Mobile Development', 'tjcore')
+                        'tj_portfolio_title' => esc_html__('Mobile Development', 'tjcore')
                     ],
                     [
-                        'tp_portfolio_title' => esc_html__('Marketing & Reporting', 'tjcore')
+                        'tj_portfolio_title' => esc_html__('Marketing & Reporting', 'tjcore')
                     ],
                     [
-                        'tp_portfolio_title' => esc_html__('Mobile Development', 'tjcore')
+                        'tj_portfolio_title' => esc_html__('Mobile Development', 'tjcore')
                     ],
                 ],
-                'title_field' => '{{{ tp_portfolio_title }}}',
+                'title_field' => '{{{ tj_portfolio_title }}}',
             ]
         );
         $this->add_responsive_control(
-            'tp_portfolio_align',
+            'tj_portfolio_align',
             [
                 'label' => esc_html__('Alignment', 'tjcore'),
                 'type' => Controls_Manager::CHOOSE,
@@ -324,16 +324,16 @@ class TP_Portfolio extends Widget_Base {
         );
         $this->end_controls_section();
 
-        // tp_portfolio_columns_section
+        // tj_portfolio_columns_section
         $this->start_controls_section(
-            'tp_portfolio_columns_section',
+            'tj_portfolio_columns_section',
             [
                 'label' => esc_html__('Portfolio - Columns', 'tjcore'),
             ]
         );
 
         $this->add_control(
-            'tp_portfolio__for_desktop',
+            'tj_portfolio__for_desktop',
             [
                 'label' => esc_html__('Columns for Desktop', 'tjcore'),
                 'description' => esc_html__('Screen width equal to or greater than 992px', 'tjcore'),
@@ -352,7 +352,7 @@ class TP_Portfolio extends Widget_Base {
             ]
         );
         $this->add_control(
-            'tp_portfolio__for_laptop',
+            'tj_portfolio__for_laptop',
             [
                 'label' => esc_html__('Columns for Laptop', 'tjcore'),
                 'description' => esc_html__('Screen width equal to or greater than 768px', 'tjcore'),
@@ -371,7 +371,7 @@ class TP_Portfolio extends Widget_Base {
             ]
         );
         $this->add_control(
-            'tp_portfolio__for_tablet',
+            'tj_portfolio__for_tablet',
             [
                 'label' => esc_html__('Columns for Tablet', 'tjcore'),
                 'description' => esc_html__('Screen width equal to or greater than 576px', 'tjcore'),
@@ -457,38 +457,38 @@ class TP_Portfolio extends Widget_Base {
 
 ?>
 
-        <?php if ($settings['tp_design_style']  == 'layout-2') : ?>
+        <?php if ($settings['tj_design_style']  == 'layout-2') : ?>
             <section class="portfolio-area">
                 <div class="container-fluid p-0 overflow-hidden">
                     <div class="row g-0">
-                        <?php foreach ($settings['tp_portfolio_list'] as $key => $item) :
-                            if (!empty($item['tp_portfolio_image']['url'])) {
-                                $tp_portfolio_image_url = !empty($item['tp_portfolio_image']['id']) ? wp_get_attachment_image_url($item['tp_portfolio_image']['id'], $settings['thumbnail_size']) : $item['tp_portfolio_image']['url'];
-                                $tp_portfolio_image_alt = get_post_meta($item["tp_portfolio_image"]["id"], "_wp_attachment_image_alt", true);
+                        <?php foreach ($settings['tj_portfolio_list'] as $key => $item) :
+                            if (!empty($item['tj_portfolio_image']['url'])) {
+                                $tj_portfolio_image_url = !empty($item['tj_portfolio_image']['id']) ? wp_get_attachment_image_url($item['tj_portfolio_image']['id'], $settings['thumbnail_size']) : $item['tj_portfolio_image']['url'];
+                                $tj_portfolio_image_alt = get_post_meta($item["tj_portfolio_image"]["id"], "_wp_attachment_image_alt", true);
                             }
 
                             // Link
-                            if ('2' == $item['tp_portfolio_link_type']) {
-                                $link = get_permalink($item['tp_portfolio_page_link']);
+                            if ('2' == $item['tj_portfolio_link_type']) {
+                                $link = get_permalink($item['tj_portfolio_page_link']);
                                 $target = '_self';
                                 $rel = 'nofollow';
                             } else {
-                                $link = !empty($item['tp_portfolio_link']['url']) ? $item['tp_portfolio_link']['url'] : '';
-                                $target = !empty($item['tp_portfolio_link']['is_external']) ? '_blank' : '';
-                                $rel = !empty($item['tp_portfolio_link']['nofollow']) ? 'nofollow' : '';
+                                $link = !empty($item['tj_portfolio_link']['url']) ? $item['tj_portfolio_link']['url'] : '';
+                                $target = !empty($item['tj_portfolio_link']['is_external']) ? '_blank' : '';
+                                $rel = !empty($item['tj_portfolio_link']['nofollow']) ? 'nofollow' : '';
                             }
 
                             $active = $key == 1 ? 'portfolioBlock--active' : '';
                         ?>
-                            <div class="col-xl-<?php echo esc_attr($settings['tp_portfolio__for_desktop']); ?> col-lg-<?php echo esc_attr($settings['tp_portfolio__for_laptop']); ?> col-md-<?php echo esc_attr($settings['tp_portfolio__for_tablet']); ?> col-<?php echo esc_attr($settings['tp_portfolio__for_mobile']); ?>">
+                            <div class="col-xl-<?php echo esc_attr($settings['tj_portfolio__for_desktop']); ?> col-lg-<?php echo esc_attr($settings['tj_portfolio__for_laptop']); ?> col-md-<?php echo esc_attr($settings['tj_portfolio__for_tablet']); ?> col-<?php echo esc_attr($settings['tj_portfolio__for_mobile']); ?>">
                                 <div class="portfolioBlock portfolioBlock--style2 position-relative <?php echo esc_attr($active); ?>">
                                     <figure class="portfolioBlock__figure">
 
-                                        <img class="portfolioBlock__figure__thumb" src="<?php echo esc_url($tp_portfolio_image_url); ?>" alt="<?php echo esc_url($tp_portfolio_image_alt); ?>">
+                                        <img class="portfolioBlock__figure__thumb" src="<?php echo esc_url($tj_portfolio_image_url); ?>" alt="<?php echo esc_url($tj_portfolio_image_alt); ?>">
 
                                         <div class="portfolioBlock__figure__shape">
                                             <img src="<?php echo get_template_directory_uri(); ?>/assets/image/shapes/portfolio-shape-2.svg" alt="shape">
-                                            <?php if ($item['tp_portfolio_link_switcher'] == 'yes') : ?>
+                                            <?php if ($item['tj_portfolio_link_switcher'] == 'yes') : ?>
                                                 <a class="portfolioBlock__more" href="<?php echo esc_url($link); ?>">
                                                     <svg width="20" height="13" viewBox="0 0 20 13" fill="none" xmlns="http://www.w3.org/2000/svg">
                                                         <path d="M12.6758 0.734375L11.8164 1.59375C11.6445 1.80859 11.6445 2.10938 11.8594 2.32422L15.2969 5.63281H0.515625C0.214844 5.63281 0 5.89062 0 6.14844V7.35156C0 7.65234 0.214844 7.86719 0.515625 7.86719H15.2969L11.8594 11.2188C11.6445 11.4336 11.6445 11.7344 11.8164 11.9492L12.6758 12.8086C12.8906 12.9805 13.1914 12.9805 13.4062 12.8086L19.0781 7.13672C19.25 6.92188 19.25 6.62109 19.0781 6.40625L13.4062 0.734375C13.1914 0.5625 12.8906 0.5625 12.6758 0.734375Z" fill="white" />
@@ -500,18 +500,18 @@ class TP_Portfolio extends Widget_Base {
                                     <div class="portfolioBlock__content">
                                         <?php if (!empty($link)) : ?>
                                             <div class="sv-btn">
-                                                <a target="<?php echo esc_attr($target); ?>" rel="<?php echo esc_attr($rel); ?>" href="<?php echo esc_url($link); ?>" class="portfolioBlock__hashLink mb-10"><span><?php echo tp_kses($item['tp_portfolio_btn_text']); ?></span></a>
+                                                <a target="<?php echo esc_attr($target); ?>" rel="<?php echo esc_attr($rel); ?>" href="<?php echo esc_url($link); ?>" class="portfolioBlock__hashLink mb-10"><span><?php echo tj_kses($item['tj_portfolio_btn_text']); ?></span></a>
                                             </div>
                                         <?php endif; ?>
                                         <h2 class="portfolioBlock__heading text-uppercase">
-                                            <?php if ($item['tp_portfolio_link_switcher'] == 'yes') : ?>
-                                                <a href="<?php echo esc_url($link); ?>"><?php echo tp_kses($item['tp_portfolio_title']); ?></a>
+                                            <?php if ($item['tj_portfolio_link_switcher'] == 'yes') : ?>
+                                                <a href="<?php echo esc_url($link); ?>"><?php echo tj_kses($item['tj_portfolio_title']); ?></a>
                                             <?php else : ?>
-                                                <?php echo tp_kses($item['tp_portfolio_title']); ?>
+                                                <?php echo tj_kses($item['tj_portfolio_title']); ?>
                                             <?php endif; ?>
                                         </h2>
-                                        <?php if (!empty($item['tp_portfolio_description'])) : ?>
-                                            <p><?php echo tp_kses($item['tp_portfolio_description']); ?></p>
+                                        <?php if (!empty($item['tj_portfolio_description'])) : ?>
+                                            <p><?php echo tj_kses($item['tj_portfolio_description']); ?></p>
                                         <?php endif; ?>
                                     </div>
                                 </div>
@@ -527,47 +527,47 @@ class TP_Portfolio extends Widget_Base {
             <section class="portfolio">
                 <div class="container-fluid p-0 overflow-hidden">
                     <div class="row g-0">
-                        <?php foreach ($settings['tp_portfolio_list'] as $item) :
-                            if (!empty($item['tp_portfolio_image']['url'])) {
-                                $tp_portfolio_image_url = !empty($item['tp_portfolio_image']['id']) ? wp_get_attachment_image_url($item['tp_portfolio_image']['id'], $settings['thumbnail_size']) : $item['tp_portfolio_image']['url'];
-                                $tp_portfolio_image_alt = get_post_meta($item["tp_portfolio_image"]["id"], "_wp_attachment_image_alt", true);
+                        <?php foreach ($settings['tj_portfolio_list'] as $item) :
+                            if (!empty($item['tj_portfolio_image']['url'])) {
+                                $tj_portfolio_image_url = !empty($item['tj_portfolio_image']['id']) ? wp_get_attachment_image_url($item['tj_portfolio_image']['id'], $settings['thumbnail_size']) : $item['tj_portfolio_image']['url'];
+                                $tj_portfolio_image_alt = get_post_meta($item["tj_portfolio_image"]["id"], "_wp_attachment_image_alt", true);
                             }
 
                             // Link
-                            if ('2' == $item['tp_portfolio_link_type']) {
-                                $link = get_permalink($item['tp_portfolio_page_link']);
+                            if ('2' == $item['tj_portfolio_link_type']) {
+                                $link = get_permalink($item['tj_portfolio_page_link']);
                                 $target = '_self';
                                 $rel = 'nofollow';
                             } else {
-                                $link = !empty($item['tp_portfolio_link']['url']) ? $item['tp_portfolio_link']['url'] : '';
-                                $target = !empty($item['tp_portfolio_link']['is_external']) ? '_blank' : '';
-                                $rel = !empty($item['tp_portfolio_link']['nofollow']) ? 'nofollow' : '';
+                                $link = !empty($item['tj_portfolio_link']['url']) ? $item['tj_portfolio_link']['url'] : '';
+                                $target = !empty($item['tj_portfolio_link']['is_external']) ? '_blank' : '';
+                                $rel = !empty($item['tj_portfolio_link']['nofollow']) ? 'nofollow' : '';
                             }
                         ?>
-                            <div class="col-xl-<?php echo esc_attr($settings['tp_portfolio__for_desktop']); ?> col-lg-<?php echo esc_attr($settings['tp_portfolio__for_laptop']); ?> col-md-<?php echo esc_attr($settings['tp_portfolio__for_tablet']); ?> col-<?php echo esc_attr($settings['tp_portfolio__for_mobile']); ?>">
+                            <div class="col-xl-<?php echo esc_attr($settings['tj_portfolio__for_desktop']); ?> col-lg-<?php echo esc_attr($settings['tj_portfolio__for_laptop']); ?> col-md-<?php echo esc_attr($settings['tj_portfolio__for_tablet']); ?> col-<?php echo esc_attr($settings['tj_portfolio__for_mobile']); ?>">
                                 <div class="portfolioBlock position-relative">
                                     <figure class="portfolioBlock__figure">
-                                        <img class="portfolioBlock__figure__thumb" src="<?php echo esc_url($tp_portfolio_image_url); ?>" alt="<?php echo esc_url($tp_portfolio_image_alt); ?>">
+                                        <img class="portfolioBlock__figure__thumb" src="<?php echo esc_url($tj_portfolio_image_url); ?>" alt="<?php echo esc_url($tj_portfolio_image_alt); ?>">
                                         <div class="portfolioBlock__figure__shape">
                                             <img src="<?php echo get_template_directory_uri(); ?>/assets/image/shapes/portfolio-shape.png" alt="Gainioz">
                                         </div>
                                     </figure>
                                     <div class="portfolioBlock__content">
                                         <h2 class="portfolioBlock__heading text-uppercase">
-                                            <?php if ($item['tp_portfolio_link_switcher'] == 'yes') : ?>
-                                                <a href="<?php echo esc_url($link); ?>"><?php echo tp_kses($item['tp_portfolio_title']); ?></a>
+                                            <?php if ($item['tj_portfolio_link_switcher'] == 'yes') : ?>
+                                                <a href="<?php echo esc_url($link); ?>"><?php echo tj_kses($item['tj_portfolio_title']); ?></a>
                                             <?php else : ?>
-                                                <?php echo tp_kses($item['tp_portfolio_title']); ?>
+                                                <?php echo tj_kses($item['tj_portfolio_title']); ?>
                                             <?php endif; ?>
                                         </h2>
 
-                                        <?php if (!empty($item['tp_portfolio_description'])) : ?>
-                                            <p><?php echo tp_kses($item['tp_portfolio_description']); ?></p>
+                                        <?php if (!empty($item['tj_portfolio_description'])) : ?>
+                                            <p><?php echo tj_kses($item['tj_portfolio_description']); ?></p>
                                         <?php endif; ?>
 
                                         <?php if (!empty($link)) : ?>
                                             <div class="sv-btn">
-                                                <a target="<?php echo esc_attr($target); ?>" rel="<?php echo esc_attr($rel); ?>" href="<?php echo esc_url($link); ?>" class="portfolioBlock__hashLink"><span><?php echo tp_kses($item['tp_portfolio_btn_text']); ?></span></a>
+                                                <a target="<?php echo esc_attr($target); ?>" rel="<?php echo esc_attr($rel); ?>" href="<?php echo esc_url($link); ?>" class="portfolioBlock__hashLink"><span><?php echo tj_kses($item['tj_portfolio_btn_text']); ?></span></a>
                                             </div>
                                         <?php endif; ?>
                                     </div>
@@ -584,4 +584,4 @@ class TP_Portfolio extends Widget_Base {
     }
 }
 
-$widgets_manager->register(new TP_Portfolio());
+$widgets_manager->register(new TJ_Portfolio());

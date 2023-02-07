@@ -16,7 +16,7 @@ if (!defined('ABSPATH')) exit; // Exit if accessed directly
  *
  * @since 1.0.0
  */
-class TP_Events extends Widget_Base {
+class TJ_Events extends Widget_Base {
 
     /**
      * Retrieve the widget name.
@@ -103,7 +103,7 @@ class TP_Events extends Widget_Base {
 
         // Blog Query
         $this->start_controls_section(
-            'tp_post_query',
+            'tj_post_query',
             [
                 'label' => esc_html__('Events Query', 'tjcore'),
             ]
@@ -129,7 +129,7 @@ class TP_Events extends Widget_Base {
                 'description' => esc_html__('Select a category to include or leave blank for all.', 'tjcore'),
                 'type' => Controls_Manager::SELECT2,
                 'multiple' => true,
-                'options' => tp_get_categories($taxonomy),
+                'options' => tj_get_categories($taxonomy),
                 'label_block' => true,
             ]
         );
@@ -141,7 +141,7 @@ class TP_Events extends Widget_Base {
                 'description' => esc_html__('Select a category to exclude', 'tjcore'),
                 'type' => Controls_Manager::SELECT2,
                 'multiple' => true,
-                'options' => tp_get_categories($taxonomy),
+                'options' => tj_get_categories($taxonomy),
                 'label_block' => true
             ]
         );
@@ -151,7 +151,7 @@ class TP_Events extends Widget_Base {
             [
                 'label' => esc_html__('Exclude Item', 'tjcore'),
                 'type' => Controls_Manager::SELECT2,
-                'options' => tp_get_all_types_post($post_type),
+                'options' => tj_get_all_types_post($post_type),
                 'multiple' => true,
                 'label_block' => true
             ]
@@ -212,7 +212,7 @@ class TP_Events extends Widget_Base {
         );
 
         $this->add_control(
-            'tp_post_content',
+            'tj_post_content',
             [
                 'label' => __('Content', 'tjcore'),
                 'type' => Controls_Manager::SWITCHER,
@@ -224,7 +224,7 @@ class TP_Events extends Widget_Base {
         );
 
         $this->add_control(
-            'tp_post_content_limit',
+            'tj_post_content_limit',
             [
                 'label' => __('Content Limit', 'tjcore'),
                 'type' => Controls_Manager::TEXT,
@@ -234,7 +234,7 @@ class TP_Events extends Widget_Base {
                     'active' => true,
                 ],
                 'condition' => [
-                    'tp_post_content' => 'yes'
+                    'tj_post_content' => 'yes'
                 ]
             ]
         );
@@ -244,13 +244,13 @@ class TP_Events extends Widget_Base {
 
         // layout Panel
         $this->start_controls_section(
-            'tp_post_',
+            'tj_post_',
             [
                 'label' => esc_html__('Event - Layout', 'tjcore'),
             ]
         );
         $this->add_control(
-            'tp_design_style',
+            'tj_design_style',
             [
                 'label' => esc_html__('Select Layout', 'tjcore'),
                 'type' => Controls_Manager::SELECT,
@@ -263,7 +263,7 @@ class TP_Events extends Widget_Base {
             ]
         );
         $this->add_control(
-            'tp_post__height',
+            'tj_post__height',
             [
                 'label' => esc_html__('Height', 'tjcore'),
                 'type' => Controls_Manager::SLIDER,
@@ -285,7 +285,7 @@ class TP_Events extends Widget_Base {
             ]
         );
         $this->add_control(
-            'tp_post__dots',
+            'tj_post__dots',
             [
                 'label' => esc_html__('Dots?', 'tjcore'),
                 'type' => Controls_Manager::SWITCHER,
@@ -294,12 +294,12 @@ class TP_Events extends Widget_Base {
                 'return_value' => 'yes',
                 'default' => 'yes',
                 'condition' => array(
-                    'tp_design_style' => 'layout-2',
+                    'tj_design_style' => 'layout-2',
                 ),
             ]
         );
         $this->add_control(
-            'tp_post__arrow',
+            'tj_post__arrow',
             [
                 'label' => esc_html__('Arrow Icons?', 'tjcore'),
                 'type' => Controls_Manager::SWITCHER,
@@ -308,12 +308,12 @@ class TP_Events extends Widget_Base {
                 'return_value' => 'yes',
                 'default' => 'yes',
                 'condition' => array(
-                    'tp_design_style' => 'layout-2',
+                    'tj_design_style' => 'layout-2',
                 ),
             ]
         );
         $this->add_control(
-            'tp_post__infinite',
+            'tj_post__infinite',
             [
                 'label' => esc_html__('Infinite?', 'tjcore'),
                 'type' => Controls_Manager::SWITCHER,
@@ -322,12 +322,12 @@ class TP_Events extends Widget_Base {
                 'return_value' => 'yes',
                 'default' => 'yes',
                 'condition' => array(
-                    'tp_design_style' => 'layout-2',
+                    'tj_design_style' => 'layout-2',
                 ),
             ]
         );
         $this->add_control(
-            'tp_post__autoplay',
+            'tj_post__autoplay',
             [
                 'label' => esc_html__('Autoplay?', 'tjcore'),
                 'type' => Controls_Manager::SWITCHER,
@@ -336,12 +336,12 @@ class TP_Events extends Widget_Base {
                 'return_value' => 'yes',
                 'default' => 'yes',
                 'condition' => array(
-                    'tp_design_style' => 'layout-2',
+                    'tj_design_style' => 'layout-2',
                 ),
             ]
         );
         $this->add_control(
-            'tp_post__autoplay_speed',
+            'tj_post__autoplay_speed',
             [
                 'label' => esc_html__('Autoplay Speed', 'tjcore'),
                 'type' => Controls_Manager::TEXT,
@@ -349,13 +349,13 @@ class TP_Events extends Widget_Base {
                 'title' => esc_html__('Enter autoplay speed', 'tjcore'),
                 'label_block' => true,
                 'condition' => array(
-                    'tp_post__autoplay' => 'yes',
-                    'tp_design_style' => 'layout-2',
+                    'tj_post__autoplay' => 'yes',
+                    'tj_design_style' => 'layout-2',
                 ),
             ]
         );
         $this->add_control(
-            'tp_post__filter',
+            'tj_post__filter',
             [
                 'label' => esc_html__('Filter?', 'tjcore'),
                 'type' => Controls_Manager::SWITCHER,
@@ -364,7 +364,7 @@ class TP_Events extends Widget_Base {
                 'return_value' => 'yes',
                 'default' => 'yes',
                 'condition' => array(
-                    'tp_design_style' => 'layout-3',
+                    'tj_design_style' => 'layout-3',
                 ),
             ]
         );
@@ -378,7 +378,7 @@ class TP_Events extends Widget_Base {
             ]
         );
         $this->add_control(
-            'tp_post_pagination',
+            'tj_post_pagination',
             [
                 'label' => esc_html__('Pagination', 'tjcore'),
                 'type' => Controls_Manager::SWITCHER,
@@ -387,7 +387,7 @@ class TP_Events extends Widget_Base {
                 'return_value' => 'yes',
                 'default' => 'no',
                 'condition' => array(
-                    'tp_design_style' => 'layout-1',
+                    'tj_design_style' => 'layout-1',
                 ),
             ]
         );
@@ -546,7 +546,7 @@ class TP_Events extends Widget_Base {
 
 ?>
 
-        <?php if ($settings['tp_design_style']  == 'layout-2') : ?>
+        <?php if ($settings['tj_design_style']  == 'layout-2') : ?>
 
         <?php else :
             $this->add_render_attribute('title_args', 'class', 'sectionTitle__big tj-el-title');
@@ -633,7 +633,7 @@ class TP_Events extends Widget_Base {
                         <?php endwhile;
                         wp_reset_query(); ?>
 
-                        <?php if ($settings['tp_post_pagination'] == 'yes' && '-1' != $settings['posts_per_page']) { ?>
+                        <?php if ($settings['tj_post_pagination'] == 'yes' && '-1' != $settings['posts_per_page']) { ?>
                             <div class="col-lg-12">
                                 <div class="basic-pagination mb-40 pagination justify-content-center">
                                     <?php
@@ -672,4 +672,4 @@ class TP_Events extends Widget_Base {
     }
 }
 
-$widgets_manager->register(new TP_Events());
+$widgets_manager->register(new TJ_Events());

@@ -1,15 +1,18 @@
 <?php
 
 /**
- * Plugin Name: TJ Core
+ * Plugin Name: TJ Core for Elementor
  * Description: ThemeJunction elementor core plugin.
  * Plugin URI:  https://themejunction.net/
  * Version:     1.0.0
- * Author:      Theme_Junction
+ * Author:      ThemeJunction
  * Author URI:  https://themejunction.net/
  * Text Domain: tjcore
- * Elementor tested up to: 3.10.2
- * Elementor Pro tested up to: 3.5.0
+ * Domain Path: /languages
+ * 
+ * WC tested up to: 6.1.0
+ * Elementor tested up to: 3.10.1
+ * Elementor Pro tested up to: 3.10.2
  */
 
 if (!defined('ABSPATH')) exit; // Exit if accessed directly

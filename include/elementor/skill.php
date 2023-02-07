@@ -14,7 +14,7 @@ use \Elementor\Group_Control_Typography;
 use \Elementor\Core\Schemes\Typography;
 use \Elementor\Utils;
 use \Elementor\Group_Control_Box_Shadow;
-use TJCore\Elementor\Controls\Group_Control_TPBGGradient;
+use TJCore\Elementor\Controls\Group_Control_TJBGGradient;
 
 if (!defined('ABSPATH')) exit; // Exit if accessed directly
 
@@ -25,7 +25,7 @@ if (!defined('ABSPATH')) exit; // Exit if accessed directly
  *
  * @since 1.0.0
  */
-class TP_Skill extends Widget_Base {
+class TJ_Skill extends Widget_Base {
 
     /**
      * Retrieve the widget name.
@@ -111,7 +111,7 @@ class TP_Skill extends Widget_Base {
     protected function register_controls() {
 
         $this->start_controls_section(
-            'tp_progress_bar',
+            'tj_progress_bar',
             [
                 'label' => esc_html__('Skill Bar', 'tjcore'),
             ]
@@ -191,7 +191,7 @@ class TP_Skill extends Widget_Base {
 
 
         $repeater->add_group_control(
-            Group_Control_TPBGGradient::get_type(),
+            Group_Control_TJBGGradient::get_type(),
             [
                 'name' => 'level_color',
                 'label' => esc_html__('Level Color', 'tjcore'),
@@ -322,4 +322,4 @@ class TP_Skill extends Widget_Base {
     }
 }
 
-$widgets_manager->register(new TP_Skill());
+$widgets_manager->register(new TJ_Skill());

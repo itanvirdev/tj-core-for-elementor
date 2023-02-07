@@ -18,7 +18,7 @@ if (!defined('ABSPATH')) exit; // Exit if accessed directly
  *
  * @since 1.0.0
  */
-class TP_Contact_Form extends Widget_Base {
+class TJ_Contact_Form extends Widget_Base {
 
 	/**
 	 * Retrieve the widget name.
@@ -93,22 +93,22 @@ class TP_Contact_Form extends Widget_Base {
 	}
 
 
-	public function get_tp_contact_form() {
+	public function get_tj_contact_form() {
 		if (!class_exists('WPCF7')) {
 			return;
 		}
-		$tp_cfa         = array();
-		$tp_cf_args     = array('posts_per_page' => -1, 'post_type' => 'wpcf7_contact_form');
-		$tp_forms       = get_posts($tp_cf_args);
-		$tp_cfa         = ['0' => esc_html__('Select Form', 'tjcore')];
-		if ($tp_forms) {
-			foreach ($tp_forms as $tp_form) {
-				$tp_cfa[$tp_form->ID] = $tp_form->post_title;
+		$tj_cfa         = array();
+		$tj_cf_args     = array('posts_per_page' => -1, 'post_type' => 'wpcf7_contact_form');
+		$tj_forms       = get_posts($tj_cf_args);
+		$tj_cfa         = ['0' => esc_html__('Select Form', 'tjcore')];
+		if ($tj_forms) {
+			foreach ($tj_forms as $tj_form) {
+				$tj_cfa[$tj_form->ID] = $tj_form->post_title;
 			}
 		} else {
-			$tp_cfa[esc_html__('No contact form found', 'tjcore')] = 0;
+			$tj_cfa[esc_html__('No contact form found', 'tjcore')] = 0;
 		}
-		return $tp_cfa;
+		return $tj_cfa;
 	}
 
 
@@ -125,13 +125,13 @@ class TP_Contact_Form extends Widget_Base {
 
 		// layout Panel
 		$this->start_controls_section(
-			'tp_layout',
+			'tj_layout',
 			[
 				'label' => esc_html__('Design Layout', 'tjcore'),
 			]
 		);
 		$this->add_control(
-			'tp_design_style',
+			'tj_design_style',
 			[
 				'label' => esc_html__('Select Layout', 'tjcore'),
 				'type' => Controls_Manager::SELECT,
@@ -147,19 +147,19 @@ class TP_Contact_Form extends Widget_Base {
 
 
 		$this->start_controls_section(
-			'tpcore_contact',
+			'tjcore_contact',
 			[
 				'label' => esc_html__('Contact Form', 'tjcore'),
 			]
 		);
 
 		$this->add_control(
-			'tpcore_select_contact_form',
+			'tjcore_select_contact_form',
 			[
 				'label'   => esc_html__('Select Form', 'tjcore'),
 				'type'    => Controls_Manager::SELECT,
 				'default' => '0',
-				'options' => $this->get_tp_contact_form(),
+				'options' => $this->get_tj_contact_form(),
 			]
 		);
 
@@ -208,13 +208,13 @@ class TP_Contact_Form extends Widget_Base {
 
 ?>
 
-		<?php if ($settings['tp_design_style']  == 'layout-2') : ?>
+		<?php if ($settings['tj_design_style']  == 'layout-2') : ?>
 
 			<div class="innerWrapperSidebar">
 				<div class="sidebarWidget">
-					<?php if (!empty($settings['tpcore_select_contact_form'])) : ?>
+					<?php if (!empty($settings['tjcore_select_contact_form'])) : ?>
 						<div class="contact__form m-0">
-							<?php echo do_shortcode('[contact-form-7  id="' . $settings['tpcore_select_contact_form'] . '"]'); ?>
+							<?php echo do_shortcode('[contact-form-7  id="' . $settings['tjcore_select_contact_form'] . '"]'); ?>
 						</div>
 					<?php else : ?>
 						<?php echo '<div class="alert alert-info"><p class="m-0">' . __('Please Select contact form.', 'tjcore') . '</p></div>'; ?>
@@ -226,9 +226,9 @@ class TP_Contact_Form extends Widget_Base {
 
 			<div class="contact__form">
 				<!-- Start Contact Form -->
-				<?php if (!empty($settings['tpcore_select_contact_form'])) : ?>
+				<?php if (!empty($settings['tjcore_select_contact_form'])) : ?>
 					<div class="form-wrapper">
-						<?php echo do_shortcode('[contact-form-7  id="' . $settings['tpcore_select_contact_form'] . '"]'); ?>
+						<?php echo do_shortcode('[contact-form-7  id="' . $settings['tjcore_select_contact_form'] . '"]'); ?>
 					</div>
 				<?php else : ?>
 					<?php echo '<div class="alert alert-info"><p class="m-0">' . __('Please Select contact form.', 'tjcore') . '</p></div>'; ?>
@@ -242,4 +242,4 @@ class TP_Contact_Form extends Widget_Base {
 	}
 }
 
-$widgets_manager->register(new TP_Contact_Form());
+$widgets_manager->register(new TJ_Contact_Form());

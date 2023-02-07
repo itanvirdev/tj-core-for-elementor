@@ -18,7 +18,7 @@ if (!defined('ABSPATH')) exit; // Exit if accessed directly
  *
  * @since 1.0.0
  */
-class TP_Contact_Info extends Widget_Base {
+class TJ_Contact_Info extends Widget_Base {
 
     /**
      * Retrieve the widget name.
@@ -149,7 +149,7 @@ class TP_Contact_Info extends Widget_Base {
 
         // Service group
         $this->start_controls_section(
-            '_TP_contact_info',
+            '_TJ_contact_info',
             [
                 'label' => esc_html__('Portfolio List', 'tjcore'),
                 'description' => esc_html__('Control all the style settings from Style tab', 'tjcore'),
@@ -176,7 +176,7 @@ class TP_Contact_Info extends Widget_Base {
         );
 
         $repeater->add_control(
-            'tp_features_icon_type',
+            'tj_features_icon_type',
             [
                 'label' => esc_html__('Select Icon Type', 'tjcore'),
                 'type' => \Elementor\Controls_Manager::SELECT,
@@ -189,7 +189,7 @@ class TP_Contact_Info extends Widget_Base {
         );
 
         $repeater->add_control(
-            'tp_features_image',
+            'tj_features_image',
             [
                 'label' => esc_html__('Upload Icon Image', 'tjcore'),
                 'type' => Controls_Manager::MEDIA,
@@ -197,28 +197,28 @@ class TP_Contact_Info extends Widget_Base {
                     'url' => Utils::get_placeholder_image_src(),
                 ],
                 'condition' => [
-                    'tp_features_icon_type' => 'image'
+                    'tj_features_icon_type' => 'image'
                 ]
 
             ]
         );
 
-        if (tp_is_elementor_version('<', '2.6.0')) {
+        if (tj_is_elementor_version('<', '2.6.0')) {
             $repeater->add_control(
-                'tp_features_icon',
+                'tj_features_icon',
                 [
                     'show_label' => false,
                     'type' => Controls_Manager::ICON,
                     'label_block' => true,
                     'default' => 'fa fa-star',
                     'condition' => [
-                        'tp_features_icon_type' => 'icon'
+                        'tj_features_icon_type' => 'icon'
                     ]
                 ]
             );
         } else {
             $repeater->add_control(
-                'tp_features_selected_icon',
+                'tj_features_selected_icon',
                 [
                     'show_label' => false,
                     'type' => Controls_Manager::ICONS,
@@ -229,7 +229,7 @@ class TP_Contact_Info extends Widget_Base {
                         'library' => 'solid',
                     ],
                     'condition' => [
-                        'tp_features_icon_type' => 'icon'
+                        'tj_features_icon_type' => 'icon'
                     ]
                 ]
             );
@@ -238,20 +238,20 @@ class TP_Contact_Info extends Widget_Base {
 
 
         $repeater->add_control(
-            'tp_title',
+            'tj_title',
             [
                 'label' => esc_html__('Title', 'tjcore'),
-                'description' => tp_get_allowed_html_desc('basic'),
+                'description' => tj_get_allowed_html_desc('basic'),
                 'type' => \Elementor\Controls_Manager::TEXT,
                 'default' => esc_html__('Service Title', 'tjcore'),
                 'label_block' => true,
             ]
         );
         $repeater->add_control(
-            'tp_description',
+            'tj_description',
             [
                 'label' => esc_html__('Description', 'tjcore'),
-                'description' => tp_get_allowed_html_desc('intermediate'),
+                'description' => tj_get_allowed_html_desc('intermediate'),
                 'type' => \Elementor\Controls_Manager::TEXTAREA,
                 'default' => 'There are many variations of passages of Lorem Ipsum available, but the majority have suffered.',
                 'label_block' => true,
@@ -259,10 +259,10 @@ class TP_Contact_Info extends Widget_Base {
         );
 
         $repeater->add_control(
-            'tp_contact_link',
+            'tj_contact_link',
             [
                 'label' => esc_html__('Description CTA', 'tjcore'),
-                'description' => tp_get_allowed_html_desc('intermediate'),
+                'description' => tj_get_allowed_html_desc('intermediate'),
                 'type' => \Elementor\Controls_Manager::TEXTAREA,
                 'default' => 'Phone and Email',
                 'label_block' => true,
@@ -270,27 +270,27 @@ class TP_Contact_Info extends Widget_Base {
         );
 
         $this->add_control(
-            'tp_list',
+            'tj_list',
             [
                 'label' => esc_html__('Services - List', 'tjcore'),
                 'type' => \Elementor\Controls_Manager::REPEATER,
                 'fields' => $repeater->get_controls(),
                 'default' => [
                     [
-                        'tp_title' => esc_html__('united states', 'tjcore'),
+                        'tj_title' => esc_html__('united states', 'tjcore'),
                     ],
                     [
-                        'tp_title' => esc_html__('south Africa', 'tjcore')
+                        'tj_title' => esc_html__('south Africa', 'tjcore')
                     ],
                     [
-                        'tp_title' => esc_html__('United Kingdom', 'tjcore')
+                        'tj_title' => esc_html__('United Kingdom', 'tjcore')
                     ]
                 ],
-                'title_field' => '{{{ tp_title }}}',
+                'title_field' => '{{{ tj_title }}}',
             ]
         );
         $this->add_responsive_control(
-            'tp_align',
+            'tj_align',
             [
                 'label' => esc_html__('Alignment', 'tjcore'),
                 'type' => Controls_Manager::CHOOSE,
@@ -452,26 +452,26 @@ class TP_Contact_Info extends Widget_Base {
         <div class="contact__info white-bg p-relative z-index-1">
             <div class="contact__info-inner white-bg">
                 <ul>
-                    <?php foreach ($settings['tp_list'] as $item) : ?>
+                    <?php foreach ($settings['tj_list'] as $item) : ?>
                         <li>
                             <div class="contact__info-item d-flex align-items-start mb-35">
                                 <div class="contact__info-icon mr-15">
-                                    <?php if ($item['tp_features_icon_type'] !== 'image') : ?>
-                                        <?php if (!empty($item['tp_features_icon']) || !empty($item['tp_features_selected_icon']['value'])) : ?>
-                                            <span class="contact_info_icon"><?php tp_render_icon($item, 'tp_features_icon', 'tp_features_selected_icon'); ?></span>
+                                    <?php if ($item['tj_features_icon_type'] !== 'image') : ?>
+                                        <?php if (!empty($item['tj_features_icon']) || !empty($item['tj_features_selected_icon']['value'])) : ?>
+                                            <span class="contact_info_icon"><?php tj_render_icon($item, 'tj_features_icon', 'tj_features_selected_icon'); ?></span>
                                         <?php endif; ?>
                                     <?php else : ?>
                                         <span class="contact_info_icon">
-                                            <?php if (!empty($item['tp_features_image']['url'])) : ?>
-                                                <img src="<?php echo $item['tp_features_image']['url']; ?>" alt="<?php echo get_post_meta(attachment_url_to_postid($item['tp_features_image']['url']), '_wp_attachment_image_alt', true); ?>">
+                                            <?php if (!empty($item['tj_features_image']['url'])) : ?>
+                                                <img src="<?php echo $item['tj_features_image']['url']; ?>" alt="<?php echo get_post_meta(attachment_url_to_postid($item['tj_features_image']['url']), '_wp_attachment_image_alt', true); ?>">
                                             <?php endif; ?>
                                         </span>
                                     <?php endif; ?>
                                 </div>
                                 <div class="contact__info-text">
-                                    <h4><?php echo tp_kses($item['tp_title']); ?></h4>
-                                    <?php if (!empty($item['tp_description'])) : ?>
-                                        <p><?php echo tp_kses($item['tp_description']); ?></p>
+                                    <h4><?php echo tj_kses($item['tj_title']); ?></h4>
+                                    <?php if (!empty($item['tj_description'])) : ?>
+                                        <p><?php echo tj_kses($item['tj_description']); ?></p>
                                     <?php endif; ?>
 
                                 </div>
@@ -507,4 +507,4 @@ class TP_Contact_Info extends Widget_Base {
     }
 }
 
-$widgets_manager->register(new TP_Contact_Info());
+$widgets_manager->register(new TJ_Contact_Info());

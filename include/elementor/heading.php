@@ -17,11 +17,7 @@ use \Elementor\Group_Control_Background;
 if (!defined('ABSPATH')) exit; // Exit if accessed directly
 
 /**
- * TJ Core
- *
  * Elementor widget for Heading.
- *
- * @since 1.0.0
  */
 class TJ_Heading extends Widget_Base {
 
@@ -36,7 +32,7 @@ class TJ_Heading extends Widget_Base {
      * Retrieve the widget title.
      */
     public function get_title() {
-        return __('Heading', 'tjcore');
+        return __('TJ Heading', 'tjcore');
     }
 
     /**

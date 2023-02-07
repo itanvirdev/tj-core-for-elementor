@@ -18,7 +18,7 @@ if (!defined('ABSPATH')) exit; // Exit if accessed directly
  *
  * @since 1.0.0
  */
-class TP_Testimonial extends Widget_Base {
+class TJ_Testimonial extends Widget_Base {
 
     /**
      * Retrieve the widget name.
@@ -105,13 +105,13 @@ class TP_Testimonial extends Widget_Base {
 
         // layout Panel
         $this->start_controls_section(
-            'tp_layout',
+            'tj_layout',
             [
                 'label' => esc_html__('Design Layout', 'tjcore'),
             ]
         );
         $this->add_control(
-            'tp_design_style',
+            'tj_design_style',
             [
                 'label' => esc_html__('Select Layout', 'tjcore'),
                 'type' => Controls_Manager::SELECT,
@@ -126,16 +126,16 @@ class TP_Testimonial extends Widget_Base {
 
         $this->end_controls_section();
 
-        // tp_section_title
+        // tj_section_title
         $this->start_controls_section(
-            'tp_section_title',
+            'tj_section_title',
             [
                 'label' => esc_html__('Title & Content', 'tjcore'),
             ]
         );
 
         $this->add_control(
-            'tp_section_title_show',
+            'tj_section_title_show',
             [
                 'label' => esc_html__('Section Title & Content', 'tjcore'),
                 'type' => Controls_Manager::SWITCHER,
@@ -146,10 +146,10 @@ class TP_Testimonial extends Widget_Base {
             ]
         );
         $this->add_control(
-            'tp_sub_title',
+            'tj_sub_title',
             [
                 'label' => esc_html__('Sub Title', 'tjcore'),
-                'description' => tp_get_allowed_html_desc('basic'),
+                'description' => tj_get_allowed_html_desc('basic'),
                 'type' => Controls_Manager::TEXT,
                 'default' => esc_html__('TJ Sub Title', 'tjcore'),
                 'placeholder' => esc_html__('Type Sub Heading Text', 'tjcore'),
@@ -157,10 +157,10 @@ class TP_Testimonial extends Widget_Base {
             ]
         );
         $this->add_control(
-            'tp_title',
+            'tj_title',
             [
                 'label' => esc_html__('Title', 'tjcore'),
-                'description' => tp_get_allowed_html_desc('intermediate'),
+                'description' => tj_get_allowed_html_desc('intermediate'),
                 'type' => Controls_Manager::TEXT,
                 'default' => esc_html__('TJ Title Here', 'tjcore'),
                 'placeholder' => esc_html__('Type Heading Text', 'tjcore'),
@@ -169,10 +169,10 @@ class TP_Testimonial extends Widget_Base {
         );
 
         $this->add_control(
-            'tp_desctiption',
+            'tj_desctiption',
             [
                 'label' => esc_html__('Description', 'tjcore'),
-                'description' => tp_get_allowed_html_desc('intermediate'),
+                'description' => tj_get_allowed_html_desc('intermediate'),
                 'type' => Controls_Manager::TEXTAREA,
                 'default' => esc_html__('TJ section description here', 'tjcore'),
                 'placeholder' => esc_html__('Type section description here', 'tjcore'),
@@ -180,7 +180,7 @@ class TP_Testimonial extends Widget_Base {
         );
 
         $this->add_control(
-            'tp_title_tag',
+            'tj_title_tag',
             [
                 'label' => esc_html__('Title HTML Tag', 'tjcore'),
                 'type' => Controls_Manager::CHOOSE,
@@ -216,7 +216,7 @@ class TP_Testimonial extends Widget_Base {
         );
 
         $this->add_responsive_control(
-            'tp_align',
+            'tj_align',
             [
                 'label' => esc_html__('Alignment', 'tjcore'),
                 'type' => Controls_Manager::CHOOSE,
@@ -241,18 +241,18 @@ class TP_Testimonial extends Widget_Base {
         $this->end_controls_section();
 
 
-        // _tp_image
+        // _tj_image
         $this->start_controls_section(
-            '_tp_image',
+            '_tj_image',
             [
                 'label' => esc_html__('Thumbnail', 'tjcore'),
                 'condition' => [
-                    'tp_design_style' => 'layout-2'
+                    'tj_design_style' => 'layout-2'
                 ],
             ]
         );
         $this->add_control(
-            'tp_image',
+            'tj_image',
             [
                 'label' => esc_html__('Choose Image', 'tjcore'),
                 'type' => \Elementor\Controls_Manager::MEDIA,
@@ -264,7 +264,7 @@ class TP_Testimonial extends Widget_Base {
         $this->add_group_control(
             Group_Control_Image_Size::get_type(),
             [
-                'name' => 'tp_image_size',
+                'name' => 'tj_image_size',
                 'default' => 'full',
                 'exclude' => [
                     'custom'
@@ -272,7 +272,7 @@ class TP_Testimonial extends Widget_Base {
             ]
         );
         $this->add_control(
-            'tp_image_overlap',
+            'tj_image_overlap',
             [
                 'label' => esc_html__('Image overlap to top?', 'tjcore'),
                 'type' => Controls_Manager::SWITCHER,
@@ -283,7 +283,7 @@ class TP_Testimonial extends Widget_Base {
             ]
         );
         $this->add_responsive_control(
-            'tp_image_height',
+            'tj_image_height',
             [
                 'label' => esc_html__('Image Height', 'tjcore'),
                 'type' => Controls_Manager::SLIDER,
@@ -305,7 +305,7 @@ class TP_Testimonial extends Widget_Base {
             ]
         );
         $this->add_responsive_control(
-            'tp_image_overlap_x',
+            'tj_image_overlap_x',
             [
                 'label' => esc_html__('Image overlap position', 'tjcore'),
                 'type' => Controls_Manager::SLIDER,
@@ -325,7 +325,7 @@ class TP_Testimonial extends Widget_Base {
                     '{{WRAPPER}} .tj-overlap img' => 'margin-top: {{SIZE}}{{UNIT}};',
                 ],
                 'condition' => array(
-                    'tp_image_overlap' => 'yes',
+                    'tj_image_overlap' => 'yes',
                 ),
             ]
         );
@@ -553,21 +553,21 @@ class TP_Testimonial extends Widget_Base {
         $settings = $this->get_settings_for_display();
 ?>
 
-        <?php if ($settings['tp_design_style']  == 'layout-2') :
+        <?php if ($settings['tj_design_style']  == 'layout-2') :
             $this->add_render_attribute('title_args', 'class', 'sectionTitle__big');
-            if (!empty($settings['tp_image']['url'])) {
-                $tp_image = !empty($settings['tp_image']['id']) ? wp_get_attachment_image_url($settings['tp_image']['id'], $settings['tp_image_size_size']) : $settings['tp_image']['url'];
-                $tp_image_alt = get_post_meta($settings["tp_image"]["id"], "_wp_attachment_image_alt", true);
+            if (!empty($settings['tj_image']['url'])) {
+                $tj_image = !empty($settings['tj_image']['id']) ? wp_get_attachment_image_url($settings['tj_image']['id'], $settings['tj_image_size_size']) : $settings['tj_image']['url'];
+                $tj_image_alt = get_post_meta($settings["tj_image"]["id"], "_wp_attachment_image_alt", true);
             }
         ?>
             <section class="review position-relative overflow-hidden">
                 <div class="container">
                     <div class="row">
-                        <?php if (!empty($settings['tp_section_title_show'])) : ?>
+                        <?php if (!empty($settings['tj_section_title_show'])) : ?>
                             <div class="col-lg-6">
                                 <!-- Section Heading/Title -->
                                 <div class="sectionTitle mb-65">
-                                    <?php if (!empty($settings['tp_sub_title'])) : ?>
+                                    <?php if (!empty($settings['tj_sub_title'])) : ?>
                                         <span class="sectionTitle__small">
                                             <i class="fa-solid fa-heart btn__icon"></i>
                                             Testimonial
@@ -575,24 +575,24 @@ class TP_Testimonial extends Widget_Base {
                                     <?php endif; ?>
 
                                     <?php
-                                    if (!empty($settings['tp_title'])) :
+                                    if (!empty($settings['tj_title'])) :
                                         printf(
                                             '<%1$s %2$s>%3$s</%1$s>',
-                                            tag_escape($settings['tp_title_tag']),
+                                            tag_escape($settings['tj_title_tag']),
                                             $this->get_render_attribute_string('title_args'),
-                                            tp_kses($settings['tp_title'])
+                                            tj_kses($settings['tj_title'])
                                         );
                                     endif;
                                     ?>
 
-                                    <?php if (!empty($settings['tp_desctiption'])) : ?>
-                                        <p class="desc"><?php echo tp_kses($settings['tp_desctiption']); ?></p>
+                                    <?php if (!empty($settings['tj_desctiption'])) : ?>
+                                        <p class="desc"><?php echo tj_kses($settings['tj_desctiption']); ?></p>
                                     <?php endif; ?>
                                 </div>
                                 <!-- Section Heading/Title End -->
-                                <?php if ($settings['tp_image']['url'] || $settings['tp_image']['id']) : ?>
+                                <?php if ($settings['tj_image']['url'] || $settings['tj_image']['id']) : ?>
                                     <div class="reviewMap mb-50">
-                                        <img src="<?php echo esc_url($tp_image); ?>" alt="<?php echo esc_attr($tp_image_alt); ?>">
+                                        <img src="<?php echo esc_url($tj_image); ?>" alt="<?php echo esc_attr($tj_image_alt); ?>">
                                     </div>
                                 <?php endif; ?>
                             </div>
@@ -601,28 +601,28 @@ class TP_Testimonial extends Widget_Base {
                             <div class="row">
                                 <?php foreach ($settings['reviews_list'] as $index => $item) :
                                     if (!empty($item['reviewer_image']['url'])) {
-                                        $tp_reviewer_image = !empty($item['reviewer_image']['id']) ? wp_get_attachment_image_url($item['reviewer_image']['id'], $settings['thumbnail_size_size']) : $item['reviewer_image']['url'];
-                                        $tp_reviewer_image_alt = get_post_meta($item["reviewer_image"]["id"], "_wp_attachment_image_alt", true);
+                                        $tj_reviewer_image = !empty($item['reviewer_image']['id']) ? wp_get_attachment_image_url($item['reviewer_image']['id'], $settings['thumbnail_size_size']) : $item['reviewer_image']['url'];
+                                        $tj_reviewer_image_alt = get_post_meta($item["reviewer_image"]["id"], "_wp_attachment_image_alt", true);
                                     }
                                 ?>
                                     <div class="col-lg-6 col-md-6">
                                         <div class="reviewblock reviewblock--style2">
                                             <div class="reviewblock__content">
                                                 <div class="reviewblock__author">
-                                                    <?php if (!empty($tp_reviewer_image)) : ?>
+                                                    <?php if (!empty($tj_reviewer_image)) : ?>
                                                         <div class="reviewblock__authorImage">
-                                                            <img src="<?php echo esc_url($tp_reviewer_image); ?>" alt="<?php echo esc_url($tp_reviewer_image_alt); ?>">
+                                                            <img src="<?php echo esc_url($tj_reviewer_image); ?>" alt="<?php echo esc_url($tj_reviewer_image_alt); ?>">
                                                         </div>
                                                     <?php endif; ?>
 
                                                     <?php if (!empty($item['reviewer_name'])) : ?>
-                                                        <h3 class="reviewblock__authorName"><?php echo tp_kses($item['reviewer_name']); ?></h3>
+                                                        <h3 class="reviewblock__authorName"><?php echo tj_kses($item['reviewer_name']); ?></h3>
                                                     <?php endif; ?>
                                                     <?php if (!empty($item['review_content'])) : ?>
-                                                        <p class="reviewblock__authorSpeech"><?php echo tp_kses($item['review_content']); ?></p>
+                                                        <p class="reviewblock__authorSpeech"><?php echo tj_kses($item['review_content']); ?></p>
                                                     <?php endif; ?>
                                                     <?php if (!empty($item['reviewer_title'])) : ?>
-                                                        <span class="reviewblock__authorDes"><?php echo tp_kses($item['reviewer_title']); ?></span>
+                                                        <span class="reviewblock__authorDes"><?php echo tj_kses($item['reviewer_title']); ?></span>
                                                     <?php endif; ?>
                                                 </div>
                                             </div>
@@ -635,17 +635,17 @@ class TP_Testimonial extends Widget_Base {
                 </div>
             </section>
 
-        <?php elseif ($settings['tp_design_style']  == 'layout-3') :
+        <?php elseif ($settings['tj_design_style']  == 'layout-3') :
             $this->add_render_attribute('title_args', 'class', 'sectionTitle__big');
         ?>
             <section class="review review--layout2 position-relative overflow-hidden">
                 <div class="container-fluid p-0">
                     <div class="row justify-content-center">
-                        <?php if (!empty($settings['tp_section_title_show'])) : ?>
+                        <?php if (!empty($settings['tj_section_title_show'])) : ?>
                             <div class="col-lg-6">
                                 <!-- Section Heading/Title -->
                                 <div class="sectionTitle mb-65">
-                                    <?php if (!empty($settings['tp_sub_title'])) : ?>
+                                    <?php if (!empty($settings['tj_sub_title'])) : ?>
                                         <span class="sectionTitle__small">
                                             <i class="fa-solid fa-heart btn__icon"></i>
                                             Testimonial
@@ -653,18 +653,18 @@ class TP_Testimonial extends Widget_Base {
                                     <?php endif; ?>
 
                                     <?php
-                                    if (!empty($settings['tp_title'])) :
+                                    if (!empty($settings['tj_title'])) :
                                         printf(
                                             '<%1$s %2$s>%3$s</%1$s>',
-                                            tag_escape($settings['tp_title_tag']),
+                                            tag_escape($settings['tj_title_tag']),
                                             $this->get_render_attribute_string('title_args'),
-                                            tp_kses($settings['tp_title'])
+                                            tj_kses($settings['tj_title'])
                                         );
                                     endif;
                                     ?>
 
-                                    <?php if (!empty($settings['tp_desctiption'])) : ?>
-                                        <p class="desc"><?php echo tp_kses($settings['tp_desctiption']); ?></p>
+                                    <?php if (!empty($settings['tj_desctiption'])) : ?>
+                                        <p class="desc"><?php echo tj_kses($settings['tj_desctiption']); ?></p>
                                     <?php endif; ?>
                                 </div>
                                 <!-- Section Heading/Title End -->
@@ -679,8 +679,8 @@ class TP_Testimonial extends Widget_Base {
                         <div class="swiper-wrapper">
                             <?php foreach ($settings['reviews_list'] as $index => $item) :
                                 if (!empty($item['reviewer_image']['url'])) {
-                                    $tp_reviewer_image = !empty($item['reviewer_image']['id']) ? wp_get_attachment_image_url($item['reviewer_image']['id'], $settings['thumbnail_size_size']) : $item['reviewer_image']['url'];
-                                    $tp_reviewer_image_alt = get_post_meta($item["reviewer_image"]["id"], "_wp_attachment_image_alt", true);
+                                    $tj_reviewer_image = !empty($item['reviewer_image']['id']) ? wp_get_attachment_image_url($item['reviewer_image']['id'], $settings['thumbnail_size_size']) : $item['reviewer_image']['url'];
+                                    $tj_reviewer_image_alt = get_post_meta($item["reviewer_image"]["id"], "_wp_attachment_image_alt", true);
                                 }
                             ?>
                                 <div class="swiper-slide col-6">
@@ -688,16 +688,16 @@ class TP_Testimonial extends Widget_Base {
                                         <div class="reviewblock reviewblock--style3 text-center">
                                             <div class="reviewblock__content">
                                                 <div class="reviewblock__author">
-                                                    <?php if (!empty($tp_reviewer_image)) : ?>
-                                                        <img class="reviewblock__author__image" src="<?php echo esc_url($tp_reviewer_image); ?>" alt="<?php echo esc_url($tp_reviewer_image_alt); ?>">
+                                                    <?php if (!empty($tj_reviewer_image)) : ?>
+                                                        <img class="reviewblock__author__image" src="<?php echo esc_url($tj_reviewer_image); ?>" alt="<?php echo esc_url($tj_reviewer_image_alt); ?>">
                                                     <?php endif; ?>
 
                                                     <?php if (!empty($item['reviewer_name'])) : ?>
-                                                        <span class="reviewblock__author__name d-block mb-25"><?php echo tp_kses($item['reviewer_name']); ?></span>
+                                                        <span class="reviewblock__author__name d-block mb-25"><?php echo tj_kses($item['reviewer_name']); ?></span>
                                                     <?php endif; ?>
                                                     <br>
                                                     <?php if (!empty($item['reviewer_title'])) : ?>
-                                                        <span class="reviewblock__authorDes"><?php echo tp_kses($item['reviewer_title']); ?></span>
+                                                        <span class="reviewblock__authorDes"><?php echo tj_kses($item['reviewer_title']); ?></span>
                                                     <?php endif; ?>
                                                 </div>
                                                 <span class="reviewblock__quoteIcon__one">
@@ -706,7 +706,7 @@ class TP_Testimonial extends Widget_Base {
                                                     </svg>
                                                 </span>
                                                 <?php if (!empty($item['review_content'])) : ?>
-                                                    <h4 class="reviewblock__qotes">“ <?php echo tp_kses($item['review_content']); ?> “</h4>
+                                                    <h4 class="reviewblock__qotes">“ <?php echo tj_kses($item['review_content']); ?> “</h4>
                                                 <?php endif; ?>
                                             </div>
                                         </div>
@@ -731,33 +731,33 @@ class TP_Testimonial extends Widget_Base {
                                 <div class="testimonial__active owl-carousel">
                                     <?php foreach ($settings['reviews_list'] as $index => $item) :
                                         if (!empty($item['reviewer_image']['url'])) {
-                                            $tp_reviewer_image = !empty($item['reviewer_image']['id']) ? wp_get_attachment_image_url($item['reviewer_image']['id'], $settings['thumbnail_size_size']) : $item['reviewer_image']['url'];
-                                            $tp_reviewer_image_alt = get_post_meta($item["reviewer_image"]["id"], "_wp_attachment_image_alt", true);
+                                            $tj_reviewer_image = !empty($item['reviewer_image']['id']) ? wp_get_attachment_image_url($item['reviewer_image']['id'], $settings['thumbnail_size_size']) : $item['reviewer_image']['url'];
+                                            $tj_reviewer_image_alt = get_post_meta($item["reviewer_image"]["id"], "_wp_attachment_image_alt", true);
                                         }
                                     ?>
                                         <div class="testimonial__item transition-3 text-center white-bg">
-                                            <?php if (!empty($tp_reviewer_image)) : ?>
+                                            <?php if (!empty($tj_reviewer_image)) : ?>
                                                 <div class="testimonial__avater">
-                                                    <img src="<?php echo esc_url($tp_reviewer_image); ?>" alt="<?php echo esc_url($tp_reviewer_image_alt); ?>">
+                                                    <img src="<?php echo esc_url($tj_reviewer_image); ?>" alt="<?php echo esc_url($tj_reviewer_image_alt); ?>">
                                                 </div>
                                             <?php endif; ?>
 
                                             <div class="testimonial__text">
                                                 <?php if (!empty($item['review_sub'])) : ?>
-                                                    <h4><?php echo tp_kses($item['review_sub']); ?></h4>
+                                                    <h4><?php echo tj_kses($item['review_sub']); ?></h4>
                                                 <?php endif; ?>
 
                                                 <?php if (!empty($item['review_content'])) : ?>
-                                                    <p><?php echo tp_kses($item['review_content']); ?></p>
+                                                    <p><?php echo tj_kses($item['review_content']); ?></p>
                                                 <?php endif; ?>
 
                                             </div>
                                             <div class="testimonial__avater-info mb-5">
                                                 <?php if (!empty($item['reviewer_name'])) : ?>
-                                                    <h3><?php echo tp_kses($item['reviewer_name']); ?></h3>
+                                                    <h3><?php echo tj_kses($item['reviewer_name']); ?></h3>
                                                 <?php endif; ?>
                                                 <?php if (!empty($item['reviewer_title'])) : ?>
-                                                    <span><?php echo tp_kses($item['reviewer_title']); ?></span>
+                                                    <span><?php echo tj_kses($item['reviewer_title']); ?></span>
                                                 <?php endif; ?>
                                             </div>
                                             <div class="testimonial__rating">
@@ -794,4 +794,4 @@ class TP_Testimonial extends Widget_Base {
     }
 }
 
-$widgets_manager->register(new TP_Testimonial());
+$widgets_manager->register(new TJ_Testimonial());

@@ -19,7 +19,7 @@ if (!defined('ABSPATH')) exit; // Exit if accessed directly
  *
  * @since 1.0.0
  */
-class TP_Live_Donation extends Widget_Base {
+class TJ_Live_Donation extends Widget_Base {
 
     /**
      * Retrieve the widget name.
@@ -106,13 +106,13 @@ class TP_Live_Donation extends Widget_Base {
 
         // layout Panel
         $this->start_controls_section(
-            'tp_layout',
+            'tj_layout',
             [
                 'label' => esc_html__('Design Layout', 'tjcore'),
             ]
         );
         $this->add_control(
-            'tp_design_style',
+            'tj_design_style',
             [
                 'label' => esc_html__('Select Layout', 'tjcore'),
                 'type' => Controls_Manager::SELECT,
@@ -125,19 +125,19 @@ class TP_Live_Donation extends Widget_Base {
 
         $this->end_controls_section();
 
-        // tp_section_title
+        // tj_section_title
         $this->start_controls_section(
-            'tp_section_title',
+            'tj_section_title',
             [
                 'label' => esc_html__('Title & Content', 'tjcore'),
             ]
         );
 
         $this->add_control(
-            'tp_donate_percentage',
+            'tj_donate_percentage',
             [
                 'label' => esc_html__('Percentage', 'tjcore'),
-                'description' => tp_get_allowed_html_desc('basic'),
+                'description' => tj_get_allowed_html_desc('basic'),
                 'type' => Controls_Manager::TEXT,
                 'default' => esc_html__('80', 'tjcore'),
                 'placeholder' => esc_html__('Type Percentage Number', 'tjcore'),
@@ -145,10 +145,10 @@ class TP_Live_Donation extends Widget_Base {
             ]
         );
         $this->add_control(
-            'tp_title',
+            'tj_title',
             [
                 'label' => esc_html__('Title', 'tjcore'),
-                'description' => tp_get_allowed_html_desc('intermediate'),
+                'description' => tj_get_allowed_html_desc('intermediate'),
                 'type' => Controls_Manager::TEXT,
                 'default' => esc_html__('TJ Title Here', 'tjcore'),
                 'placeholder' => esc_html__('Type Heading Text', 'tjcore'),
@@ -157,10 +157,10 @@ class TP_Live_Donation extends Widget_Base {
         );
 
         $this->add_control(
-            'tp_donate_number',
+            'tj_donate_number',
             [
                 'label' => esc_html__('Donation Number', 'tjcore'),
-                'description' => tp_get_allowed_html_desc('intermediate'),
+                'description' => tj_get_allowed_html_desc('intermediate'),
                 'type' => Controls_Manager::TEXT,
                 'default' => esc_html__('28,0000', 'tjcore'),
                 'placeholder' => esc_html__('Type donation number here', 'tjcore'),
@@ -168,7 +168,7 @@ class TP_Live_Donation extends Widget_Base {
         );
 
         $this->add_control(
-            'tp_title_tag',
+            'tj_title_tag',
             [
                 'label' => esc_html__('Title HTML Tag', 'tjcore'),
                 'type' => Controls_Manager::CHOOSE,
@@ -204,7 +204,7 @@ class TP_Live_Donation extends Widget_Base {
         );
 
         $this->add_responsive_control(
-            'tp_align',
+            'tj_align',
             [
                 'label' => esc_html__('Alignment', 'tjcore'),
                 'type' => Controls_Manager::CHOOSE,
@@ -272,42 +272,42 @@ class TP_Live_Donation extends Widget_Base {
 
 ?>
 
-        <?php if ($settings['tp_design_style']  == 'layout-2') :
+        <?php if ($settings['tj_design_style']  == 'layout-2') :
             $this->add_render_attribute('title_args', 'class', 'title');
         ?>
-            <?php if (!empty($settings['tp_section_title_show'])) : ?>
+            <?php if (!empty($settings['tj_section_title_show'])) : ?>
                 <div class="contact__info">
                     <div class="contact__info__icon">
-                        <?php if ($settings['tp_icon_type'] !== 'image') : ?>
-                            <?php if (!empty($settings['tp_icon']) || !empty($settings['tp_selected_icon']['value'])) : ?>
+                        <?php if ($settings['tj_icon_type'] !== 'image') : ?>
+                            <?php if (!empty($settings['tj_icon']) || !empty($settings['tj_selected_icon']['value'])) : ?>
                                 <div class="tj-icon">
-                                    <?php tp_render_icon($settings, 'tp_icon', 'tp_selected_icon'); ?>
+                                    <?php tj_render_icon($settings, 'tj_icon', 'tj_selected_icon'); ?>
                                 </div>
                             <?php endif; ?>
                         <?php else : ?>
                             <div class="icon">
-                                <?php echo Group_Control_Image_Size::get_attachment_image_html($settings, 'full', 'tp_icon_image'); ?>
+                                <?php echo Group_Control_Image_Size::get_attachment_image_html($settings, 'full', 'tj_icon_image'); ?>
                             </div>
                         <?php endif; ?>
                     </div>
                     <div class="contact__info__content">
-                        <?php if (!empty($settings['tp_donate_percentage'])) : ?>
-                            <span class="sub-title tj-el-subtitle"><?php echo tp_kses($settings['tp_donate_percentage']); ?></span>
+                        <?php if (!empty($settings['tj_donate_percentage'])) : ?>
+                            <span class="sub-title tj-el-subtitle"><?php echo tj_kses($settings['tj_donate_percentage']); ?></span>
                         <?php endif; ?>
 
                         <?php
-                        if (!empty($settings['tp_title'])) :
+                        if (!empty($settings['tj_title'])) :
                             printf(
                                 '<%1$s %2$s>%3$s</%1$s>',
-                                tag_escape($settings['tp_title_tag']),
+                                tag_escape($settings['tj_title_tag']),
                                 $this->get_render_attribute_string('title_args'),
-                                tp_kses($settings['tp_title'])
+                                tj_kses($settings['tj_title'])
                             );
                         endif;
                         ?>
 
-                        <?php if (!empty($settings['tp_donate_number'])) : ?>
-                            <span><?php echo tp_kses($settings['tp_donate_number']); ?></span>
+                        <?php if (!empty($settings['tj_donate_number'])) : ?>
+                            <span><?php echo tj_kses($settings['tj_donate_number']); ?></span>
                         <?php endif; ?>
                     </div>
                 </div>
@@ -322,28 +322,28 @@ class TP_Live_Donation extends Widget_Base {
                 <div class="sponsorsTitle sponsorsTitle--style2">
                     <span class="sponsorsTitle__line"></span>
                     <?php
-                    if (!empty($settings['tp_title'])) :
+                    if (!empty($settings['tj_title'])) :
                         printf(
                             '<%1$s %2$s>%3$s</%1$s>',
-                            tag_escape($settings['tp_title_tag']),
+                            tag_escape($settings['tj_title_tag']),
                             $this->get_render_attribute_string('title_args'),
-                            tp_kses($settings['tp_title'])
+                            tj_kses($settings['tj_title'])
                         );
                     endif;
                     ?>
                     <span class="sponsorsTitle__line"></span>
                 </div>
 
-                <?php if (!empty($settings['tp_donate_number'])) : ?>
-                    <h3 class="featureTab__content__counter"><?php echo tp_kses($settings['tp_donate_number']); ?></h3>
+                <?php if (!empty($settings['tj_donate_number'])) : ?>
+                    <h3 class="featureTab__content__counter"><?php echo tj_kses($settings['tj_donate_number']); ?></h3>
                 <?php endif; ?>
-                <?php if (!empty($settings['tp_donate_percentage'])) : ?>
+                <?php if (!empty($settings['tj_donate_percentage'])) : ?>
                     <div class="featureBlock__donation__progress">
                         <div class="featureBlock__donation__bar">
-                            <span class="featureBlock__donation__text skill-bar skill-bar--text" data-width="<?php echo tp_kses($settings['tp_donate_percentage']); ?>%"><span><?php echo tp_kses($settings['tp_donate_percentage']); ?>%</span></span>
+                            <span class="featureBlock__donation__text skill-bar skill-bar--text" data-width="<?php echo tj_kses($settings['tj_donate_percentage']); ?>%"><span><?php echo tj_kses($settings['tj_donate_percentage']); ?>%</span></span>
                             <div class="featureBlock__donation__line">
                                 <span class="skill-bars">
-                                    <span class="skill-bars__line skill-bar" data-width="<?php echo tp_kses($settings['tp_donate_percentage']); ?>%"></span>
+                                    <span class="skill-bars__line skill-bar" data-width="<?php echo tj_kses($settings['tj_donate_percentage']); ?>%"></span>
                                 </span>
                             </div>
                         </div>
@@ -358,4 +358,4 @@ class TP_Live_Donation extends Widget_Base {
     }
 }
 
-$widgets_manager->register(new TP_Live_Donation());
+$widgets_manager->register(new TJ_Live_Donation());

@@ -19,7 +19,7 @@ if (!defined('ABSPATH')) exit; // Exit if accessed directly
  *
  * @since 1.0.0
  */
-class TP_CTA extends Widget_Base {
+class TJ_CTA extends Widget_Base {
 
     /**
      * Retrieve the widget name.
@@ -106,13 +106,13 @@ class TP_CTA extends Widget_Base {
 
         // layout Panel
         $this->start_controls_section(
-            'tp_layout',
+            'tj_layout',
             [
                 'label' => esc_html__('Design Layout', 'tjcore'),
             ]
         );
         $this->add_control(
-            'tp_design_style',
+            'tj_design_style',
             [
                 'label' => esc_html__('Select Layout', 'tjcore'),
                 'type' => Controls_Manager::SELECT,
@@ -127,19 +127,19 @@ class TP_CTA extends Widget_Base {
 
         $this->end_controls_section();
 
-        // tp_section_title
+        // tj_section_title
         $this->start_controls_section(
-            'tp_section_title',
+            'tj_section_title',
             [
                 'label' => esc_html__('Title & Content', 'tjcore'),
             ]
         );
 
         $this->add_control(
-            'tp_sub_title',
+            'tj_sub_title',
             [
                 'label' => esc_html__('Sub Title', 'tjcore'),
-                'description' => tp_get_allowed_html_desc('basic'),
+                'description' => tj_get_allowed_html_desc('basic'),
                 'type' => Controls_Manager::TEXT,
                 'default' => esc_html__('TJ Sub Title', 'tjcore'),
                 'placeholder' => esc_html__('Type Sub Heading Text', 'tjcore'),
@@ -147,10 +147,10 @@ class TP_CTA extends Widget_Base {
             ]
         );
         $this->add_control(
-            'tp_title',
+            'tj_title',
             [
                 'label' => esc_html__('Title', 'tjcore'),
-                'description' => tp_get_allowed_html_desc('intermediate'),
+                'description' => tj_get_allowed_html_desc('intermediate'),
                 'type' => Controls_Manager::TEXT,
                 'default' => esc_html__('TJ Title Here', 'tjcore'),
                 'placeholder' => esc_html__('Type Heading Text', 'tjcore'),
@@ -159,10 +159,10 @@ class TP_CTA extends Widget_Base {
         );
 
         $this->add_control(
-            'tp_desctiption',
+            'tj_desctiption',
             [
                 'label' => esc_html__('Description', 'tjcore'),
-                'description' => tp_get_allowed_html_desc('intermediate'),
+                'description' => tj_get_allowed_html_desc('intermediate'),
                 'type' => Controls_Manager::TEXTAREA,
                 'default' => esc_html__('TJ section description here', 'tjcore'),
                 'placeholder' => esc_html__('Type section description here', 'tjcore'),
@@ -170,21 +170,21 @@ class TP_CTA extends Widget_Base {
         );
 
         $this->add_control(
-            'tp_short_desctiption',
+            'tj_short_desctiption',
             [
                 'label' => esc_html__('Short Description', 'tjcore'),
-                'description' => tp_get_allowed_html_desc('intermediate'),
+                'description' => tj_get_allowed_html_desc('intermediate'),
                 'type' => Controls_Manager::TEXTAREA,
                 'default' => esc_html__('TJ section description here', 'tjcore'),
                 'placeholder' => esc_html__('Type section description here', 'tjcore'),
                 'condition' => [
-                    'tp_design_style' => 'layout-2'
+                    'tj_design_style' => 'layout-2'
                 ],
             ]
         );
 
         $this->add_control(
-            'tp_title_tag',
+            'tj_title_tag',
             [
                 'label' => esc_html__('Title HTML Tag', 'tjcore'),
                 'type' => Controls_Manager::CHOOSE,
@@ -220,7 +220,7 @@ class TP_CTA extends Widget_Base {
         );
 
         $this->add_responsive_control(
-            'tp_align',
+            'tj_align',
             [
                 'label' => esc_html__('Alignment', 'tjcore'),
                 'type' => Controls_Manager::CHOOSE,
@@ -245,16 +245,16 @@ class TP_CTA extends Widget_Base {
         $this->end_controls_section();
 
 
-        // tp_btn_button_group
+        // tj_btn_button_group
         $this->start_controls_section(
-            'tp_btn_button_group',
+            'tj_btn_button_group',
             [
                 'label' => esc_html__('Button', 'tjcore'),
             ]
         );
 
         $this->add_control(
-            'tp_btn_button_show',
+            'tj_btn_button_show',
             [
                 'label' => esc_html__('Show Button', 'tjcore'),
                 'type' => Controls_Manager::SWITCHER,
@@ -266,7 +266,7 @@ class TP_CTA extends Widget_Base {
         );
 
         $this->add_control(
-            'tp_btn_text',
+            'tj_btn_text',
             [
                 'label' => esc_html__('Button Text', 'tjcore'),
                 'type' => Controls_Manager::TEXT,
@@ -274,12 +274,12 @@ class TP_CTA extends Widget_Base {
                 'title' => esc_html__('Enter button text', 'tjcore'),
                 'label_block' => true,
                 'condition' => [
-                    'tp_btn_button_show' => 'yes'
+                    'tj_btn_button_show' => 'yes'
                 ],
             ]
         );
         $this->add_control(
-            'tp_btn_link_type',
+            'tj_btn_link_type',
             [
                 'label' => esc_html__('Button Link Type', 'tjcore'),
                 'type' => Controls_Manager::SELECT,
@@ -290,13 +290,13 @@ class TP_CTA extends Widget_Base {
                 'default' => '1',
                 'label_block' => true,
                 'condition' => [
-                    'tp_btn_button_show' => 'yes'
+                    'tj_btn_button_show' => 'yes'
                 ],
             ]
         );
 
         $this->add_control(
-            'tp_btn_link',
+            'tj_btn_link',
             [
                 'label' => esc_html__('Button link', 'tjcore'),
                 'type' => Controls_Manager::URL,
@@ -312,36 +312,36 @@ class TP_CTA extends Widget_Base {
                     'custom_attributes' => '',
                 ],
                 'condition' => [
-                    'tp_btn_link_type' => '1',
-                    'tp_btn_button_show' => 'yes'
+                    'tj_btn_link_type' => '1',
+                    'tj_btn_button_show' => 'yes'
                 ],
                 'label_block' => true,
             ]
         );
         $this->add_control(
-            'tp_btn_page_link',
+            'tj_btn_page_link',
             [
                 'label' => esc_html__('Select Button Page', 'tjcore'),
                 'type' => Controls_Manager::SELECT2,
                 'label_block' => true,
-                'options' => tp_get_all_pages(),
+                'options' => tj_get_all_pages(),
                 'condition' => [
-                    'tp_btn_link_type' => '2',
-                    'tp_btn_button_show' => 'yes'
+                    'tj_btn_link_type' => '2',
+                    'tj_btn_button_show' => 'yes'
                 ]
             ]
         );
         $this->end_controls_section();
 
-        // _tp_image
+        // _tj_image
         $this->start_controls_section(
-            '_tp_image',
+            '_tj_image',
             [
                 'label' => esc_html__('Thumbnail', 'tjcore'),
             ]
         );
         $this->add_control(
-            'tp_image',
+            'tj_image',
             [
                 'label' => esc_html__('Choose Image', 'tjcore'),
                 'type' => \Elementor\Controls_Manager::MEDIA,
@@ -354,7 +354,7 @@ class TP_CTA extends Widget_Base {
         $this->add_group_control(
             Group_Control_Image_Size::get_type(),
             [
-                'name' => 'tp_image_size',
+                'name' => 'tj_image_size',
                 'default' => 'full',
                 'exclude' => [
                     'custom'
@@ -371,7 +371,7 @@ class TP_CTA extends Widget_Base {
                 'label' => __('Experience Info', 'tjcore'),
                 'tab' => Controls_Manager::TAB_CONTENT,
                 'condition' => [
-                    'tp_design_style' => ['layout-2', 'layout-5'],
+                    'tj_design_style' => ['layout-2', 'layout-5'],
                 ],
             ]
         );
@@ -449,22 +449,22 @@ class TP_CTA extends Widget_Base {
 
 ?>
 
-        <?php if ($settings['tp_design_style']  == 'layout-2') :
-            if (!empty($settings['tp_image']['url'])) {
-                $tp_image = !empty($settings['tp_image']['id']) ? wp_get_attachment_image_url($settings['tp_image']['id'], $settings['tp_image_size_size']) : $settings['tp_image']['url'];
-                $tp_image_alt = get_post_meta($settings["tp_image"]["id"], "_wp_attachment_image_alt", true);
+        <?php if ($settings['tj_design_style']  == 'layout-2') :
+            if (!empty($settings['tj_image']['url'])) {
+                $tj_image = !empty($settings['tj_image']['id']) ? wp_get_attachment_image_url($settings['tj_image']['id'], $settings['tj_image_size_size']) : $settings['tj_image']['url'];
+                $tj_image_alt = get_post_meta($settings["tj_image"]["id"], "_wp_attachment_image_alt", true);
             }
             $this->add_render_attribute('title_args', 'class', 'section__title section__title-44');
 
             // Link
-            if ('2' == $settings['tp_btn_link_type']) {
-                $this->add_render_attribute('tj-button-arg', 'href', get_permalink($settings['tp_btn_page_link']));
+            if ('2' == $settings['tj_btn_link_type']) {
+                $this->add_render_attribute('tj-button-arg', 'href', get_permalink($settings['tj_btn_page_link']));
                 $this->add_render_attribute('tj-button-arg', 'target', '_self');
                 $this->add_render_attribute('tj-button-arg', 'rel', 'nofollow');
                 $this->add_render_attribute('tj-button-arg', 'class', 'play-video');
             } else {
-                if (!empty($settings['tp_btn_link']['url'])) {
-                    $this->add_link_attributes('tj-button-arg', $settings['tp_btn_link']);
+                if (!empty($settings['tj_btn_link']['url'])) {
+                    $this->add_link_attributes('tj-button-arg', $settings['tj_btn_link']);
                     $this->add_render_attribute('tj-button-arg', 'class', 'play-video popup-video');
                 }
             }
@@ -474,43 +474,43 @@ class TP_CTA extends Widget_Base {
             <section class="certificate__area pb-120 pt-120">
                 <div class="container">
                     <div class="certificate__inner grey-bg-9 p-relative">
-                        <?php if (!empty($tp_image)) : ?>
+                        <?php if (!empty($tj_image)) : ?>
                             <div class="certificate__thumb">
-                                <img src="<?php echo esc_url($tp_image); ?>" alt="<?php echo esc_attr($tp_image_alt); ?>">
+                                <img src="<?php echo esc_url($tj_image); ?>" alt="<?php echo esc_attr($tj_image_alt); ?>">
                             </div>
                         <?php endif; ?>
                         <div class="row">
                             <div class="col-xxl-7">
                                 <div class="certificate__content">
                                     <div class="section__title-wrapper mb-10">
-                                        <?php if (!empty($settings['tp_sub_title'])) : ?>
-                                            <span class="section__title-pre-3"><?php echo tp_kses($settings['tp_sub_title']); ?></span>
+                                        <?php if (!empty($settings['tj_sub_title'])) : ?>
+                                            <span class="section__title-pre-3"><?php echo tj_kses($settings['tj_sub_title']); ?></span>
                                         <?php endif; ?>
 
                                         <?php
-                                        if (!empty($settings['tp_title'])) :
+                                        if (!empty($settings['tj_title'])) :
                                             printf(
                                                 '<%1$s %2$s>%3$s</%1$s>',
-                                                tag_escape($settings['tp_title_tag']),
+                                                tag_escape($settings['tj_title_tag']),
                                                 $this->get_render_attribute_string('title_args'),
-                                                tp_kses($settings['tp_title'])
+                                                tj_kses($settings['tj_title'])
                                             );
                                         endif;
                                         ?>
                                     </div>
-                                    <?php if (!empty($settings['tp_desctiption'])) : ?>
-                                        <p><?php echo tp_kses($settings['tp_desctiption']); ?></p>
+                                    <?php if (!empty($settings['tj_desctiption'])) : ?>
+                                        <p><?php echo tj_kses($settings['tj_desctiption']); ?></p>
                                     <?php endif; ?>
 
                                     <div class="certificate__links d-sm-flex align-items-center">
-                                        <?php if (!empty($settings['tp_btn_button_show'])) : ?>
+                                        <?php if (!empty($settings['tj_btn_button_show'])) : ?>
                                             <a <?php echo $this->get_render_attribute_string('tj-button-arg'); ?>>
-                                                <i class="fa-solid fa-play"></i> <?php echo $settings['tp_btn_text']; ?>
+                                                <i class="fa-solid fa-play"></i> <?php echo $settings['tj_btn_text']; ?>
                                             </a>
                                         <?php endif; ?>
 
-                                        <?php if (!empty($settings['tp_short_desctiption'])) : ?>
-                                            <?php echo tp_kses($settings['tp_short_desctiption']); ?>
+                                        <?php if (!empty($settings['tj_short_desctiption'])) : ?>
+                                            <?php echo tj_kses($settings['tj_short_desctiption']); ?>
                                         <?php endif; ?>
 
                                     </div>
@@ -522,22 +522,22 @@ class TP_CTA extends Widget_Base {
             </section>
 
 
-        <?php elseif ($settings['tp_design_style']  == 'layout-3') :
-            if (!empty($settings['tp_image']['url'])) {
-                $tp_image = !empty($settings['tp_image']['id']) ? wp_get_attachment_image_url($settings['tp_image']['id'], $settings['tp_image_size_size']) : $settings['tp_image']['url'];
-                $tp_image_alt = get_post_meta($settings["tp_image"]["id"], "_wp_attachment_image_alt", true);
+        <?php elseif ($settings['tj_design_style']  == 'layout-3') :
+            if (!empty($settings['tj_image']['url'])) {
+                $tj_image = !empty($settings['tj_image']['id']) ? wp_get_attachment_image_url($settings['tj_image']['id'], $settings['tj_image_size_size']) : $settings['tj_image']['url'];
+                $tj_image_alt = get_post_meta($settings["tj_image"]["id"], "_wp_attachment_image_alt", true);
             }
             $this->add_render_attribute('title_args', 'class', 'tj-price-cta-heading');
 
             // Link
-            if ('2' == $settings['tp_btn_link_type']) {
-                $this->add_render_attribute('tj-button-arg', 'href', get_permalink($settings['tp_btn_page_link']));
+            if ('2' == $settings['tj_btn_link_type']) {
+                $this->add_render_attribute('tj-button-arg', 'href', get_permalink($settings['tj_btn_page_link']));
                 $this->add_render_attribute('tj-button-arg', 'target', '_self');
                 $this->add_render_attribute('tj-button-arg', 'rel', 'nofollow');
                 $this->add_render_attribute('tj-button-arg', 'class', 'tj-price-btn');
             } else {
-                if (!empty($settings['tp_btn_link']['url'])) {
-                    $this->add_link_attributes('tj-button-arg', $settings['tp_btn_link']);
+                if (!empty($settings['tj_btn_link']['url'])) {
+                    $this->add_link_attributes('tj-button-arg', $settings['tj_btn_link']);
                     $this->add_render_attribute('tj-button-arg', 'class', 'tj-price-btn');
                 }
             }
@@ -549,60 +549,60 @@ class TP_CTA extends Widget_Base {
                     <img src="<?php echo get_template_directory_uri(); ?>/assets/img/price/price-shape.png" alt="img">
                 </div>
                 <div class="price__banner-content p-relative z-index-1">
-                    <?php if (!empty($settings['tp_sub_title'])) : ?>
-                        <span class="section__title-pre-3"><?php echo tp_kses($settings['tp_sub_title']); ?></span>
+                    <?php if (!empty($settings['tj_sub_title'])) : ?>
+                        <span class="section__title-pre-3"><?php echo tj_kses($settings['tj_sub_title']); ?></span>
                     <?php endif; ?>
                     <?php
-                    if (!empty($settings['tp_title'])) :
+                    if (!empty($settings['tj_title'])) :
                         printf(
                             '<%1$s %2$s>%3$s</%1$s>',
-                            tag_escape($settings['tp_title_tag']),
+                            tag_escape($settings['tj_title_tag']),
                             $this->get_render_attribute_string('title_args'),
-                            tp_kses($settings['tp_title'])
+                            tj_kses($settings['tj_title'])
                         );
                     endif;
                     ?>
-                    <?php if (!empty($settings['tp_desctiption'])) : ?>
-                        <p><?php echo tp_kses($settings['tp_desctiption']); ?></p>
+                    <?php if (!empty($settings['tj_desctiption'])) : ?>
+                        <p><?php echo tj_kses($settings['tj_desctiption']); ?></p>
                     <?php endif; ?>
 
-                    <?php if (!empty($settings['tp_btn_button_show'])) : ?>
+                    <?php if (!empty($settings['tj_btn_button_show'])) : ?>
                         <a <?php echo $this->get_render_attribute_string('tj-button-arg'); ?>>
-                            <?php echo $settings['tp_btn_text']; ?>
+                            <?php echo $settings['tj_btn_text']; ?>
                         </a>
                     <?php endif; ?>
                 </div>
-                <?php if (!empty($tp_image)) : ?>
+                <?php if (!empty($tj_image)) : ?>
                     <div class="price__thumb">
-                        <img src="<?php echo esc_url($tp_image); ?>" alt="<?php echo esc_attr($tp_image_alt); ?>">
+                        <img src="<?php echo esc_url($tj_image); ?>" alt="<?php echo esc_attr($tj_image_alt); ?>">
                     </div>
                 <?php endif; ?>
             </div>
 
         <?php else :
-            if (!empty($settings['tp_image']['url'])) {
-                $tp_image = !empty($settings['tp_image']['id']) ? wp_get_attachment_image_url($settings['tp_image']['id'], $settings['tp_image_size_size']) : $settings['tp_image']['url'];
-                $tp_image_alt = get_post_meta($settings["tp_image"]["id"], "_wp_attachment_image_alt", true);
+            if (!empty($settings['tj_image']['url'])) {
+                $tj_image = !empty($settings['tj_image']['id']) ? wp_get_attachment_image_url($settings['tj_image']['id'], $settings['tj_image_size_size']) : $settings['tj_image']['url'];
+                $tj_image_alt = get_post_meta($settings["tj_image"]["id"], "_wp_attachment_image_alt", true);
             }
 
             $this->add_render_attribute('title_args', 'class', 'tj-cta-title');
 
             // Link
-            if ('2' == $settings['tp_btn_link_type']) {
-                $this->add_render_attribute('tj-button-arg', 'href', get_permalink($settings['tp_btn_page_link']));
+            if ('2' == $settings['tj_btn_link_type']) {
+                $this->add_render_attribute('tj-button-arg', 'href', get_permalink($settings['tj_btn_page_link']));
                 $this->add_render_attribute('tj-button-arg', 'target', '_self');
                 $this->add_render_attribute('tj-button-arg', 'rel', 'nofollow');
                 $this->add_render_attribute('tj-button-arg', 'class', 'tj-btn-5 tj-btn-11');
             } else {
-                if (!empty($settings['tp_btn_link']['url'])) {
-                    $this->add_link_attributes('tj-button-arg', $settings['tp_btn_link']);
+                if (!empty($settings['tj_btn_link']['url'])) {
+                    $this->add_link_attributes('tj-button-arg', $settings['tj_btn_link']);
                     $this->add_render_attribute('tj-button-arg', 'class', 'tj-btn-5 tj-btn-11');
                 }
             }
         ?>
 
 
-            <div class="course__enroll-wrapper p-relative d-sm-flex align-items-center justify-content-between include-bg" data-background="<?php echo esc_url($tp_image); ?>">
+            <div class="course__enroll-wrapper p-relative d-sm-flex align-items-center justify-content-between include-bg" data-background="<?php echo esc_url($tj_image); ?>">
                 <div class="course__enroll-icon">
                     <span>
                         <svg width="28" height="34" viewBox="0 0 28 34" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -625,28 +625,28 @@ class TP_CTA extends Widget_Base {
                     </span>
                 </div>
                 <div class="course__enroll-content">
-                    <?php if (!empty($settings['tp_sub_title'])) : ?>
-                        <p><?php echo tp_kses($settings['tp_sub_title']); ?></p>
+                    <?php if (!empty($settings['tj_sub_title'])) : ?>
+                        <p><?php echo tj_kses($settings['tj_sub_title']); ?></p>
                     <?php endif; ?>
                     <?php
-                    if (!empty($settings['tp_title'])) :
+                    if (!empty($settings['tj_title'])) :
                         printf(
                             '<%1$s %2$s>%3$s</%1$s>',
-                            tag_escape($settings['tp_title_tag']),
+                            tag_escape($settings['tj_title_tag']),
                             $this->get_render_attribute_string('title_args'),
-                            tp_kses($settings['tp_title'])
+                            tj_kses($settings['tj_title'])
                         );
                     endif;
                     ?>
-                    <?php if (!empty($settings['tp_desctiption'])) : ?>
-                        <span><?php echo tp_kses($settings['tp_desctiption']); ?></span>
+                    <?php if (!empty($settings['tj_desctiption'])) : ?>
+                        <span><?php echo tj_kses($settings['tj_desctiption']); ?></span>
                     <?php endif; ?>
                 </div>
 
-                <?php if (!empty($settings['tp_btn_button_show'])) : ?>
+                <?php if (!empty($settings['tj_btn_button_show'])) : ?>
                     <div class="course__enroll-btn pt-5">
                         <a <?php echo $this->get_render_attribute_string('tj-button-arg'); ?>>
-                            <?php echo $settings['tp_btn_text']; ?>
+                            <?php echo $settings['tj_btn_text']; ?>
                         </a>
                     </div>
                 <?php endif; ?>
@@ -658,4 +658,4 @@ class TP_CTA extends Widget_Base {
     }
 }
 
-$widgets_manager->register(new TP_CTA());
+$widgets_manager->register(new TJ_CTA());

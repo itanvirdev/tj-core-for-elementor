@@ -14,7 +14,7 @@ if (!defined('ABSPATH')) exit; // Exit if accessed directly
  *
  * @since 1.0.0
  */
-class TP_FAQ extends Widget_Base {
+class TJ_FAQ extends Widget_Base {
 
 	/**
 	 * Retrieve the widget name.
@@ -122,7 +122,7 @@ class TP_FAQ extends Widget_Base {
 			'accordion_description',
 			[
 				'label' => esc_html__('Description', 'tjcore'),
-				'description' => tp_get_allowed_html_desc('intermediate'),
+				'description' => tj_get_allowed_html_desc('intermediate'),
 				'type' => \Elementor\Controls_Manager::TEXTAREA,
 				'default' => 'Facilis fugiat hic ipsam iusto laudantium libero maiores minima molestiae mollitia repellat rerum sunt ullam voluptates? Perferendis, suscipit.',
 				'label_block' => true,
@@ -239,7 +239,7 @@ class TP_FAQ extends Widget_Base {
 							</h2>
 							<div id="collapseOne-<?php echo esc_attr($index); ?>" class="accordion-collapse collapse <?php echo esc_attr($show); ?>" aria-labelledby="faqOne-<?php echo esc_attr($index); ?>" data-bs-parent="#faqaccordion-<?php echo esc_attr($this->get_id()); ?>">
 								<div class="accordion-body">
-									<p><?php echo tp_kses($item['accordion_description']); ?></p>
+									<p><?php echo tj_kses($item['accordion_description']); ?></p>
 								</div>
 							</div>
 						</div>
@@ -252,4 +252,4 @@ class TP_FAQ extends Widget_Base {
 	}
 }
 
-$widgets_manager->register(new TP_FAQ());
+$widgets_manager->register(new TJ_FAQ());

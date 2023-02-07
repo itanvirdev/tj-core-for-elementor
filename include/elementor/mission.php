@@ -18,7 +18,7 @@ if (!defined('ABSPATH')) exit; // Exit if accessed directly
  *
  * @since 1.0.0
  */
-class TP_Mission extends Widget_Base {
+class TJ_Mission extends Widget_Base {
 
     /**
      * Retrieve the widget name.
@@ -105,13 +105,13 @@ class TP_Mission extends Widget_Base {
 
         // layout Panel
         $this->start_controls_section(
-            'tp_layout',
+            'tj_layout',
             [
                 'label' => esc_html__('Design Layout', 'tjcore'),
             ]
         );
         $this->add_control(
-            'tp_design_style',
+            'tj_design_style',
             [
                 'label' => esc_html__('Select Layout', 'tjcore'),
                 'type' => Controls_Manager::SELECT,
@@ -124,16 +124,16 @@ class TP_Mission extends Widget_Base {
 
         $this->end_controls_section();
 
-        // tp_section_title
+        // tj_section_title
         $this->start_controls_section(
-            'tp_section_title',
+            'tj_section_title',
             [
                 'label' => esc_html__('Title & Content', 'tjcore'),
             ]
         );
 
         $this->add_control(
-            'tp_section_title_show',
+            'tj_section_title_show',
             [
                 'label' => esc_html__('Section Title & Content', 'tjcore'),
                 'type' => Controls_Manager::SWITCHER,
@@ -145,10 +145,10 @@ class TP_Mission extends Widget_Base {
         );
 
         $this->add_control(
-            'tp_sub_title',
+            'tj_sub_title',
             [
                 'label' => esc_html__('Sub Title', 'tjcore'),
-                'description' => tp_get_allowed_html_desc('basic'),
+                'description' => tj_get_allowed_html_desc('basic'),
                 'type' => Controls_Manager::TEXT,
                 'default' => esc_html__('TJ Sub Title', 'tjcore'),
                 'placeholder' => esc_html__('Type Sub Heading Text', 'tjcore'),
@@ -156,10 +156,10 @@ class TP_Mission extends Widget_Base {
             ]
         );
         $this->add_control(
-            'tp_title',
+            'tj_title',
             [
                 'label' => esc_html__('Title', 'tjcore'),
-                'description' => tp_get_allowed_html_desc('intermediate'),
+                'description' => tj_get_allowed_html_desc('intermediate'),
                 'type' => Controls_Manager::TEXT,
                 'default' => esc_html__('TJ Title Here', 'tjcore'),
                 'placeholder' => esc_html__('Type Heading Text', 'tjcore'),
@@ -168,10 +168,10 @@ class TP_Mission extends Widget_Base {
         );
 
         $this->add_control(
-            'tp_desctiption',
+            'tj_desctiption',
             [
                 'label' => esc_html__('Description', 'tjcore'),
-                'description' => tp_get_allowed_html_desc('intermediate'),
+                'description' => tj_get_allowed_html_desc('intermediate'),
                 'type' => Controls_Manager::TEXTAREA,
                 'default' => esc_html__('TJ section description here', 'tjcore'),
                 'placeholder' => esc_html__('Type section description here', 'tjcore'),
@@ -179,7 +179,7 @@ class TP_Mission extends Widget_Base {
         );
 
         $this->add_control(
-            'tp_video_url',
+            'tj_video_url',
             [
                 'label' => esc_html__('Video URL', 'tjcore'),
                 'type' => Controls_Manager::TEXT,
@@ -189,7 +189,7 @@ class TP_Mission extends Widget_Base {
         );
 
         $this->add_control(
-            'tp_title_tag',
+            'tj_title_tag',
             [
                 'label' => esc_html__('Title HTML Tag', 'tjcore'),
                 'type' => Controls_Manager::CHOOSE,
@@ -225,7 +225,7 @@ class TP_Mission extends Widget_Base {
         );
 
         $this->add_responsive_control(
-            'tp_align',
+            'tj_align',
             [
                 'label' => esc_html__('Alignment', 'tjcore'),
                 'type' => Controls_Manager::CHOOSE,
@@ -251,7 +251,7 @@ class TP_Mission extends Widget_Base {
 
         // Service group
         $this->start_controls_section(
-            'tp_services',
+            'tj_services',
             [
                 'label' => esc_html__('Fact List', 'tjcore'),
                 'description' => esc_html__('Control all the style settings from Style tab', 'tjcore'),
@@ -277,7 +277,7 @@ class TP_Mission extends Widget_Base {
         );
 
         $repeater->add_control(
-            'tp_service_icon_type',
+            'tj_service_icon_type',
             [
                 'label' => esc_html__('Select Icon Type', 'tjcore'),
                 'type' => \Elementor\Controls_Manager::SELECT,
@@ -290,7 +290,7 @@ class TP_Mission extends Widget_Base {
         );
 
         $repeater->add_control(
-            'tp_service_image',
+            'tj_service_image',
             [
                 'label' => esc_html__('Upload Icon Image', 'tjcore'),
                 'type' => Controls_Manager::MEDIA,
@@ -298,28 +298,28 @@ class TP_Mission extends Widget_Base {
                     'url' => Utils::get_placeholder_image_src(),
                 ],
                 'condition' => [
-                    'tp_service_icon_type' => 'image'
+                    'tj_service_icon_type' => 'image'
                 ]
 
             ]
         );
 
-        if (tp_is_elementor_version('<', '2.6.0')) {
+        if (tj_is_elementor_version('<', '2.6.0')) {
             $repeater->add_control(
-                'tp_service_icon',
+                'tj_service_icon',
                 [
                     'show_label' => false,
                     'type' => Controls_Manager::ICON,
                     'label_block' => true,
                     'default' => 'fa fa-star',
                     'condition' => [
-                        'tp_service_icon_type' => 'icon'
+                        'tj_service_icon_type' => 'icon'
                     ]
                 ]
             );
         } else {
             $repeater->add_control(
-                'tp_service_selected_icon',
+                'tj_service_selected_icon',
                 [
                     'show_label' => false,
                     'type' => Controls_Manager::ICONS,
@@ -330,26 +330,26 @@ class TP_Mission extends Widget_Base {
                         'library' => 'solid',
                     ],
                     'condition' => [
-                        'tp_service_icon_type' => 'icon'
+                        'tj_service_icon_type' => 'icon'
                     ]
                 ]
             );
         }
         $repeater->add_control(
-            'tp_service_title',
+            'tj_service_title',
             [
                 'label' => esc_html__('Title', 'tjcore'),
-                'description' => tp_get_allowed_html_desc('basic'),
+                'description' => tj_get_allowed_html_desc('basic'),
                 'type' => \Elementor\Controls_Manager::TEXT,
                 'default' => esc_html__('1600', 'tjcore'),
                 'label_block' => true,
             ]
         );
         $repeater->add_control(
-            'tp_service_description',
+            'tj_service_description',
             [
                 'label' => esc_html__('Description', 'tjcore'),
-                'description' => tp_get_allowed_html_desc('intermediate'),
+                'description' => tj_get_allowed_html_desc('intermediate'),
                 'type' => \Elementor\Controls_Manager::TEXTAREA,
                 'default' => 'SOLAR PANEL',
                 'label_block' => true,
@@ -357,30 +357,30 @@ class TP_Mission extends Widget_Base {
         );
 
         $this->add_control(
-            'tp_service_list',
+            'tj_service_list',
             [
                 'label' => esc_html__('Services - List', 'tjcore'),
                 'type' => \Elementor\Controls_Manager::REPEATER,
                 'fields' => $repeater->get_controls(),
                 'default' => [
                     [
-                        'tp_service_title' => esc_html__('1600', 'tjcore'),
+                        'tj_service_title' => esc_html__('1600', 'tjcore'),
                     ],
                     [
-                        'tp_service_title' => esc_html__('289', 'tjcore')
+                        'tj_service_title' => esc_html__('289', 'tjcore')
                     ],
                     [
-                        'tp_service_title' => esc_html__('16k', 'tjcore')
+                        'tj_service_title' => esc_html__('16k', 'tjcore')
                     ],
                     [
-                        'tp_service_title' => esc_html__('24mln', 'tjcore')
+                        'tj_service_title' => esc_html__('24mln', 'tjcore')
                     ]
                 ],
-                'title_field' => '{{{ tp_service_title }}}',
+                'title_field' => '{{{ tj_service_title }}}',
             ]
         );
         $this->add_responsive_control(
-            'tp_service_align',
+            'tj_service_align',
             [
                 'label' => esc_html__('Alignment', 'tjcore'),
                 'type' => Controls_Manager::CHOOSE,
@@ -463,52 +463,52 @@ class TP_Mission extends Widget_Base {
                         <div class="missionContent">
                             <!-- Section Heading/Title -->
                             <div class="sectionTitle mb-35">
-                                <?php if (!empty($settings['tp_sub_title'])) : ?>
+                                <?php if (!empty($settings['tj_sub_title'])) : ?>
                                     <span class="sectionTitle__small">
-                                        <i class="fa-solid fa-heart btn__icon"></i><?php echo tp_kses($settings['tp_sub_title']); ?>
+                                        <i class="fa-solid fa-heart btn__icon"></i><?php echo tj_kses($settings['tj_sub_title']); ?>
                                     </span>
                                 <?php endif; ?>
 
                                 <?php
-                                if (!empty($settings['tp_title'])) :
+                                if (!empty($settings['tj_title'])) :
                                     printf(
                                         '<%1$s %2$s>%3$s</%1$s>',
-                                        tag_escape($settings['tp_title_tag']),
+                                        tag_escape($settings['tj_title_tag']),
                                         $this->get_render_attribute_string('title_args'),
-                                        tp_kses($settings['tp_title'])
+                                        tj_kses($settings['tj_title'])
                                     );
                                 endif;
                                 ?>
-                                <?php if (!empty($settings['tp_desctiption'])) : ?>
-                                    <p class="aboutContent__text"><?php echo tp_kses($settings['tp_desctiption']); ?></p>
+                                <?php if (!empty($settings['tj_desctiption'])) : ?>
+                                    <p class="aboutContent__text"><?php echo tj_kses($settings['tj_desctiption']); ?></p>
                                 <?php endif; ?>
                             </div>
                             <!-- Section Heading/Title End -->
                             <div class="row g-4">
-                                <?php foreach ($settings['tp_service_list'] as $item) : ?>
+                                <?php foreach ($settings['tj_service_list'] as $item) : ?>
                                     <div class="col-lg-6 col-md-6">
                                         <div class="missionBlock bgSecondary elementor-repeater-item-<?php echo esc_attr($item['_id']); ?>">
                                             <div class="missionBlock__icon">
-                                                <?php if ($item['tp_service_icon_type'] !== 'image') : ?>
-                                                    <?php if (!empty($item['tp_service_icon']) || !empty($item['tp_service_selected_icon']['value'])) : ?>
+                                                <?php if ($item['tj_service_icon_type'] !== 'image') : ?>
+                                                    <?php if (!empty($item['tj_service_icon']) || !empty($item['tj_service_selected_icon']['value'])) : ?>
                                                         <div class="tj-sv-icon">
-                                                            <?php tp_render_icon($item, 'tp_service_icon', 'tp_service_selected_icon'); ?>
+                                                            <?php tj_render_icon($item, 'tj_service_icon', 'tj_service_selected_icon'); ?>
                                                         </div>
                                                     <?php endif; ?>
                                                 <?php else : ?>
                                                     <div class="tj-sv-icon">
-                                                        <?php if (!empty($item['tp_service_image']['url'])) : ?>
-                                                            <img src="<?php echo $item['tp_service_image']['url']; ?>" alt="<?php echo get_post_meta(attachment_url_to_postid($item['tp_service_image']['url']), '_wp_attachment_image_alt', true); ?>">
+                                                        <?php if (!empty($item['tj_service_image']['url'])) : ?>
+                                                            <img src="<?php echo $item['tj_service_image']['url']; ?>" alt="<?php echo get_post_meta(attachment_url_to_postid($item['tj_service_image']['url']), '_wp_attachment_image_alt', true); ?>">
                                                         <?php endif; ?>
                                                     </div>
                                                 <?php endif; ?>
                                             </div>
                                             <div class="missionBlock__content">
-                                                <?php if (!empty($item['tp_service_title'])) : ?>
-                                                    <span class="missionBlock__counter"><?php echo tp_kses($item['tp_service_title']); ?></span>
+                                                <?php if (!empty($item['tj_service_title'])) : ?>
+                                                    <span class="missionBlock__counter"><?php echo tj_kses($item['tj_service_title']); ?></span>
                                                 <?php endif; ?>
-                                                <?php if (!empty($item['tp_service_description'])) : ?>
-                                                    <p class="missionBlock__title"><?php echo tp_kses($item['tp_service_description']); ?></p>
+                                                <?php if (!empty($item['tj_service_description'])) : ?>
+                                                    <p class="missionBlock__title"><?php echo tj_kses($item['tj_service_description']); ?></p>
                                                 <?php endif; ?>
                                             </div>
                                         </div>
@@ -517,7 +517,7 @@ class TP_Mission extends Widget_Base {
                             </div>
                         </div>
                     </div>
-                    <?php if (!empty($settings['tp_video_url'])) : ?>
+                    <?php if (!empty($settings['tj_video_url'])) : ?>
                         <div class="col-lg-6">
                             <div class="missionVideo">
                                 <div class="mission-video-main">
@@ -528,7 +528,7 @@ class TP_Mission extends Widget_Base {
                                             <div class="waves wave-3"></div>
                                         </div>
                                     </div>
-                                    <a href="<?php echo tp_kses($settings['tp_video_url']); ?>" class="video popup-video mfp-iframe"><i class="fa fa-play"></i></a>
+                                    <a href="<?php echo tj_kses($settings['tj_video_url']); ?>" class="video popup-video mfp-iframe"><i class="fa fa-play"></i></a>
                                 </div>
                             </div>
                         </div>
@@ -541,4 +541,4 @@ class TP_Mission extends Widget_Base {
     }
 }
 
-$widgets_manager->register(new TP_Mission());
+$widgets_manager->register(new TJ_Mission());

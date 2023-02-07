@@ -24,7 +24,7 @@ if (!defined('ABSPATH')) exit; // Exit if accessed directly
  *
  * @since 1.0.0
  */
-class TP_Fact extends Widget_Base {
+class TJ_Fact extends Widget_Base {
 
     /**
      * Retrieve the widget name.
@@ -111,13 +111,13 @@ class TP_Fact extends Widget_Base {
 
         // layout Panel
         $this->start_controls_section(
-            'tp_layout',
+            'tj_layout',
             [
                 'label' => esc_html__('Design Layout', 'tjcore'),
             ]
         );
         $this->add_control(
-            'tp_design_style',
+            'tj_design_style',
             [
                 'label' => esc_html__('Select Layout', 'tjcore'),
                 'type' => Controls_Manager::SELECT,
@@ -134,7 +134,7 @@ class TP_Fact extends Widget_Base {
 
         // Service group
         $this->start_controls_section(
-            'tp_fact',
+            'tj_fact',
             [
                 'label' => esc_html__('Fact List', 'tjcore'),
                 'description' => esc_html__('Control all the style settings from Style tab', 'tjcore'),
@@ -160,7 +160,7 @@ class TP_Fact extends Widget_Base {
         );
 
         $repeater->add_control(
-            'tp_fact_icon_type',
+            'tj_fact_icon_type',
             [
                 'label' => esc_html__('Select Icon Type', 'tjcore'),
                 'type' => \Elementor\Controls_Manager::SELECT,
@@ -173,7 +173,7 @@ class TP_Fact extends Widget_Base {
         );
 
         $repeater->add_control(
-            'tp_fact_image',
+            'tj_fact_image',
             [
                 'label' => esc_html__('Upload Icon Image', 'tjcore'),
                 'type' => Controls_Manager::MEDIA,
@@ -181,28 +181,28 @@ class TP_Fact extends Widget_Base {
                     'url' => Utils::get_placeholder_image_src(),
                 ],
                 'condition' => [
-                    'tp_fact_icon_type' => 'image'
+                    'tj_fact_icon_type' => 'image'
                 ]
 
             ]
         );
 
-        if (tp_is_elementor_version('<', '2.6.0')) {
+        if (tj_is_elementor_version('<', '2.6.0')) {
             $repeater->add_control(
-                'tp_fact_icon',
+                'tj_fact_icon',
                 [
                     'show_label' => false,
                     'type' => Controls_Manager::ICON,
                     'label_block' => true,
                     'default' => 'fa fa-star',
                     'condition' => [
-                        'tp_fact_icon_type' => 'icon'
+                        'tj_fact_icon_type' => 'icon'
                     ]
                 ]
             );
         } else {
             $repeater->add_control(
-                'tp_fact_selected_icon',
+                'tj_fact_selected_icon',
                 [
                     'show_label' => false,
                     'type' => Controls_Manager::ICONS,
@@ -213,37 +213,37 @@ class TP_Fact extends Widget_Base {
                         'library' => 'solid',
                     ],
                     'condition' => [
-                        'tp_fact_icon_type' => 'icon'
+                        'tj_fact_icon_type' => 'icon'
                     ]
                 ]
             );
         }
 
         $repeater->add_control(
-            'tp_fact_number',
+            'tj_fact_number',
             [
                 'label' => esc_html__('Number', 'tjcore'),
-                'description' => tp_get_allowed_html_desc('basic'),
+                'description' => tj_get_allowed_html_desc('basic'),
                 'type' => \Elementor\Controls_Manager::TEXT,
                 'default' => esc_html__('17', 'tjcore'),
                 'label_block' => true,
             ]
         );
         $repeater->add_control(
-            'tp_fact_title',
+            'tj_fact_title',
             [
                 'label' => esc_html__('Title', 'tjcore'),
-                'description' => tp_get_allowed_html_desc('intermediate'),
+                'description' => tj_get_allowed_html_desc('intermediate'),
                 'type' => \Elementor\Controls_Manager::TEXTAREA,
                 'default' => esc_html__('Food', 'tjcore'),
                 'label_block' => true,
             ]
         );
         $repeater->add_control(
-            'tp_fact_description',
+            'tj_fact_description',
             [
                 'label' => esc_html__('Description', 'tjcore'),
-                'description' => tp_get_allowed_html_desc('intermediate'),
+                'description' => tj_get_allowed_html_desc('intermediate'),
                 'type' => \Elementor\Controls_Manager::TEXTAREA,
                 'default' => 'There are many variations of passages of Lorem Ipsum available, but the majority have suffered.',
                 'label_block' => true,
@@ -251,30 +251,30 @@ class TP_Fact extends Widget_Base {
         );
 
         $this->add_control(
-            'tp_fact_list',
+            'tj_fact_list',
             [
                 'label' => esc_html__('Services - List', 'tjcore'),
                 'type' => \Elementor\Controls_Manager::REPEATER,
                 'fields' => $repeater->get_controls(),
                 'default' => [
                     [
-                        'tp_fact_title' => esc_html__('Business Stratagy', 'tjcore'),
+                        'tj_fact_title' => esc_html__('Business Stratagy', 'tjcore'),
                     ],
                     [
-                        'tp_fact_title' => esc_html__('Website Development', 'tjcore')
+                        'tj_fact_title' => esc_html__('Website Development', 'tjcore')
                     ],
                     [
-                        'tp_fact_title' => esc_html__('Marketing & Reporting', 'tjcore')
+                        'tj_fact_title' => esc_html__('Marketing & Reporting', 'tjcore')
                     ],
                     [
-                        'tp_fact_title' => esc_html__('Happy Client', 'tjcore')
+                        'tj_fact_title' => esc_html__('Happy Client', 'tjcore')
                     ]
                 ],
-                'title_field' => '{{{ tp_fact_title }}}',
+                'title_field' => '{{{ tj_fact_title }}}',
             ]
         );
         $this->add_responsive_control(
-            'tp_fact_align',
+            'tj_fact_align',
             [
                 'label' => esc_html__('Alignment', 'tjcore'),
                 'type' => Controls_Manager::CHOOSE,
@@ -298,16 +298,16 @@ class TP_Fact extends Widget_Base {
         );
         $this->end_controls_section();
 
-        // tp_fact_columns_section
+        // tj_fact_columns_section
         $this->start_controls_section(
-            'tp_fact_columns_section',
+            'tj_fact_columns_section',
             [
                 'label' => esc_html__('Fact - Columns', 'tjcore'),
             ]
         );
 
         $this->add_control(
-            'tp_col_for_desktop',
+            'tj_col_for_desktop',
             [
                 'label' => esc_html__('Columns for Desktop', 'tjcore'),
                 'description' => esc_html__('Screen width equal to or greater than 992px', 'tjcore'),
@@ -326,7 +326,7 @@ class TP_Fact extends Widget_Base {
             ]
         );
         $this->add_control(
-            'tp_col_for_laptop',
+            'tj_col_for_laptop',
             [
                 'label' => esc_html__('Columns for Laptop', 'tjcore'),
                 'description' => esc_html__('Screen width equal to or greater than 768px', 'tjcore'),
@@ -345,7 +345,7 @@ class TP_Fact extends Widget_Base {
             ]
         );
         $this->add_control(
-            'tp_col_for_tablet',
+            'tj_col_for_tablet',
             [
                 'label' => esc_html__('Columns for Tablet', 'tjcore'),
                 'description' => esc_html__('Screen width equal to or greater than 576px', 'tjcore'),
@@ -364,7 +364,7 @@ class TP_Fact extends Widget_Base {
             ]
         );
         $this->add_control(
-            'tp_col_for_mobile',
+            'tj_col_for_mobile',
             [
                 'label' => esc_html__('Columns for Mobile', 'tjcore'),
                 'description' => esc_html__('Screen width less than 576px', 'tjcore'),
@@ -592,30 +592,30 @@ class TP_Fact extends Widget_Base {
 
 ?>
 
-        <?php if ($settings['tp_design_style']  == 'layout-2') : ?>
+        <?php if ($settings['tj_design_style']  == 'layout-2') : ?>
             <section class="services__style__two">
                 <div class="container">
-                    <?php if (!empty($settings['tp_section_title_show'])) : ?>
+                    <?php if (!empty($settings['tj_section_title_show'])) : ?>
                         <div class="row justify-content-center">
                             <div class="col-lg-6 col-md-8">
                                 <div class="section__title text-center">
-                                    <?php if (!empty($settings['tp_sub_title'])) : ?>
-                                        <span class="sub-title tj-el-subtitle"><?php echo tp_kses($settings['tp_sub_title']); ?></span>
+                                    <?php if (!empty($settings['tj_sub_title'])) : ?>
+                                        <span class="sub-title tj-el-subtitle"><?php echo tj_kses($settings['tj_sub_title']); ?></span>
                                     <?php endif; ?>
 
                                     <?php
-                                    if (!empty($settings['tp_title'])) :
+                                    if (!empty($settings['tj_title'])) :
                                         printf(
                                             '<%1$s %2$s>%3$s</%1$s>',
-                                            tag_escape($settings['tp_title_tag']),
+                                            tag_escape($settings['tj_title_tag']),
                                             $this->get_render_attribute_string('title_args'),
-                                            tp_kses($settings['tp_title'])
+                                            tj_kses($settings['tj_title'])
                                         );
                                     endif;
                                     ?>
 
-                                    <?php if (!empty($settings['tp_desctiption'])) : ?>
-                                        <p class="desc"><?php echo tp_kses($settings['tp_desctiption']); ?></p>
+                                    <?php if (!empty($settings['tj_desctiption'])) : ?>
+                                        <p class="desc"><?php echo tj_kses($settings['tj_desctiption']); ?></p>
                                     <?php endif; ?>
                                 </div>
                             </div>
@@ -623,49 +623,49 @@ class TP_Fact extends Widget_Base {
                     <?php endif; ?>
                     <div class="services__style__two__wrap">
                         <div class="row gx-0">
-                            <?php foreach ($settings['tp_fact_list'] as $item) :
+                            <?php foreach ($settings['tj_fact_list'] as $item) :
                                 // Link
-                                if ('2' == $item['tp_fact_link_type']) {
-                                    $link = get_permalink($item['tp_fact_page_link']);
+                                if ('2' == $item['tj_fact_link_type']) {
+                                    $link = get_permalink($item['tj_fact_page_link']);
                                     $target = '_self';
                                     $rel = 'nofollow';
                                 } else {
-                                    $link = !empty($item['tp_fact_link']['url']) ? $item['tp_fact_link']['url'] : '';
-                                    $target = !empty($item['tp_fact_link']['is_external']) ? '_blank' : '';
-                                    $rel = !empty($item['tp_fact_link']['nofollow']) ? 'nofollow' : '';
+                                    $link = !empty($item['tj_fact_link']['url']) ? $item['tj_fact_link']['url'] : '';
+                                    $target = !empty($item['tj_fact_link']['is_external']) ? '_blank' : '';
+                                    $rel = !empty($item['tj_fact_link']['nofollow']) ? 'nofollow' : '';
                                 }
 
                             ?>
-                                <div class="col-xl-<?php echo esc_attr($settings['tp_col_for_desktop']); ?> col-lg-<?php echo esc_attr($settings['tp_col_for_laptop']); ?> col-md-<?php echo esc_attr($settings['tp_col_for_tablet']); ?> col-<?php echo esc_attr($settings['tp_col_for_mobile']); ?>">
+                                <div class="col-xl-<?php echo esc_attr($settings['tj_col_for_desktop']); ?> col-lg-<?php echo esc_attr($settings['tj_col_for_laptop']); ?> col-md-<?php echo esc_attr($settings['tj_col_for_tablet']); ?> col-<?php echo esc_attr($settings['tj_col_for_mobile']); ?>">
                                     <div class="services__style__two__item">
                                         <div class="services__style__two__icon">
-                                            <?php if ($item['tp_fact_icon_type'] !== 'image') : ?>
-                                                <?php if (!empty($item['tp_fact_icon']) || !empty($item['tp_fact_selected_icon']['value'])) : ?>
+                                            <?php if ($item['tj_fact_icon_type'] !== 'image') : ?>
+                                                <?php if (!empty($item['tj_fact_icon']) || !empty($item['tj_fact_selected_icon']['value'])) : ?>
                                                     <div class="icon">
-                                                        <?php tp_render_icon($item, 'tp_fact_icon', 'tp_fact_selected_icon'); ?>
+                                                        <?php tj_render_icon($item, 'tj_fact_icon', 'tj_fact_selected_icon'); ?>
                                                     </div>
                                                 <?php endif; ?>
                                             <?php else : ?>
                                                 <div class="icon">
-                                                    <?php if (!empty($item['tp_fact_image']['url'])) : ?>
-                                                        <img src="<?php echo $item['tp_fact_image']['url']; ?>" alt="<?php echo get_post_meta(attachment_url_to_postid($item['tp_fact_image']['url']), '_wp_attachment_image_alt', true); ?>">
+                                                    <?php if (!empty($item['tj_fact_image']['url'])) : ?>
+                                                        <img src="<?php echo $item['tj_fact_image']['url']; ?>" alt="<?php echo get_post_meta(attachment_url_to_postid($item['tj_fact_image']['url']), '_wp_attachment_image_alt', true); ?>">
                                                     <?php endif; ?>
                                                 </div>
                                             <?php endif; ?>
                                         </div>
                                         <div class="services__style__two__content">
-                                            <?php if (!empty($item['tp_fact_title'])) : ?>
+                                            <?php if (!empty($item['tj_fact_title'])) : ?>
                                                 <h3 class="title">
-                                                    <?php if ($item['tp_fact_link_switcher'] == 'yes') : ?>
-                                                        <a href="<?php echo esc_url($link); ?>"><?php echo tp_kses($item['tp_fact_title']); ?></a>
+                                                    <?php if ($item['tj_fact_link_switcher'] == 'yes') : ?>
+                                                        <a href="<?php echo esc_url($link); ?>"><?php echo tj_kses($item['tj_fact_title']); ?></a>
                                                     <?php else : ?>
-                                                        <?php echo tp_kses($item['tp_fact_title']); ?>
+                                                        <?php echo tj_kses($item['tj_fact_title']); ?>
                                                     <?php endif; ?>
                                                 </h3>
                                             <?php endif; ?>
 
-                                            <?php if (!empty($item['tp_fact_description'])) : ?>
-                                                <p><?php echo tp_kses($item['tp_fact_description']); ?></p>
+                                            <?php if (!empty($item['tj_fact_description'])) : ?>
+                                                <p><?php echo tj_kses($item['tj_fact_description']); ?></p>
                                             <?php endif; ?>
 
                                             <?php if (!empty($link)) : ?>
@@ -685,35 +685,35 @@ class TP_Fact extends Widget_Base {
                 <div class="container">
                     <div class="counter__inner grey-bg-2ss">
                         <div class="row">
-                            <?php foreach ($settings['tp_fact_list'] as $key => $item) :
+                            <?php foreach ($settings['tj_fact_list'] as $key => $item) :
                                 $border_none = ($key == 3) ? '' : 'counter__item-border';
                             ?>
-                                <div class="col-xl-<?php echo esc_attr($settings['tp_col_for_desktop']); ?> col-lg-<?php echo esc_attr($settings['tp_col_for_laptop']); ?> col-md-<?php echo esc_attr($settings['tp_col_for_tablet']); ?> col-<?php echo esc_attr($settings['tp_col_for_mobile']); ?>">
+                                <div class="col-xl-<?php echo esc_attr($settings['tj_col_for_desktop']); ?> col-lg-<?php echo esc_attr($settings['tj_col_for_laptop']); ?> col-md-<?php echo esc_attr($settings['tj_col_for_tablet']); ?> col-<?php echo esc_attr($settings['tj_col_for_mobile']); ?>">
                                     <div class="counter__item d-flex align-items-start tj-el-content <?php echo esc_attr($border_none); ?>">
                                         <div class="counter__icon mr-15">
-                                            <?php if ($item['tp_fact_icon_type'] !== 'image') : ?>
-                                                <?php if (!empty($item['tp_fact_icon']) || !empty($item['tp_fact_selected_icon']['value'])) : ?>
+                                            <?php if ($item['tj_fact_icon_type'] !== 'image') : ?>
+                                                <?php if (!empty($item['tj_fact_icon']) || !empty($item['tj_fact_selected_icon']['value'])) : ?>
                                                     <div class="c-icon">
-                                                        <?php tp_render_icon($item, 'tp_fact_icon', 'tp_fact_selected_icon'); ?>
+                                                        <?php tj_render_icon($item, 'tj_fact_icon', 'tj_fact_selected_icon'); ?>
                                                     </div>
                                                 <?php endif; ?>
                                             <?php else : ?>
                                                 <div class="c-icon">
-                                                    <?php if (!empty($item['tp_fact_image']['url'])) : ?>
-                                                        <img src="<?php echo $item['tp_fact_image']['url']; ?>" alt="<?php echo get_post_meta(attachment_url_to_postid($item['tp_fact_image']['url']), '_wp_attachment_image_alt', true); ?>">
+                                                    <?php if (!empty($item['tj_fact_image']['url'])) : ?>
+                                                        <img src="<?php echo $item['tj_fact_image']['url']; ?>" alt="<?php echo get_post_meta(attachment_url_to_postid($item['tj_fact_image']['url']), '_wp_attachment_image_alt', true); ?>">
                                                     <?php endif; ?>
                                                 </div>
                                             <?php endif; ?>
                                         </div>
                                         <div class="counter__content">
-                                            <?php if (!empty($item['tp_fact_title'])) : ?>
-                                                <h3 class="tj-el-title"><?php echo tp_kses($item['tp_fact_title']); ?></h3>
+                                            <?php if (!empty($item['tj_fact_title'])) : ?>
+                                                <h3 class="tj-el-title"><?php echo tj_kses($item['tj_fact_title']); ?></h3>
                                             <?php endif; ?>
-                                            <?php if (!empty($item['tp_fact_number'])) : ?>
-                                                <h4 class="tj-el-subtitle"><span class="counter"><?php echo tp_kses($item['tp_fact_number']); ?></span>+</h4>
+                                            <?php if (!empty($item['tj_fact_number'])) : ?>
+                                                <h4 class="tj-el-subtitle"><span class="counter"><?php echo tj_kses($item['tj_fact_number']); ?></span>+</h4>
                                             <?php endif; ?>
-                                            <?php if (!empty($item['tp_fact_description'])) : ?>
-                                                <p><?php echo tp_kses($item['tp_fact_description']); ?></p>
+                                            <?php if (!empty($item['tj_fact_description'])) : ?>
+                                                <p><?php echo tj_kses($item['tj_fact_description']); ?></p>
                                             <?php endif; ?>
                                         </div>
                                     </div>
@@ -730,4 +730,4 @@ class TP_Fact extends Widget_Base {
     }
 }
 
-$widgets_manager->register(new TP_Fact());
+$widgets_manager->register(new TJ_Fact());

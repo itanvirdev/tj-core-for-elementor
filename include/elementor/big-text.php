@@ -17,7 +17,7 @@ if (!defined('ABSPATH')) exit; // Exit if accessed directly
  *
  * @since 1.0.0
  */
-class TP_Big_Text extends Widget_Base {
+class TJ_Big_Text extends Widget_Base {
 
     /**
      * Retrieve the widget name.
@@ -104,13 +104,13 @@ class TP_Big_Text extends Widget_Base {
 
         // layout Panel
         $this->start_controls_section(
-            'tp_layout',
+            'tj_layout',
             [
                 'label' => esc_html__('Design Layout', 'tjcore'),
             ]
         );
         $this->add_control(
-            'tp_design_style',
+            'tj_design_style',
             [
                 'label' => esc_html__('Select Layout', 'tjcore'),
                 'type' => Controls_Manager::SELECT,
@@ -123,19 +123,19 @@ class TP_Big_Text extends Widget_Base {
 
         $this->end_controls_section();
 
-        // tp_section_title
+        // tj_section_title
         $this->start_controls_section(
-            'tp_section_title',
+            'tj_section_title',
             [
                 'label' => esc_html__('Title & Content', 'tjcore'),
             ]
         );
 
         $this->add_control(
-            'tp_number',
+            'tj_number',
             [
                 'label' => esc_html__('Number', 'tjcore'),
-                'description' => tp_get_allowed_html_desc('basic'),
+                'description' => tj_get_allowed_html_desc('basic'),
                 'type' => Controls_Manager::TEXT,
                 'default' => esc_html__('250', 'tjcore'),
                 'placeholder' => esc_html__('Type Number', 'tjcore'),
@@ -144,10 +144,10 @@ class TP_Big_Text extends Widget_Base {
         );
 
         $this->add_control(
-            'tp_after_number',
+            'tj_after_number',
             [
                 'label' => esc_html__('After number', 'tjcore'),
-                'description' => tp_get_allowed_html_desc('intermediate'),
+                'description' => tj_get_allowed_html_desc('intermediate'),
                 'type' => Controls_Manager::TEXTAREA,
                 'default' => esc_html__('mln', 'tjcore'),
                 'placeholder' => esc_html__('Type Text', 'tjcore'),
@@ -155,10 +155,10 @@ class TP_Big_Text extends Widget_Base {
         );
 
         $this->add_control(
-            'tp_title',
+            'tj_title',
             [
                 'label' => esc_html__('Title', 'tjcore'),
-                'description' => tp_get_allowed_html_desc('intermediate'),
+                'description' => tj_get_allowed_html_desc('intermediate'),
                 'type' => Controls_Manager::TEXT,
                 'default' => esc_html__('TJ Title Here', 'tjcore'),
                 'placeholder' => esc_html__('Type Heading Text', 'tjcore'),
@@ -169,16 +169,16 @@ class TP_Big_Text extends Widget_Base {
 
         $this->end_controls_section();
 
-        // tp_btn_button_group
+        // tj_btn_button_group
         $this->start_controls_section(
-            'tp_btn_button_group',
+            'tj_btn_button_group',
             [
                 'label' => esc_html__('Button', 'tjcore'),
             ]
         );
 
         $this->add_control(
-            'tp_btn_button_show',
+            'tj_btn_button_show',
             [
                 'label' => esc_html__('Show Button', 'tjcore'),
                 'type' => Controls_Manager::SWITCHER,
@@ -190,7 +190,7 @@ class TP_Big_Text extends Widget_Base {
         );
 
         $this->add_control(
-            'tp_btn_text',
+            'tj_btn_text',
             [
                 'label' => esc_html__('Button Text', 'tjcore'),
                 'type' => Controls_Manager::TEXT,
@@ -198,12 +198,12 @@ class TP_Big_Text extends Widget_Base {
                 'title' => esc_html__('Enter button text', 'tjcore'),
                 'label_block' => true,
                 'condition' => [
-                    'tp_btn_button_show' => 'yes'
+                    'tj_btn_button_show' => 'yes'
                 ],
             ]
         );
         $this->add_control(
-            'tp_btn_link_type',
+            'tj_btn_link_type',
             [
                 'label' => esc_html__('Button Link Type', 'tjcore'),
                 'type' => Controls_Manager::SELECT,
@@ -214,12 +214,12 @@ class TP_Big_Text extends Widget_Base {
                 'default' => '1',
                 'label_block' => true,
                 'condition' => [
-                    'tp_btn_button_show' => 'yes'
+                    'tj_btn_button_show' => 'yes'
                 ],
             ]
         );
         $this->add_control(
-            'tp_btn_link',
+            'tj_btn_link',
             [
                 'label' => esc_html__('Button link', 'tjcore'),
                 'type' => Controls_Manager::URL,
@@ -235,22 +235,22 @@ class TP_Big_Text extends Widget_Base {
                     'custom_attributes' => '',
                 ],
                 'condition' => [
-                    'tp_btn_link_type' => '1',
-                    'tp_btn_button_show' => 'yes'
+                    'tj_btn_link_type' => '1',
+                    'tj_btn_button_show' => 'yes'
                 ],
                 'label_block' => true,
             ]
         );
         $this->add_control(
-            'tp_btn_page_link',
+            'tj_btn_page_link',
             [
                 'label' => esc_html__('Select Button Page', 'tjcore'),
                 'type' => Controls_Manager::SELECT2,
                 'label_block' => true,
-                'options' => tp_get_all_pages(),
+                'options' => tj_get_all_pages(),
                 'condition' => [
-                    'tp_btn_link_type' => '2',
-                    'tp_btn_button_show' => 'yes'
+                    'tj_btn_link_type' => '2',
+                    'tj_btn_button_show' => 'yes'
                 ]
             ]
         );
@@ -270,30 +270,30 @@ class TP_Big_Text extends Widget_Base {
         $settings = $this->get_settings_for_display();
 
         // Link
-        if ('2' == $settings['tp_btn_link_type']) {
-            $this->add_render_attribute('tj-button-arg', 'href', get_permalink($settings['tp_btn_page_link']));
+        if ('2' == $settings['tj_btn_link_type']) {
+            $this->add_render_attribute('tj-button-arg', 'href', get_permalink($settings['tj_btn_page_link']));
             $this->add_render_attribute('tj-button-arg', 'target', '_self');
             $this->add_render_attribute('tj-button-arg', 'rel', 'nofollow');
             $this->add_render_attribute('tj-button-arg', 'class', 'btn btn--styleOne btn--black it-btn');
         } else {
-            if (!empty($settings['tp_btn_link']['url'])) {
-                $this->add_link_attributes('tj-button-arg', $settings['tp_btn_link']);
+            if (!empty($settings['tj_btn_link']['url'])) {
+                $this->add_link_attributes('tj-button-arg', $settings['tj_btn_link']);
                 $this->add_render_attribute('tj-button-arg', 'class', 'btn btn--styleOne btn--black it-btn');
             }
         }
 
 ?>
 
-        <?php if ($settings['tp_design_style']  == 'layout-2') : ?>
+        <?php if ($settings['tj_design_style']  == 'layout-2') : ?>
             <section class="hero hero--style2">
 
             </section>
 
 
         <?php else :
-            if (!empty($settings['tp_image']['url'])) {
-                $tp_image = !empty($settings['tp_image']['id']) ? wp_get_attachment_image_url($settings['tp_image']['id'], $settings['tp_image_size_size']) : $settings['tp_image']['url'];
-                $tp_image_alt           = get_post_meta($settings["tp_image"]["id"], "_wp_attachment_image_alt", true);
+            if (!empty($settings['tj_image']['url'])) {
+                $tj_image = !empty($settings['tj_image']['id']) ? wp_get_attachment_image_url($settings['tj_image']['id'], $settings['tj_image_size_size']) : $settings['tj_image']['url'];
+                $tj_image_alt           = get_post_meta($settings["tj_image"]["id"], "_wp_attachment_image_alt", true);
             }
 
             $this->add_render_attribute('title_args', 'class', 'hero__title hero__title--big wow animate__fadeInUp');
@@ -307,21 +307,21 @@ class TP_Big_Text extends Widget_Base {
                     <div class="row">
                         <div class="col-12">
                             <div class="donnerAreaContent text-center mb-30">
-                                <?php if (!empty($settings['tp_number'])) : ?>
+                                <?php if (!empty($settings['tj_number'])) : ?>
                                     <h2 class="donnerAreaContent__bigTitle">
-                                        <span class="donnerAreaContent__bigTitle__number"><?php echo tp_kses($settings['tp_number']); ?></span>
-                                        <span class="donnerAreaContent__bigTitle__text"><?php echo tp_kses($settings['tp_after_number']); ?></span>
+                                        <span class="donnerAreaContent__bigTitle__number"><?php echo tj_kses($settings['tj_number']); ?></span>
+                                        <span class="donnerAreaContent__bigTitle__text"><?php echo tj_kses($settings['tj_after_number']); ?></span>
                                     </h2>
                                 <?php endif; ?>
 
-                                <?php if (!empty($settings['tp_title'])) : ?>
-                                    <h3 class="donnerAreaContent__heading text-uppercase"><?php echo tp_kses($settings['tp_title']); ?></h3>
+                                <?php if (!empty($settings['tj_title'])) : ?>
+                                    <h3 class="donnerAreaContent__heading text-uppercase"><?php echo tj_kses($settings['tj_title']); ?></h3>
                                 <?php endif; ?>
 
-                                <?php if (!empty($settings['tp_btn_text'])) : ?>
+                                <?php if (!empty($settings['tj_btn_text'])) : ?>
                                     <div class="tj-hero-btn">
                                         <a <?php echo $this->get_render_attribute_string('tj-button-arg'); ?>>
-                                            <span class="btn__text"><?php echo $settings['tp_btn_text']; ?></span> <i class="fa-solid fa-heart btn__icon"></i></a>
+                                            <span class="btn__text"><?php echo $settings['tj_btn_text']; ?></span> <i class="fa-solid fa-heart btn__icon"></i></a>
                                     </div>
                                 <?php endif; ?>
                             </div>
@@ -337,4 +337,4 @@ class TP_Big_Text extends Widget_Base {
     }
 }
 
-$widgets_manager->register(new TP_Big_Text());
+$widgets_manager->register(new TJ_Big_Text());

@@ -17,7 +17,7 @@ if (!defined('ABSPATH')) exit; // Exit if accessed directly
  *
  * @since 1.0.0
  */
-class TP_Video_Popup extends Widget_Base {
+class TJ_Video_Popup extends Widget_Base {
 
     /**
      * Retrieve the widget name.
@@ -104,13 +104,13 @@ class TP_Video_Popup extends Widget_Base {
 
         // layout Panel
         $this->start_controls_section(
-            'tp_layout',
+            'tj_layout',
             [
                 'label' => esc_html__('Design Layout', 'tjcore'),
             ]
         );
         $this->add_control(
-            'tp_design_style',
+            'tj_design_style',
             [
                 'label' => esc_html__('Select Layout', 'tjcore'),
                 'type' => Controls_Manager::SELECT,
@@ -125,16 +125,16 @@ class TP_Video_Popup extends Widget_Base {
 
         $this->end_controls_section();
 
-        // tp_section_title
+        // tj_section_title
         $this->start_controls_section(
-            'tp_section_title',
+            'tj_section_title',
             [
                 'label' => esc_html__('Title & Content', 'tjcore'),
             ]
         );
 
         $this->add_control(
-            'tp_section_title_show',
+            'tj_section_title_show',
             [
                 'label' => esc_html__('Section Title & Content', 'tjcore'),
                 'type' => Controls_Manager::SWITCHER,
@@ -146,10 +146,10 @@ class TP_Video_Popup extends Widget_Base {
         );
 
         $this->add_control(
-            'tp_sub_title',
+            'tj_sub_title',
             [
                 'label' => esc_html__('Sub Title', 'tjcore'),
-                'description' => tp_get_allowed_html_desc('basic'),
+                'description' => tj_get_allowed_html_desc('basic'),
                 'type' => Controls_Manager::TEXT,
                 'default' => esc_html__('TJ Sub Title', 'tjcore'),
                 'placeholder' => esc_html__('Type Sub Heading Text', 'tjcore'),
@@ -157,10 +157,10 @@ class TP_Video_Popup extends Widget_Base {
             ]
         );
         $this->add_control(
-            'tp_title',
+            'tj_title',
             [
                 'label' => esc_html__('Title', 'tjcore'),
-                'description' => tp_get_allowed_html_desc('intermediate'),
+                'description' => tj_get_allowed_html_desc('intermediate'),
                 'type' => Controls_Manager::TEXT,
                 'default' => esc_html__('TJ Title Here', 'tjcore'),
                 'placeholder' => esc_html__('Type Heading Text', 'tjcore'),
@@ -169,10 +169,10 @@ class TP_Video_Popup extends Widget_Base {
         );
 
         $this->add_control(
-            'tp_desctiption',
+            'tj_desctiption',
             [
                 'label' => esc_html__('Description', 'tjcore'),
-                'description' => tp_get_allowed_html_desc('intermediate'),
+                'description' => tj_get_allowed_html_desc('intermediate'),
                 'type' => Controls_Manager::TEXTAREA,
                 'default' => esc_html__('TJ section description here', 'tjcore'),
                 'placeholder' => esc_html__('Type section description here', 'tjcore'),
@@ -180,7 +180,7 @@ class TP_Video_Popup extends Widget_Base {
         );
 
         $this->add_control(
-            'tp_title_tag',
+            'tj_title_tag',
             [
                 'label' => esc_html__('Title HTML Tag', 'tjcore'),
                 'type' => Controls_Manager::CHOOSE,
@@ -216,7 +216,7 @@ class TP_Video_Popup extends Widget_Base {
         );
 
         $this->add_responsive_control(
-            'tp_align',
+            'tj_align',
             [
                 'label' => esc_html__('Alignment', 'tjcore'),
                 'type' => Controls_Manager::CHOOSE,
@@ -240,19 +240,19 @@ class TP_Video_Popup extends Widget_Base {
         );
         $this->end_controls_section();
 
-        // tp_video
+        // tj_video
         $this->start_controls_section(
-            'tp_video',
+            'tj_video',
             [
                 'label' => esc_html__('Video', 'tjcore'),
                 'condition' => [
-                    'tp_design_style' => 'layout-1'
+                    'tj_design_style' => 'layout-1'
                 ],
             ]
         );
 
         $this->add_control(
-            'tp_video_url',
+            'tj_video_url',
             [
                 'label' => esc_html__('Video', 'tjcore'),
                 'type' => Controls_Manager::TEXT,
@@ -264,15 +264,15 @@ class TP_Video_Popup extends Widget_Base {
 
         $this->end_controls_section();
 
-        // _tp_image
+        // _tj_image
         $this->start_controls_section(
-            '_tp_image_section',
+            '_tj_image_section',
             [
                 'label' => esc_html__('Thumbnail', 'tjcore'),
             ]
         );
         $this->add_control(
-            'tp_image',
+            'tj_image',
             [
                 'label' => esc_html__('Choose Image', 'tjcore'),
                 'type' => \Elementor\Controls_Manager::MEDIA,
@@ -284,7 +284,7 @@ class TP_Video_Popup extends Widget_Base {
         $this->add_group_control(
             Group_Control_Image_Size::get_type(),
             [
-                'name' => 'tp_image_size',
+                'name' => 'tj_image_size',
                 'default' => 'full',
                 'exclude' => [
                     'custom'
@@ -292,7 +292,7 @@ class TP_Video_Popup extends Widget_Base {
             ]
         );
         $this->add_control(
-            'tp_image_overlap',
+            'tj_image_overlap',
             [
                 'label' => esc_html__('Image overlap to top?', 'tjcore'),
                 'type' => Controls_Manager::SWITCHER,
@@ -303,7 +303,7 @@ class TP_Video_Popup extends Widget_Base {
             ]
         );
         $this->add_responsive_control(
-            'tp_image_height',
+            'tj_image_height',
             [
                 'label' => esc_html__('Image Height', 'tjcore'),
                 'type' => Controls_Manager::SLIDER,
@@ -325,7 +325,7 @@ class TP_Video_Popup extends Widget_Base {
             ]
         );
         $this->add_responsive_control(
-            'tp_image_overlap_x',
+            'tj_image_overlap_x',
             [
                 'label' => esc_html__('Image overlap position', 'tjcore'),
                 'type' => Controls_Manager::SLIDER,
@@ -345,7 +345,7 @@ class TP_Video_Popup extends Widget_Base {
                     '{{WRAPPER}} .tj-overlap img' => 'margin-top: {{SIZE}}{{UNIT}};',
                 ],
                 'condition' => array(
-                    'tp_image_overlap' => 'yes',
+                    'tj_image_overlap' => 'yes',
                 ),
             ]
         );
@@ -397,10 +397,10 @@ class TP_Video_Popup extends Widget_Base {
 
 ?>
 
-        <?php if ($settings['tp_design_style']  == 'layout-2') :
-            if (!empty($settings['tp_image']['url'])) {
-                $tp_image = !empty($settings['tp_image']['id']) ? wp_get_attachment_image_url($settings['tp_image']['id'], $settings['tp_image_size_size']) : $settings['tp_image']['url'];
-                $tp_image_alt           = get_post_meta($settings["tp_image"]["id"], "_wp_attachment_image_alt", true);
+        <?php if ($settings['tj_design_style']  == 'layout-2') :
+            if (!empty($settings['tj_image']['url'])) {
+                $tj_image = !empty($settings['tj_image']['id']) ? wp_get_attachment_image_url($settings['tj_image']['id'], $settings['tj_image_size_size']) : $settings['tj_image']['url'];
+                $tj_image_alt           = get_post_meta($settings["tj_image"]["id"], "_wp_attachment_image_alt", true);
             }
 
             $this->add_render_attribute('title_args', 'class', 'hero__title hero__title--big');
@@ -410,9 +410,9 @@ class TP_Video_Popup extends Widget_Base {
             </section>
 
         <?php else :
-            if (!empty($settings['tp_image']['url'])) {
-                $tp_image = !empty($settings['tp_image']['id']) ? wp_get_attachment_image_url($settings['tp_image']['id'], $settings['tp_image_size_size']) : $settings['tp_image']['url'];
-                $tp_image_alt           = get_post_meta($settings["tp_image"]["id"], "_wp_attachment_image_alt", true);
+            if (!empty($settings['tj_image']['url'])) {
+                $tj_image = !empty($settings['tj_image']['id']) ? wp_get_attachment_image_url($settings['tj_image']['id'], $settings['tj_image_size_size']) : $settings['tj_image']['url'];
+                $tj_image_alt           = get_post_meta($settings["tj_image"]["id"], "_wp_attachment_image_alt", true);
             }
 
             $this->add_render_attribute('title_args', 'class', 'hero__title hero__title--big wow animate__fadeInUp');
@@ -423,12 +423,12 @@ class TP_Video_Popup extends Widget_Base {
 
             <div class="campus__thumb w-img mb-30">
 
-                <?php if ($settings['tp_image']['url'] || $settings['tp_image']['id']) : ?>
-                    <img src="<?php echo esc_url($tp_image); ?>" alt="<?php echo esc_attr($tp_image_alt); ?>">
+                <?php if ($settings['tj_image']['url'] || $settings['tj_image']['id']) : ?>
+                    <img src="<?php echo esc_url($tj_image); ?>" alt="<?php echo esc_attr($tj_image_alt); ?>">
                 <?php endif; ?>
 
-                <?php if (!empty($settings['tp_video_url'])) : ?>
-                    <a href="<?php echo esc_url($settings["tp_video_url"]); ?>" class="play-btn popup-video pulse-btn">
+                <?php if (!empty($settings['tj_video_url'])) : ?>
+                    <a href="<?php echo esc_url($settings["tj_video_url"]); ?>" class="play-btn popup-video pulse-btn">
                         <svg width="16" height="18" viewBox="0 0 16 18" fill="none" xmlns="http://www.w3.org/2000/svg">
                             <path d="M15.5 8.13397C16.1667 8.51888 16.1667 9.48113 15.5 9.86603L2 17.6603C1.33333 18.0452 0.5 17.564 0.5 16.7942V1.20577C0.5 0.43597 1.33333 -0.0451542 2 0.339746L15.5 8.13397Z" fill="#3D6CE7" />
                         </svg>
@@ -443,4 +443,4 @@ class TP_Video_Popup extends Widget_Base {
     }
 }
 
-$widgets_manager->register(new TP_Video_Popup());
+$widgets_manager->register(new TJ_Video_Popup());

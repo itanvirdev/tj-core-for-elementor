@@ -18,7 +18,7 @@ if (!defined('ABSPATH')) exit; // Exit if accessed directly
  *
  * @since 1.0.0
  */
-class TP_Team extends Widget_Base {
+class TJ_Team extends Widget_Base {
 
     /**
      * Retrieve the widget name.
@@ -106,13 +106,13 @@ class TP_Team extends Widget_Base {
 
         // layout Panel
         $this->start_controls_section(
-            'tp_layout',
+            'tj_layout',
             [
                 'label' => esc_html__('Design Layout', 'tjcore'),
             ]
         );
         $this->add_control(
-            'tp_design_style',
+            'tj_design_style',
             [
                 'label' => esc_html__('Select Layout', 'tjcore'),
                 'type' => Controls_Manager::SELECT,
@@ -138,7 +138,7 @@ class TP_Team extends Widget_Base {
         $repeater = new Repeater();
 
         $repeater->add_control(
-            'tp_team_bg_color',
+            'tj_team_bg_color',
             [
                 'label' => __('Shape BG Color', 'tjcore'),
                 'type' => Controls_Manager::COLOR,
@@ -599,7 +599,7 @@ class TP_Team extends Widget_Base {
 ?>
 
         <!-- style 2 -->
-        <?php if ($settings['tp_design_style'] === 'layout-2') : ?>
+        <?php if ($settings['tj_design_style'] === 'layout-2') : ?>
 
 
             <!-- style default -->
@@ -611,19 +611,19 @@ class TP_Team extends Widget_Base {
                 <div class="container">
                     <div class="row">
                         <?php foreach ($settings['teams'] as $item) :
-                            $title = tp_kses($item['title']);
+                            $title = tj_kses($item['title']);
                             $item_url = esc_url($item['item_url']);
 
                             if (!empty($item['image']['url'])) {
-                                $tp_team_image_url = !empty($item['image']['id']) ? wp_get_attachment_image_url($item['image']['id'], $settings['thumbnail_size']) : $item['image']['url'];
-                                $tp_team_image_alt = get_post_meta($item["image"]["id"], "_wp_attachment_image_alt", true);
+                                $tj_team_image_url = !empty($item['image']['id']) ? wp_get_attachment_image_url($item['image']['id'], $settings['thumbnail_size']) : $item['image']['url'];
+                                $tj_team_image_alt = get_post_meta($item["image"]["id"], "_wp_attachment_image_alt", true);
                             }
                         ?>
                             <div class="col-xxl-3 col-xl-3 col-lg-4 col-md-6">
                                 <div class="team__item elementor-repeater-item-<?php echo esc_attr($item['_id']); ?> text-center mb-40">
                                     <div class="team__thumb team__thumb-shape">
-                                        <?php if (!empty($tp_team_image_url)) : ?>
-                                            <img src="<?php echo esc_url($tp_team_image_url); ?>" alt="<?php echo esc_attr($tp_team_image_alt); ?>">
+                                        <?php if (!empty($tj_team_image_url)) : ?>
+                                            <img src="<?php echo esc_url($tj_team_image_url); ?>" alt="<?php echo esc_attr($tj_team_image_alt); ?>">
                                         <?php endif; ?>
 
                                         <?php if (!empty($item['show_social'])) : ?>
@@ -700,10 +700,10 @@ class TP_Team extends Widget_Base {
                                         ); ?>
 
                                         <?php if (!empty($item['designation'])) : ?>
-                                            <span class="team__designation"><?php echo tp_kses($item['designation']); ?></span>
+                                            <span class="team__designation"><?php echo tj_kses($item['designation']); ?></span>
                                         <?php endif; ?>
                                         <?php if (!empty($item['description'])) : ?>
-                                            <p><?php echo tp_kses($item['description']); ?></p>
+                                            <p><?php echo tj_kses($item['description']); ?></p>
                                         <?php endif; ?>
 
                                     </div>
@@ -721,4 +721,4 @@ class TP_Team extends Widget_Base {
     }
 }
 
-$widgets_manager->register(new TP_Team());
+$widgets_manager->register(new TJ_Team());

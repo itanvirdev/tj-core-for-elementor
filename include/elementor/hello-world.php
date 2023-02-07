@@ -138,7 +138,7 @@ class Hello_World extends Widget_Base {
 		/**
 		 * Get Post Categories
 		 */
-		// function tp_get_categories($taxonomy)
+		// function tj_get_categories($taxonomy)
 		// {
 		//     $terms = get_terms(array(
 		//         'taxonomy' => $taxonomy,
@@ -161,7 +161,7 @@ class Hello_World extends Widget_Base {
 		//         'description' => esc_html__('Select a category to include or leave blank for all.', 'tjcore'),
 		//         'type' => Controls_Manager::SELECT2,
 		//         'multiple' => true,
-		//         'options' => tp_get_categories('project-categories'),
+		//         'options' => tj_get_categories('project-categories'),
 		//         'label_block' => true,
 		//     ]
 		// );

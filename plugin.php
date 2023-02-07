@@ -161,13 +161,13 @@ class TJ_Core_Plugin {
 	 */
 
 	// public function register_controls(Controls_Manager $controls_Manager) {
-	// 	include_once(TJCORE_ADDONS_DIR . '/controls/tpgradient.php');
-	// 	$tpgradient = 'TJCore\Elementor\Controls\Group_Control_TPGradient';
-	// 	$controls_Manager->add_group_control($tpgradient::get_type(), new $tpgradient());
+	// 	include_once(TJCORE_ADDONS_DIR . '/controls/tjgradient.php');
+	// 	$tjgradient = 'TJCore\Elementor\Controls\Group_Control_TJGradient';
+	// 	$controls_Manager->add_group_control($tjgradient::get_type(), new $tjgradient());
 
-	// 	include_once(TJCORE_ADDONS_DIR . '/controls/tpbggradient.php');
-	// 	$tpbggradient = 'TJCore\Elementor\Controls\Group_Control_TPBGGradient';
-	// 	$controls_Manager->add_group_control($tpbggradient::get_type(), new $tpbggradient());
+	// 	include_once(TJCORE_ADDONS_DIR . '/controls/tjbggradient.php');
+	// 	$tjbggradient = 'TJCore\Elementor\Controls\Group_Control_TJBGGradient';
+	// 	$controls_Manager->add_group_control($tjbggradient::get_type(), new $tjbggradient());
 	// }
 
 

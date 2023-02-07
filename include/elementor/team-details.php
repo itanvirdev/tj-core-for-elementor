@@ -14,7 +14,7 @@ use \Elementor\Group_Control_Typography;
 use \Elementor\Core\Schemes\Typography;
 use \Elementor\Utils;
 use \Elementor\Group_Control_Box_Shadow;
-use TJCore\Elementor\Controls\Group_Control_TPBGGradient;
+use TJCore\Elementor\Controls\Group_Control_TJBGGradient;
 
 if (!defined('ABSPATH')) exit; // Exit if accessed directly
 
@@ -25,7 +25,7 @@ if (!defined('ABSPATH')) exit; // Exit if accessed directly
  *
  * @since 1.0.0
  */
-class TP_Team_Details extends Widget_Base {
+class TJ_Team_Details extends Widget_Base {
 
     /**
      * Retrieve the widget name.
@@ -156,16 +156,16 @@ class TP_Team_Details extends Widget_Base {
 
     protected function register_controls() {
 
-        // tp_section_title
+        // tj_section_title
         $this->start_controls_section(
-            'tp_section_title',
+            'tj_section_title',
             [
                 'label' => esc_html__('Title & Content', 'tjcore'),
             ]
         );
 
         $this->add_control(
-            'tp_section_title_show',
+            'tj_section_title_show',
             [
                 'label' => esc_html__('Section Title & Content', 'tjcore'),
                 'type' => Controls_Manager::SWITCHER,
@@ -177,10 +177,10 @@ class TP_Team_Details extends Widget_Base {
         );
 
         $this->add_control(
-            'tp_sub_title',
+            'tj_sub_title',
             [
                 'label' => esc_html__('Sub Title', 'tjcore'),
-                'description' => tp_get_allowed_html_desc('basic'),
+                'description' => tj_get_allowed_html_desc('basic'),
                 'type' => Controls_Manager::TEXT,
                 'default' => esc_html__('TJ Sub Title', 'tjcore'),
                 'placeholder' => esc_html__('Type Sub Heading Text', 'tjcore'),
@@ -188,10 +188,10 @@ class TP_Team_Details extends Widget_Base {
             ]
         );
         $this->add_control(
-            'tp_title',
+            'tj_title',
             [
                 'label' => esc_html__('Title', 'tjcore'),
-                'description' => tp_get_allowed_html_desc('intermediate'),
+                'description' => tj_get_allowed_html_desc('intermediate'),
                 'type' => Controls_Manager::TEXT,
                 'default' => esc_html__('TJ Title Here', 'tjcore'),
                 'placeholder' => esc_html__('Type Heading Text', 'tjcore'),
@@ -200,10 +200,10 @@ class TP_Team_Details extends Widget_Base {
         );
 
         $this->add_control(
-            'tp_desctiption',
+            'tj_desctiption',
             [
                 'label' => esc_html__('Description', 'tjcore'),
-                'description' => tp_get_allowed_html_desc('intermediate'),
+                'description' => tj_get_allowed_html_desc('intermediate'),
                 'type' => Controls_Manager::TEXTAREA,
                 'default' => esc_html__('TJ section description here', 'tjcore'),
                 'placeholder' => esc_html__('Type section description here', 'tjcore'),
@@ -211,7 +211,7 @@ class TP_Team_Details extends Widget_Base {
         );
 
         $this->add_control(
-            'tp_title_tag',
+            'tj_title_tag',
             [
                 'label' => esc_html__('Title HTML Tag', 'tjcore'),
                 'type' => Controls_Manager::CHOOSE,
@@ -247,7 +247,7 @@ class TP_Team_Details extends Widget_Base {
         );
 
         $this->add_responsive_control(
-            'tp_align',
+            'tj_align',
             [
                 'label' => esc_html__('Alignment', 'tjcore'),
                 'type' => Controls_Manager::CHOOSE,
@@ -272,15 +272,15 @@ class TP_Team_Details extends Widget_Base {
         $this->end_controls_section();
 
 
-        // _tp_image
+        // _tj_image
         $this->start_controls_section(
-            '_tp_image',
+            '_tj_image',
             [
                 'label' => esc_html__('Thumbnail', 'tjcore'),
             ]
         );
         $this->add_control(
-            'tp_image',
+            'tj_image',
             [
                 'label' => esc_html__('Choose Image', 'tjcore'),
                 'type' => \Elementor\Controls_Manager::MEDIA,
@@ -292,7 +292,7 @@ class TP_Team_Details extends Widget_Base {
         $this->add_group_control(
             Group_Control_Image_Size::get_type(),
             [
-                'name' => 'tp_image_size',
+                'name' => 'tj_image_size',
                 'default' => 'full',
                 'exclude' => [
                     'custom'
@@ -300,7 +300,7 @@ class TP_Team_Details extends Widget_Base {
             ]
         );
         $this->add_control(
-            'tp_image_overlap',
+            'tj_image_overlap',
             [
                 'label' => esc_html__('Image overlap to top?', 'tjcore'),
                 'type' => Controls_Manager::SWITCHER,
@@ -311,7 +311,7 @@ class TP_Team_Details extends Widget_Base {
             ]
         );
         $this->add_responsive_control(
-            'tp_image_height',
+            'tj_image_height',
             [
                 'label' => esc_html__('Image Height', 'tjcore'),
                 'type' => Controls_Manager::SLIDER,
@@ -333,7 +333,7 @@ class TP_Team_Details extends Widget_Base {
             ]
         );
         $this->add_responsive_control(
-            'tp_image_overlap_x',
+            'tj_image_overlap_x',
             [
                 'label' => esc_html__('Image overlap position', 'tjcore'),
                 'type' => Controls_Manager::SLIDER,
@@ -353,7 +353,7 @@ class TP_Team_Details extends Widget_Base {
                     '{{WRAPPER}} .tj-overlap img' => 'margin-top: {{SIZE}}{{UNIT}};',
                 ],
                 'condition' => array(
-                    'tp_image_overlap' => 'yes',
+                    'tj_image_overlap' => 'yes',
                 ),
             ]
         );
@@ -443,7 +443,7 @@ class TP_Team_Details extends Widget_Base {
 
         // Skill
         $this->start_controls_section(
-            'tp_progress_bar',
+            'tj_progress_bar',
             [
                 'label' => esc_html__('Skill Bar', 'tjcore'),
             ]
@@ -523,7 +523,7 @@ class TP_Team_Details extends Widget_Base {
 
 
         $repeater->add_group_control(
-            Group_Control_TPBGGradient::get_type(),
+            Group_Control_TJBGGradient::get_type(),
             [
                 'name' => 'level_color',
                 'label' => esc_html__('Level Color', 'tjcore'),
@@ -623,9 +623,9 @@ class TP_Team_Details extends Widget_Base {
     protected function render() {
         $settings = $this->get_settings_for_display();
 
-        if (!empty($settings['tp_image']['url'])) {
-            $tp_image = !empty($settings['tp_image']['id']) ? wp_get_attachment_image_url($settings['tp_image']['id'], $settings['tp_image_size_size']) : $settings['tp_image']['url'];
-            $tp_image_alt = get_post_meta($settings["tp_image"]["id"], "_wp_attachment_image_alt", true);
+        if (!empty($settings['tj_image']['url'])) {
+            $tj_image = !empty($settings['tj_image']['id']) ? wp_get_attachment_image_url($settings['tj_image']['id'], $settings['tj_image_size_size']) : $settings['tj_image']['url'];
+            $tj_image_alt = get_post_meta($settings["tj_image"]["id"], "_wp_attachment_image_alt", true);
         }
         $this->add_render_attribute('title_args', 'class', 'team-details-title text-uppercase mb-10');
 
@@ -634,10 +634,10 @@ class TP_Team_Details extends Widget_Base {
         <section class="volunteersSection">
             <div class="container">
                 <div class="row">
-                    <?php if ($settings['tp_image']['url'] || $settings['tp_image']['id']) : ?>
+                    <?php if ($settings['tj_image']['url'] || $settings['tj_image']['id']) : ?>
                         <div class="col-lg-5 col-md-6">
                             <div class="team-details-img">
-                                <img src="<?php echo esc_url($tp_image); ?>" alt="<?php echo esc_attr($tp_image_alt); ?>">
+                                <img src="<?php echo esc_url($tj_image); ?>" alt="<?php echo esc_attr($tj_image_alt); ?>">
                             </div>
                         </div>
                     <?php endif; ?>
@@ -645,20 +645,20 @@ class TP_Team_Details extends Widget_Base {
                     <div class="col-lg-7 col-md-6">
                         <div class="team-details-content pt-40">
 
-                            <?php if (!empty($settings['tp_section_title_show'])) : ?>
+                            <?php if (!empty($settings['tj_section_title_show'])) : ?>
                                 <?php
-                                if (!empty($settings['tp_title'])) :
+                                if (!empty($settings['tj_title'])) :
                                     printf(
                                         '<%1$s %2$s>%3$s</%1$s>',
-                                        tag_escape($settings['tp_title_tag']),
+                                        tag_escape($settings['tj_title_tag']),
                                         $this->get_render_attribute_string('title_args'),
-                                        tp_kses($settings['tp_title'])
+                                        tj_kses($settings['tj_title'])
                                     );
                                 endif;
                                 ?>
-                                <?php if (!empty($settings['tp_sub_title'])) : ?>
+                                <?php if (!empty($settings['tj_sub_title'])) : ?>
                                     <span class="team-designation">
-                                        <?php echo tp_kses($settings['tp_sub_title']); ?>
+                                        <?php echo tj_kses($settings['tj_sub_title']); ?>
                                     </span>
                                 <?php endif; ?>
 
@@ -679,8 +679,8 @@ class TP_Team_Details extends Widget_Base {
                                     </div>
                                 <?php endif; ?>
 
-                                <?php if (!empty($settings['tp_desctiption'])) : ?>
-                                    <p><?php echo tp_kses($settings['tp_desctiption']); ?></p>
+                                <?php if (!empty($settings['tj_desctiption'])) : ?>
+                                    <p><?php echo tj_kses($settings['tj_desctiption']); ?></p>
                                 <?php endif; ?>
 
                             <?php endif; ?>
@@ -713,4 +713,4 @@ class TP_Team_Details extends Widget_Base {
     }
 }
 
-$widgets_manager->register(new TP_Team_Details());
+$widgets_manager->register(new TJ_Team_Details());
