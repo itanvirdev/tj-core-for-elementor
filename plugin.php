@@ -143,6 +143,7 @@ class TJ_Core_Plugin {
 
 	public function tjcore_widget_list() {
 		return [
+			'about',
 			'heading',
 		];
 	}

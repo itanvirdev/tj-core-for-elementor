@@ -13,22 +13,12 @@ use \Elementor\Control_Media;
 if (!defined('ABSPATH')) exit; // Exit if accessed directly
 
 /**
- * TJ Core
- *
- * Elementor widget for hello world.
- *
- * @since 1.0.0
+ * Elementor widget for About Us.
  */
 class TJ_About extends Widget_Base {
 
     /**
      * Retrieve the widget name.
-     *
-     * @since 1.0.0
-     *
-     * @access public
-     *
-     * @return string Widget name.
      */
     public function get_name() {
         return 'about';
@@ -36,71 +26,56 @@ class TJ_About extends Widget_Base {
 
     /**
      * Retrieve the widget title.
-     *
-     * @since 1.0.0
-     *
-     * @access public
-     *
-     * @return string Widget title.
      */
     public function get_title() {
-        return __('About', 'tjcore');
+        return __('TJ About', 'tjcore');
     }
 
     /**
      * Retrieve the widget icon.
-     *
-     * @since 1.0.0
-     *
-     * @access public
-     *
-     * @return string Widget icon.
      */
     public function get_icon() {
-        return 'tj-icon';
+        return "tj-icon eicon-info";
     }
 
     /**
-     * Retrieve the list of categories the widget belongs to.
-     *
-     * Used to determine where to display the widget in the editor.
-     *
-     * Note that currently Elementor supports only one category.
-     * When multiple categories passed, Elementor uses the first one.
-     *
-     * @since 1.0.0
-     *
-     * @access public
-     *
-     * @return array Widget categories.
+     * Widget categories.
      */
     public function get_categories() {
         return ['tjcore'];
     }
 
     /**
-     * Retrieve the list of scripts the widget depended on.
-     *
-     * Used to set scripts dependencies required to run the widget.
-     *
-     * @since 1.0.0
-     *
-     * @access public
-     *
-     * @return array Widget scripts dependencies.
+     * Widget scripts dependencies.
      */
     public function get_script_depends() {
         return ['tjcore'];
     }
 
     /**
+     * Widget keywords.
+     */
+    public function get_keywords() {
+        return [
+            'about',
+            'about us',
+            'tj about',
+            'tj',
+            'tj addons',
+            'tjcore',
+        ];
+    }
+
+    /**
+     * Widget custom url.
+     */
+    public function get_custom_help_url() {
+        return 'https://go.elementor.com/';
+    }
+
+
+    /**
      * Register the widget controls.
-     *
-     * Adds different input fields to allow the user to change and customize the widget settings.
-     *
-     * @since 1.0.0
-     *
-     * @access protected
      */
     protected function register_controls() {
 
